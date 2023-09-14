@@ -5,7 +5,7 @@ namespace Fantasy_Football.Models
 {
     public class ROSDAL
     {
-        public static PlayerModel GetROS()
+        public static PlayerDetail GetROS()
         {
             //Setup
             string apiKey = Secret.apiKey;
@@ -21,7 +21,7 @@ namespace Fantasy_Football.Models
             string JSON = reader.ReadToEnd();
 
             //Convert to c#
-            PlayerModel result = JsonConvert.DeserializeObject<PlayerModel>(JSON);
+            PlayerDetail result = JsonConvert.DeserializeObject<PlayerDetail>(JSON);
             return result;
         }
     }

@@ -32,6 +32,8 @@ import { SinglePlayerComponent } from './components/single-player/single-player.
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'player', component: PlayerListComponent},
+      { path: 'rosdetail', component: PlayerDetailComponent}
     ])
   ],
   providers: [],

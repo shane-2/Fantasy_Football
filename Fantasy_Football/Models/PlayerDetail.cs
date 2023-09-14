@@ -8,7 +8,7 @@
             public Projections projections { get; set; }
         }
 
-        public class Projections
+        public class Projections 
         {
             public QB[] QB { get; set; }
             public RB[] RB { get; set; }
