@@ -8,18 +8,8 @@ import { FantasyService } from 'src/app/services/fantasy.service';
   styleUrls: ['./player-detail.component.css']
 })
 export class PlayerDetailComponent implements OnInit {
-
-  constructor(private _fantasyService:FantasyService, private _route:ActivatedRoute) { }
-
   ngOnInit(): void {
-  const routeParams = this._route.snapshot.paramMap;
-  let id: number = Number(routeParams.get("id"));
-  
-  this._singleEventService.GetEventId(id).subscribe((response:Event) =>{
-    console.log(response);
-this.DisplayEvent = response;
-  })
+    throw new Error('Method not implemented.');
   }
-DisplayEvent:Event = {} as Event;
 
 }

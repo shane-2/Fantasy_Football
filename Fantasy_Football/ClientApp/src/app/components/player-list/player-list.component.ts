@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Player, PlayerElement } from 'src/app/models/player';
 import { FantasyService } from 'src/app/services/fantasy.service';
 
@@ -10,7 +11,7 @@ import { FantasyService } from 'src/app/services/fantasy.service';
 export class PlayerListComponent implements OnInit {
 
   allPlayers:PlayerElement[] = [];
-  constructor(private _fantasyService:FantasyService) { }
+  constructor(private _fantasyService:FantasyService, private _router:Router) { }
 
   ngOnInit(): void {
     this.CallApi();
@@ -34,7 +35,10 @@ export class PlayerListComponent implements OnInit {
     });    
 }
 
-
+NavToROS(p: PlayerElement):void {
+  this._fantasyService.setPlayer(p);
+  this._router.navigate(["/rosdetail"])
+}
 
 
 }
