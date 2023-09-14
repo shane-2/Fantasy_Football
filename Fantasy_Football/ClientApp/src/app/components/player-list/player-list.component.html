@@ -4,10 +4,10 @@
 <table>
     <tr>
         <th>Name</th>
-        <th>Rank</th>
+        <th>Overall</th>
         <th>Position</th>
+        <th>Pos Rank</th>
         <th>Team</th>
-        <th>Rank by Position</th>
         <th>Mugshot</th>
       </tr>
     <tr *ngFor="let p of allPlayers">
@@ -15,7 +15,7 @@
         <td> <button (click)="NavToROS(p)">{{p.name}}</button></td>
         <td>{{p.rank}}</td>
         <td>{{p.position}}</td>
-        <td>{{p.team}}</td>
         <td>{{p.rank_position}}</td>
+        <td>{{p.team}}</td>
         <td><img src="https://www.fantasynerds.com/images/nfl/players_small/{{p.playerId}}.png"/></td>
 </tr>
