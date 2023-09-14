@@ -18,42 +18,42 @@ namespace Fantasy_Football.Controllers
             return result;
         }
 
-        [HttpGet("{PlayerId}")]
-        public IActionResult PlayerROS(Player b)
+        [HttpGet("ROSDetails")]
+        public IActionResult PlayerROS(string playerId, string position)
         {
 
-            if(b.position == "QB")
+            if(position == "QB")
             {
-                return Ok(ROSDAL.GetROS().projections.QB.FirstOrDefault(d => b.playerId == d.playerId));
+                return Ok(ROSDAL.GetROS().projections.QB.FirstOrDefault(d => playerId == d.playerId));
             }
-            else if (b.position == "RB")
+            else if (position == "RB")
             {
-                return Ok(ROSDAL.GetROS().projections.RB.FirstOrDefault(d => b.playerId == d.playerId));
+                return Ok(ROSDAL.GetROS().projections.RB.FirstOrDefault(d => playerId == d.playerId));
 
             }
-            else if (b.position == "TE")
+            else if (position == "TE")
             {
-                return Ok(ROSDAL.GetROS().projections.TE.FirstOrDefault(d => b.playerId == d.playerId));
+                return Ok(ROSDAL.GetROS().projections.TE.FirstOrDefault(d => playerId == d.playerId));
 
             }
-            else if (b.position == "WR")
+            else if (position == "WR")
             {
-                return Ok(ROSDAL.GetROS().projections.WR.FirstOrDefault(d => b.playerId == d.playerId));
+                return Ok(ROSDAL.GetROS().projections.WR.FirstOrDefault(d => playerId == d.playerId));
 
             }
-            else if (b.position == "K")
+            else if (position == "K")
             {
-                return Ok(ROSDAL.GetROS().projections.K.FirstOrDefault(d => b.playerId == d.playerId));
+                return Ok(ROSDAL.GetROS().projections.K.FirstOrDefault(d => playerId == d.playerId));
 
             }
-            else if (b.position == "DEF")
+            else if (position == "DEF")
             {
-                return Ok(ROSDAL.GetROS().projections.DEF.FirstOrDefault(d => b.playerId == d.playerId));
+                return Ok(ROSDAL.GetROS().projections.DEF.FirstOrDefault(d => playerId == d.playerId));
 
             }
-            else if (b.position == "IDP")
+            else if (position == "IDP")
             {
-                return Ok(ROSDAL.GetROS().projections.IDP.FirstOrDefault(d => b.playerId == d.playerId));
+                return Ok(ROSDAL.GetROS().projections.IDP.FirstOrDefault(d => playerId == d.playerId));
 
             }
             else
