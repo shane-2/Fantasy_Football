@@ -14,6 +14,7 @@ export class PlayerListComponent implements OnInit {
 
   ngOnInit(): void {
     this.CallApi();
+
   }
   CallApi():void{
     // this.status="loading";
@@ -30,7 +31,10 @@ export class PlayerListComponent implements OnInit {
     // }, (err)=>{
       
     //   this.status = "Couldn't find this Subreddit"
-    });
+    });    
 }
+
+
+
 
 }
