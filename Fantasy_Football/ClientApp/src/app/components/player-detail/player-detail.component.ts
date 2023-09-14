@@ -14,6 +14,7 @@ export class PlayerDetailComponent implements OnInit {
   
  player:Qb | Rb | K | Def | Idp | undefined
 
+
  Quarterback: Qb = {} as Qb
  Flex: Rb = {} as Rb
  Kicker: K = {} as K
@@ -36,16 +37,24 @@ DisplayProjections(): any {
       this.Flex = response
       console.log("Is a Flex")
     }
-    if((response as K).position == KPosition.K){
+    if((response as Rb).position== RBPosition.Wr){
       this.Flex = response
+      console.log("Is a Flex") 
+    }
+    if((response as Rb).position== RBPosition.Te){
+      this.Flex = response
+      console.log("Is a Flex")
+    }
+    if((response as K).position == KPosition.K){
+      this.Kicker = response
       console.log("Is a Kicker")
     }
     if((response as Def).position== DEFPosition.Def){
-      this.Flex = response
+      this.Defense = response
       console.log("Is a Defense")
     }
     // if((response as Idp).position == IDPPosition.Idp){
-    //   this.Flex = response
+    //   this.IDP = response
     //   console.log("Is an IDP")
     // }
 
