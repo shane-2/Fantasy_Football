@@ -5,11 +5,11 @@ namespace Fantasy_Football.Models
 {
     public class ROSDAL
     {
-        public static PlayerModel GetPlayers()
+        public static PlayerModel GetROS()
         {
             //Setup
             string apiKey = Secret.apiKey;
-            string url = $"https://api.fantasynerds.com/v1/nfl/draft-rankings?apikey={apiKey}&format=half";
+            string url = $"https://api.fantasynerds.com/v1/nfl/ros?apikey={apiKey}";
 
 
             //request
