@@ -37,8 +37,10 @@ export class PlayerListComponent implements OnInit {
 
 NavToROS(p: PlayerElement):void {
   this._fantasyService.setPlayer(p);
+  console.log(p)
   this._router.navigate(["/rosdetail"])
 }
+
 
 
 }

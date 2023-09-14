@@ -16,16 +16,18 @@ getAll(): Observable <PlayerElement[]>{
 
 private Player: PlayerElement = {} as PlayerElement
 
+//holds player in the service
 setPlayer(Player:PlayerElement):void {
   this.Player = Player
 }   
 
+//initializes existence in player-detail.cs
 getsetPlayer():PlayerElement {
   return this.Player
 }
 
 getROSDetails(newPlayer:PlayerElement): Observable <any>{
-  return this.http.get<any>(`${this.baseUrl}api/Player?playerId=${newPlayer.playerId}&position=${newPlayer.position}`);
+  return this.http.get<any>(`${this.baseUrl}api/Player/ROSDetails?playerId=${newPlayer.playerId}&position=${newPlayer.position}`);
 } 
 
 
