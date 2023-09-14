@@ -18,39 +18,39 @@ namespace Fantasy_Football.Controllers
             return result;
         }
 
-        [HttpGet("{PlayerId}")]
-        public void PlayerROS(Player b)
-        {
+        //[HttpGet("{PlayerId}")]
+        //public void Projection1(Player b)
+        //{
 
-            if(b.position == "QB")
-            {
+        //    if (b.position == "QB")
+        //    {
 
-            }
-            else if (b.position == "RB")
-            {
+        //    }
+        //    else if (b.position == "RB")
+        //    {
 
-            }
-            else if (b.position == "TE")
-            {
+        //    }
+        //    else if (b.position == "TE")
+        //    {
 
-            }
-            else if (b.position == "WR")
-            {
+        //    }
+        //    else if (b.position == "WR")
+        //    {
 
-            }
-            else if (b.position == "K")
-            {
+        //    }
+        //    else if (b.position == "K")
+        //    {
 
-            }
-            else if (b.position == "DEF")
-            {
+        //    }
+        //    else if (b.position == "DEF")
+        //    {
 
-            }
-            else if (b.position == "IDP")
-            {
+        //    }
+        //    else if (b.position == "IDP")
+        //    {
 
-            }
-        }
+        //    }
+        //}
 
     }
 }
