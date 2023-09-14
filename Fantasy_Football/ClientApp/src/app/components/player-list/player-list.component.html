@@ -1,0 +1,20 @@
+<p>player-list works!</p>
+<app-single-player></app-single-player>
+<h1 style="color: aliceblue;">Top 100!</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Rank</th>
+        <th>Position</th>
+        <th>Team</th>
+        <th>Rank by Position</th>
+        <th>Mugshot</th>
+      </tr>
+    <tr *ngFor="let p of allPlayers">
+        <td>{{ p.name }}</td>
+        <td>{{p.rank}}</td>
+        <td>{{p.position}}</td>
+        <td>{{p.team}}</td>
+        <td>{{p.rank_position}}</td>
+        <td><img src="https://www.fantasynerds.com/images/nfl/players_small/{{p.playerId}}.png"/></td>
+</tr>
