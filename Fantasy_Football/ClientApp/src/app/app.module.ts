@@ -15,6 +15,7 @@ import { PlayerDetailComponent } from './components/player-detail/player-detail.
 import { SinglePlayerComponent } from './components/single-player/single-player.component';
 import { AddDropComponent } from './components/add-drop/add-drop.component';
 import { DefRankingComponent } from './components/def-ranking/def-ranking.component';
+import { VotingComponent } from './components/voting/voting.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DefRankingComponent } from './components/def-ranking/def-ranking.compon
     PlayerDetailComponent,
     SinglePlayerComponent,
     AddDropComponent,
-    DefRankingComponent
+    DefRankingComponent,
+    VotingComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

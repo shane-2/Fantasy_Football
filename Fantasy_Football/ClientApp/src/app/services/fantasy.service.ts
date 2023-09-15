@@ -4,6 +4,7 @@ import { Player, PlayerElement } from '../models/player';
 import { Observable } from 'rxjs';
 import { HotCold } from '../models/hot-cold';
 import { DefRank } from '../models/def-rank';
+import { FantasyFolk } from '../models/fantasy-folk';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,10 @@ getHot(): Observable <HotCold>{
 
 getDefRank(): Observable <DefRank>{
   return this.http.get<DefRank>(`${this.baseUrl}api/Player/DefRanking`);
+}
+
+getDeathDuel(): Observable<FantasyFolk>{
+  return this.http.get<FantasyFolk>(`${this.baseUrl}api/Player/MatchPair`);
 }
 
 }
