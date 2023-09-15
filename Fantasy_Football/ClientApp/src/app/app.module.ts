@@ -13,6 +13,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { PlayerListComponent } from './components/player-list/player-list.component';
 import { PlayerDetailComponent } from './components/player-detail/player-detail.component';
 import { SinglePlayerComponent } from './components/single-player/single-player.component';
+import { AddDropComponent } from './components/add-drop/add-drop.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SinglePlayerComponent } from './components/single-player/single-player.
     FetchDataComponent,
     PlayerListComponent,
     PlayerDetailComponent,
-    SinglePlayerComponent
+    SinglePlayerComponent,
+    AddDropComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -35,7 +37,8 @@ import { SinglePlayerComponent } from './components/single-player/single-player.
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'player', component: PlayerListComponent},
-      { path: 'rosdetail', component: PlayerDetailComponent}
+      { path: 'rosdetail', component: PlayerDetailComponent},
+      { path: 'adddrop', component: AddDropComponent}
     ])
   ],
   providers: [

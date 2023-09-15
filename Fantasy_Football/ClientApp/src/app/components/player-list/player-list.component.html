@@ -1,21 +1,26 @@
 <p>player-list works!</p>
 <app-single-player></app-single-player>
-<h1 style="color: aliceblue;">Top 100!</h1>
+<h1 style="color: aliceblue">Top 100!</h1>
 <table>
-    <tr>
-        <th>Name</th>
-        <th>Overall</th>
-        <th>Position</th>
-        <th>Pos Rank</th>
-        <th>Team</th>
-        <th>Mugshot</th>
-      </tr>
-    <tr *ngFor="let p of allPlayers">
-        
-        <td> <button (click)="NavToROS(p)">{{p.name}}</button></td>
-        <td>{{p.rank}}</td>
-        <td>{{p.position}}</td>
-        <td>{{p.rank_position}}</td>
-        <td>{{p.team}}</td>
-        <td><img src="https://www.fantasynerds.com/images/nfl/players_small/{{p.playerId}}.png"/></td>
-</tr>
+  <tr>
+    <th>Name</th>
+    <th>Overall</th>
+    <th>Position</th>
+    <th>Pos Rank</th>
+    <th>Team</th>
+    <th>Mugshot</th>
+  </tr>
+  <tr *ngFor="let p of allPlayers">
+    <td>
+      <button (click)="NavToROS(p)">{{ p.name }}</button>
+    </td>
+    <td>{{ p.rank }}</td>
+    <td>{{ p.position }}</td>
+    <td>{{ p.rank_position }}</td>
+    <td>{{ p.team }}</td>
+    <td>
+      <img
+        src="https://www.fantasynerds.com/images/nfl/players_small/{{ p.playerId }}.png"/>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,40 @@
+<p>add-drop works!</p>
+<h1 style="color: aliceblue">Most added players in the past week</h1>
+
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Team</th>
+      <th>Position</th>
+      <th>Glamour Shot</th>
+    </tr>
+    <tr *ngFor="let h of list.most_added">
+
+      <td>{{ h.name }}</td>
+      <td>{{ h.team }}</td>
+      <td>{{ h.position }}</td>   
+      <td>
+        <img
+          src="https://www.fantasynerds.com/images/nfl/players_small/{{ h.playerId }}.png"/>
+      </td>
+    </tr>
+  </table>
+  <br><br><br>
+  <h1 style="color: aliceblue">Most dropped players in the past week</h1>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Team</th>
+      <th>Position</th>
+      <th>Glamour Shot</th>
+    </tr>
+    <tr *ngFor="let h of list.most_dropped">
+      <td>{{ h.name }}</td>
+      <td>{{ h.team }}</td>
+      <td>{{ h.position }}</td>   
+      <td>
+        <img
+          src="https://www.fantasynerds.com/images/nfl/players_small/{{ h.playerId }}.png"/>
+      </td>
+    </tr>
+  </table>

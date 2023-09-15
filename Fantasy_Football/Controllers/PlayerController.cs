@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 
 namespace Fantasy_Football.Controllers
 {
@@ -22,7 +23,7 @@ namespace Fantasy_Football.Controllers
         public IActionResult PlayerROS(string playerId, string position)
         {
 
-            if(position == "QB")
+            if (position == "QB")
             {
                 return Ok(ROSDAL.GetROS().projections.QB.FirstOrDefault(d => playerId == d.playerId));
             }
@@ -60,7 +61,16 @@ namespace Fantasy_Football.Controllers
             {
                 return null;
             }
+
         }
+            [HttpGet("HotCold")]
+
+            public HotCold HotColdLists()
+        {
+            HotCold result = AddDropDAL.GetAddDrop();
+            return result;
+        }
+        
 
     }
 }

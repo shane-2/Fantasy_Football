@@ -2,6 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Player, PlayerElement } from '../models/player';
 import { Observable } from 'rxjs';
+import { HotCold } from '../models/hot-cold';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,9 @@ getROSDetails(newPlayer:PlayerElement): Observable <any>{
 } 
 
 
+
+getHot(): Observable <HotCold>{
+  return this.http.get<HotCold>(`${this.baseUrl}api/Player/HotCold`);
+}
 
 }
