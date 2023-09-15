@@ -10,7 +10,7 @@ namespace Fantasy_Football.Controllers
     [ApiController]
     public class PlayerController : ControllerBase
     {
-
+        FfdbContext dbcontext = new FfdbContext();
 
         [HttpGet]
         public List<Player> PlayerList()
@@ -76,6 +76,29 @@ namespace Fantasy_Football.Controllers
         {
             DefRank result = DefRankDAL.GetDef();
             return result;
+        }
+
+        [HttpGet("MatchPair")]
+        public List<FantasyFolk> MatchPair()
+        {
+            List<FantasyFolk> Duo = new List<FantasyFolk>();
+            Random r = new Random();
+            int a = r.Next(1, 21);
+            int b = r.Next(1, 21);
+
+            FantasyFolk AC = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == a);
+
+            Duo.Add(AC);
+            if (a == b)
+            {
+                int c = r.Next(1, 21);
+                FantasyFolk CA = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == c);
+                Duo.Add(CA);
+                return Duo;
+            }
+            FantasyFolk BA = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == b);
+            Duo.Add(BA);
+            return Duo;
         }
 
     }

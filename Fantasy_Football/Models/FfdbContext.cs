@@ -15,13 +15,35 @@ public partial class FfdbContext : DbContext
     {
     }
 
-    
+    public virtual DbSet<FantasyFolk> FantasyFolks { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer(Secret.log);
+        => optionsBuilder.UseSqlServer("Server=final-fantasy-football.database.windows.net; Initial Catalog=FFDb; User ID=GCuser; Password=football2023!; TrustServerCertificate=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<FantasyFolk>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__FantasyF__3213E83FA8A43BC1");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Matches).HasColumnName("matches");
+            entity.Property(e => e.Name)
+                .HasMaxLength(255)
+                .HasColumnName("name");
+            entity.Property(e => e.PlayerId)
+                .HasMaxLength(255)
+                .HasColumnName("playerId");
+            entity.Property(e => e.Position)
+                .HasMaxLength(255)
+                .HasColumnName("position");
+            entity.Property(e => e.Team)
+                .HasMaxLength(255)
+                .HasColumnName("team");
+            entity.Property(e => e.Votes).HasColumnName("votes");
+        });
+
         OnModelCreatingPartial(modelBuilder);
     }
 
