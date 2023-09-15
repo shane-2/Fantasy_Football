@@ -103,7 +103,7 @@ namespace Fantasy_Football.Controllers
 
         [HttpPost]
         public void CountVote(FantasyFolk A, FantasyFolk B, bool VoteA)
-        {
+        { 
             if (VoteA == true)
             {
                 A.Votes++;
@@ -116,7 +116,27 @@ namespace Fantasy_Football.Controllers
                 B.Matches++;
                 A.Matches++;
             }
+
+            FantasyFolk c = dbcontext.FantasyFolks.FirstOrDefault(c => c.Id == A.Id);
+            FantasyFolk d = dbcontext.FantasyFolks.FirstOrDefault(d => d.Id == B.Id);
+
+            float winPercentA = (float)(A.Votes / A.Matches);
+            c.Winpercent = winPercentA;
+            dbcontext.FantasyFolks.Update(c);
+
+            float winPercentB = (float)(B.Votes / B.Matches);
+            d.Winpercent = winPercentB;
+            dbcontext.FantasyFolks.Update(d);
+
+            dbcontext.SaveChanges();
+
         }
+
+        
+
+
+
+
     }
 }
 

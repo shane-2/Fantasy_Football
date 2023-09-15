@@ -18,4 +18,6 @@ public partial class FantasyFolk
     public int? Votes { get; set; }
 
     public int? Matches { get; set; }
+
+    public float? Winpercent { get; set; }
 }
