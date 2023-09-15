@@ -14,6 +14,7 @@ import { PlayerListComponent } from './components/player-list/player-list.compon
 import { PlayerDetailComponent } from './components/player-detail/player-detail.component';
 import { SinglePlayerComponent } from './components/single-player/single-player.component';
 import { AddDropComponent } from './components/add-drop/add-drop.component';
+import { DefRankingComponent } from './components/def-ranking/def-ranking.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AddDropComponent } from './components/add-drop/add-drop.component';
     PlayerListComponent,
     PlayerDetailComponent,
     SinglePlayerComponent,
-    AddDropComponent
+    AddDropComponent,
+    DefRankingComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -38,7 +40,8 @@ import { AddDropComponent } from './components/add-drop/add-drop.component';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'player', component: PlayerListComponent},
       { path: 'rosdetail', component: PlayerDetailComponent},
-      { path: 'adddrop', component: AddDropComponent}
+      { path: 'adddrop', component: AddDropComponent},
+      { path: 'defrank', component: DefRankingComponent}
     ])
   ],
   providers: [

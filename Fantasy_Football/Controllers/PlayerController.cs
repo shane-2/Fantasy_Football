@@ -70,7 +70,13 @@ namespace Fantasy_Football.Controllers
             HotCold result = AddDropDAL.GetAddDrop();
             return result;
         }
-        
+
+        [HttpGet("DefRanking")]
+        public DefRank AllDefRank()
+        {
+            DefRank result = DefRankDAL.GetDef();
+            return result;
+        }
 
     }
 }

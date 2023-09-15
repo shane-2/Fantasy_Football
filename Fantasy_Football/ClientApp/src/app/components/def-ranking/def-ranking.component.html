@@ -1,0 +1,12 @@
+<p>def-ranking works!</p>
+
+<table>
+    <tr>
+      <th>Team</th>
+      <th>Rank</th>     
+    </tr>
+    <tr *ngFor="let i of notlist.def">
+      <td>{{i.team}}</td>
+      <td>{{i.ranks.std}}</td>            
+    </tr>
+  </table>
