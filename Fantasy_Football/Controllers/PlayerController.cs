@@ -63,9 +63,9 @@ namespace Fantasy_Football.Controllers
             }
 
         }
-            [HttpGet("HotCold")]
+        [HttpGet("HotCold")]
 
-            public HotCold HotColdLists()
+        public HotCold HotColdLists()
         {
             HotCold result = AddDropDAL.GetAddDrop();
             return result;
@@ -101,5 +101,22 @@ namespace Fantasy_Football.Controllers
             return Duo;
         }
 
+        [HttpPost]
+        public void CountVote(FantasyFolk A, FantasyFolk B, bool VoteA)
+        {
+            if (VoteA == true)
+            {
+                A.Votes++;
+                A.Matches++;
+                B.Matches++;
+            }
+            else if (VoteA == false)
+            {
+                B.Votes++;
+                B.Matches++;
+                A.Matches++;
+            }
+        }
     }
 }
+
