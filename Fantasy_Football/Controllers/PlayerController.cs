@@ -83,54 +83,57 @@ namespace Fantasy_Football.Controllers
         {
             List<FantasyFolk> Duo = new List<FantasyFolk>();
             Random r = new Random();
+            int c = r.Next(1,21);
             int a = r.Next(1, 21);
             int b = r.Next(1, 21);
+            FantasyFolk AB = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == a);
+            Duo.Add(AB);
 
-            FantasyFolk AC = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == a);
-
-            Duo.Add(AC);
-            if (a == b)
+            while (a == b)
             {
-                int c = r.Next(1, 21);
-                FantasyFolk CA = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == c);
-                Duo.Add(CA);
-                return Duo;
+                
+                 b = r.Next(1, 21);
+                
             }
+
             FantasyFolk BA = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == b);
             Duo.Add(BA);
             return Duo;
         }
+        //I think this is supposed to be a patch
+        ////[HttpPost]
+        //public void CountVote(FantasyFolk A, FantasyFolk B, bool VoteA)
+        //{ 
+        //    FantasyFolk c = dbcontext.FantasyFolks.FirstOrDefault(c => c.Id == A.Id);
+        //    FantasyFolk d = dbcontext.FantasyFolks.FirstOrDefault(d => d.Id == B.Id);
+        //    if (VoteA == true)
+        //    {
+        //        c.Votes++;
+        //        c.Matches++;
+        //        d.Matches++;
+        //    }
+        //    else if (VoteA == false)
+        //    {
+        //        d.Votes++;
+        //        d.Matches++;
+        //        c.Matches++;
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("VoteA is null");
+        //    }
+                    ////change floats to doubles and add a math.round()
+        //    float winPercentA = (float)(A.Votes / A.Matches);
+        //    c.Winpercent = winPercentA;
+        //    dbcontext.FantasyFolks.Update(c);
 
-        [HttpPost]
-        public void CountVote(FantasyFolk A, FantasyFolk B, bool VoteA)
-        { 
-            if (VoteA == true)
-            {
-                A.Votes++;
-                A.Matches++;
-                B.Matches++;
-            }
-            else if (VoteA == false)
-            {
-                B.Votes++;
-                B.Matches++;
-                A.Matches++;
-            }
+        //    float winPercentB = (float)(B.Votes / B.Matches);
+        //    d.Winpercent = winPercentB;
+        //    dbcontext.FantasyFolks.Update(d);
 
-            FantasyFolk c = dbcontext.FantasyFolks.FirstOrDefault(c => c.Id == A.Id);
-            FantasyFolk d = dbcontext.FantasyFolks.FirstOrDefault(d => d.Id == B.Id);
+        //    dbcontext.SaveChanges();
 
-            float winPercentA = (float)(A.Votes / A.Matches);
-            c.Winpercent = winPercentA;
-            dbcontext.FantasyFolks.Update(c);
-
-            float winPercentB = (float)(B.Votes / B.Matches);
-            d.Winpercent = winPercentB;
-            dbcontext.FantasyFolks.Update(d);
-
-            dbcontext.SaveChanges();
-
-        }
+        //}
 
         
 
