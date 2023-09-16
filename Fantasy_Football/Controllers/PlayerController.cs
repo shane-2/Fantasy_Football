@@ -12,12 +12,14 @@ namespace Fantasy_Football.Controllers
     {
         FfdbContext dbcontext = new FfdbContext();
 
+
         [HttpGet]
         public List<Player> PlayerList()
         {
             List<Player> result = PlayerDAL.GetPlayers().players.ToList();
             return result;
         }
+
 
         [HttpGet("ROSDetails")]
         public IActionResult PlayerROS(string playerId, string position)
@@ -63,13 +65,15 @@ namespace Fantasy_Football.Controllers
             }
 
         }
-        [HttpGet("HotCold")]
 
+
+        [HttpGet("HotCold")]
         public HotCold HotColdLists()
         {
             HotCold result = AddDropDAL.GetAddDrop();
             return result;
         }
+
 
         [HttpGet("DefRanking")]
         public DefRank AllDefRank()
@@ -78,32 +82,55 @@ namespace Fantasy_Football.Controllers
             return result;
         }
 
+            Random r = new Random();            
         [HttpGet("MatchPair")]
         public List<FantasyFolk> MatchPair()
         {
             List<FantasyFolk> Duo = new List<FantasyFolk>();
-            Random r = new Random();
-            int c = r.Next(1,21);
             int a = r.Next(1, 21);
-            int b = r.Next(1, 21);
+            int b = r.Next(1, 21);           
             FantasyFolk AB = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == a);
-            Duo.Add(AB);
-
             while (a == b)
-            {
-                
-                 b = r.Next(1, 21);
-                
+            {                
+                 b = r.Next(1, 21);                
             }
-
             FantasyFolk BA = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == b);
+            Duo.Add(AB);
             Duo.Add(BA);
+
             return Duo;
         }
+        
+        [HttpPost]
+        public void CountVote(List<FantasyFolk> t, string playerId)
+        {
+            FantasyFolk c = t.FirstOrDefault(c => c.PlayerId == playerId);
+            FantasyFolk d = t.FirstOrDefault(d => d.PlayerId != playerId);
+            
+                c.Votes++;
+                c.Matches++;
+                d.Matches++;
+           
+            //change floats to doubles and add a math.round()
+            double winPercentA = (double)(c.Votes / c.Matches);
+            c.Winpercent = Math.Round(winPercentA, 2);
+            dbcontext.FantasyFolks.Update(c);
+
+            double winPercentB = (double)(d.Votes / d.Matches);
+            d.Winpercent = Math.Round(winPercentB, 2); ;
+            dbcontext.FantasyFolks.Update(d);
+
+            dbcontext.SaveChanges();
+
+        }
+
+
+
+
         //I think this is supposed to be a patch
-        ////[HttpPost]
+        //[HttpPost]
         //public void CountVote(FantasyFolk A, FantasyFolk B, bool VoteA)
-        //{ 
+        //{
         //    FantasyFolk c = dbcontext.FantasyFolks.FirstOrDefault(c => c.Id == A.Id);
         //    FantasyFolk d = dbcontext.FantasyFolks.FirstOrDefault(d => d.Id == B.Id);
         //    if (VoteA == true)
@@ -122,20 +149,20 @@ namespace Fantasy_Football.Controllers
         //    {
         //        Console.WriteLine("VoteA is null");
         //    }
-                    ////change floats to doubles and add a math.round()
+        //    //change floats to doubles and add a math.round()
         //    float winPercentA = (float)(A.Votes / A.Matches);
-        //    c.Winpercent = winPercentA;
+        //    c.Winpercent = Math.Round(winPercentA, 2);
         //    dbcontext.FantasyFolks.Update(c);
 
         //    float winPercentB = (float)(B.Votes / B.Matches);
-        //    d.Winpercent = winPercentB;
+        //    d.Winpercent = Math.Round(winPercentB, 2); ;
         //    dbcontext.FantasyFolks.Update(d);
 
         //    dbcontext.SaveChanges();
 
         //}
 
-        
+
 
 
 
