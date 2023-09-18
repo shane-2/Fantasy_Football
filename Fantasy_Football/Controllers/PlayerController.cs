@@ -101,7 +101,7 @@ namespace Fantasy_Football.Controllers
             return Duo;
         }
         
-        [HttpPost]
+        [HttpPatch]
         public void CountVote(List<FantasyFolk> t, string playerId)
         {
             FantasyFolk c = t.FirstOrDefault(c => c.PlayerId == playerId);
