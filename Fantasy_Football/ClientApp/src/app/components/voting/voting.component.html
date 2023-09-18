@@ -1,4 +1,12 @@
-<p>voting works!</p>
+
 <div style="color: white;" *ngFor="let c of combatPair"> 
-    <button (click)="VOTE()">{{c.name}}</button>
+    <div class="individual">
+    <button (click)="Vote(combatPair, c.playerId)">{{c.name}}</button>
+    <p>Position: {{c.position}}</p>
+    <p>Team: {{c.team}}</p>
+    <p>Matches: {{c.matches}}</p>
+    <p>Wins: {{c.votes}}</p>
+    <p>Win Percentage: {{c.winpercent}}</p>
+    <button (click)="getPlayer(c.playerId)">Stats</button>
+</div>
 </div>

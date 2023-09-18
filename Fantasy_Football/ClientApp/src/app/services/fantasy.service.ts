@@ -45,8 +45,8 @@ getDeathDuel(): Observable<FantasyFolk[]>{
   return this.http.get<FantasyFolk[]>(`${this.baseUrl}api/Player/MatchPair`);
 }
 
-getVotes(FF: FantasyFolk[], playerId: string): Observable<FantasyFolk[]>{
-  return this.http.patch<FantasyFolk[]>(`${this.baseUrl}api/Player`);
+getVotes(FF:FantasyFolk[], playerId:string): Observable<FantasyFolk[]>{
+  return this.http.patch<FantasyFolk[]>(`${this.baseUrl}api/Player/${playerId}`,FF);
 }
 
 }

@@ -101,7 +101,7 @@ namespace Fantasy_Football.Controllers
             return Duo;
         }
         
-        [HttpPatch]
+        [HttpPatch("{playerId}")]
         public List <FantasyFolk> CountVote(List<FantasyFolk> t, string playerId)
         {
             List<FantasyFolk> Match = new List<FantasyFolk>();
