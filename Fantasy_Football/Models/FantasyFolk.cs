@@ -15,9 +15,9 @@ public partial class FantasyFolk
 
     public string? Position { get; set; }
 
-    public int? Votes { get; set; }
+    public decimal? Votes { get; set; }
 
-    public int? Matches { get; set; }
+    public decimal? Matches { get; set; }
 
-    public double? Winpercent { get; set; }
+    public decimal? Winpercent { get; set; }
 }
