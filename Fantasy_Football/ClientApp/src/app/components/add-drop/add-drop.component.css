@@ -12,3 +12,21 @@ table, td {
     background-color: rgb(255, 255, 255);
     font-family: cursive;
   }
+
+  div{
+    float: left;
+    width: 40%;
+    padding: 5px;
+  }
+
+  .t2{
+    float: left;
+    width: 20%;
+    padding: 5px;
+  }
+
+ /* h1{
+  float: left;
+  width: 50%;
+  padding: 5px;
+ }  */
