@@ -1,6 +1,6 @@
 
 <div style="color: white;" *ngFor="let c of combatPair"> 
-    <div class="individual">
+    <div style="color: white;" class="individual">
     <button (click)="Vote(combatPair, c.playerId)">{{c.name}}</button>
     <p>Position: {{c.position}}</p>
     <p>Team: {{c.team}}</p>
@@ -9,7 +9,8 @@
     <p>Win Percentage: {{c.winpercent}}</p>
     <button (click)="bool = !bool">Stats</button>
     <div *ngIf="bool">
-        
+        <app-player-detail></app-player-detail>
+        <p (click)="getPlayer(c.playerId)">click me</p>
     </div>
 </div>
 </div>
