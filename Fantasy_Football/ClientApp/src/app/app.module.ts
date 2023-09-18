@@ -43,7 +43,9 @@ import { VotingComponent } from './components/voting/voting.component';
       { path: 'player', component: PlayerListComponent},
       { path: 'rosdetail', component: PlayerDetailComponent},
       { path: 'adddrop', component: AddDropComponent},
-      { path: 'defrank', component: DefRankingComponent}
+      { path: 'defrank', component: DefRankingComponent},
+      { path: 'top100', component: PlayerListComponent}
+
     ])
   ],
   providers: [

@@ -12,3 +12,19 @@ table, td {
     background-color: rgb(255, 255, 255);
     font-family: cursive;
   }
+
+  div{
+    float: left;
+    width: 60%;
+    padding: 5px;
+  }
+
+  h5 {
+    float: left;
+    width: 20%;
+    padding: 5px;
+  }
+
+  h1 {
+    text-align: center;
+}

@@ -24,5 +24,6 @@ combatPair:FantasyFolk[] = [];
     console.log(this.combatPair);
 
   });  
+
 }
 }

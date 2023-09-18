@@ -1,2 +1,4 @@
 <p>voting works!</p>
-<p style="color: white;" *ngFor="let c of combatPair"> {{c.name}}</p>
+<div style="color: white;" *ngFor="let c of combatPair"> 
+    <button (click)="VOTE()">{{c.name}}</button>
+</div>

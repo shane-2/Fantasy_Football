@@ -33,8 +33,6 @@ getROSDetails(newPlayer:PlayerElement): Observable <any>{
   return this.http.get<any>(`${this.baseUrl}api/Player/ROSDetails?playerId=${newPlayer.playerId}&position=${newPlayer.position}`);
 } 
 
-
-
 getHot(): Observable <HotCold>{
   return this.http.get<HotCold>(`${this.baseUrl}api/Player/HotCold`);
 }
@@ -45,6 +43,10 @@ getDefRank(): Observable <DefRank>{
 
 getDeathDuel(): Observable<FantasyFolk[]>{
   return this.http.get<FantasyFolk[]>(`${this.baseUrl}api/Player/MatchPair`);
+}
+
+getVotes(FF: FantasyFolk[], playerId: string): Observable<FantasyFolk[]>{
+  return this.http.patch<FantasyFolk[]>(`${this.baseUrl}api/Player`);
 }
 
 }

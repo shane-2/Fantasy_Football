@@ -102,8 +102,9 @@ namespace Fantasy_Football.Controllers
         }
         
         [HttpPatch]
-        public void CountVote(List<FantasyFolk> t, string playerId)
+        public List <FantasyFolk> CountVote(List<FantasyFolk> t, string playerId)
         {
+            List<FantasyFolk> Match = new List<FantasyFolk>();
             FantasyFolk c = t.FirstOrDefault(c => c.PlayerId == playerId);
             FantasyFolk d = t.FirstOrDefault(d => d.PlayerId != playerId);
             
@@ -121,7 +122,9 @@ namespace Fantasy_Football.Controllers
             dbcontext.FantasyFolks.Update(d);
 
             dbcontext.SaveChanges();
-
+            Match.Add(c);
+            Match.Add(d);
+            return Match;
         }
 
 
