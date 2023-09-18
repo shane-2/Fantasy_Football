@@ -18,11 +18,12 @@ combatPair:FantasyFolk[] = [];
 
   ngOnInit(): void {
     this.CallDB();
+    this.compare();
   }
   allPlayers:PlayerElement[] = [];
   p?:PlayerElement = {} as PlayerElement;
   player:Qb | Rb | K | Def | Idp | undefined
-
+bool:boolean =false;
 
  Quarterback: Qb = {} as Qb
  Flex: Rb = {} as Rb

@@ -7,6 +7,9 @@
     <p>Matches: {{c.matches}}</p>
     <p>Wins: {{c.votes}}</p>
     <p>Win Percentage: {{c.winpercent}}</p>
-    <button (click)="getPlayer(c.playerId)">Stats</button>
+    <button (click)="bool = !bool">Stats</button>
+    <div *ngIf="bool">
+        
+    </div>
 </div>
 </div>

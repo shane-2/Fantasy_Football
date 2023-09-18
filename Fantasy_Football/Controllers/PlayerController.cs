@@ -113,11 +113,11 @@ namespace Fantasy_Football.Controllers
                 d.Matches++;
            
             //change floats to doubles and add a math.round()
-            double winPercentA = (double)(c.Votes / c.Matches);
+            decimal winPercentA = (decimal)(c.Votes / c.Matches);
             c.Winpercent = Math.Round(winPercentA, 2);
             dbcontext.FantasyFolks.Update(c);
 
-            double winPercentB = (double)(d.Votes / d.Matches);
+            decimal winPercentB = (decimal)(d.Votes / d.Matches);
             d.Winpercent = Math.Round(winPercentB, 2); ;
             dbcontext.FantasyFolks.Update(d);
 
