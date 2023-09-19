@@ -135,7 +135,7 @@ namespace Fantasy_Football.Controllers
             d.Winpercent = Math.Round(winPercentB, 2); ;
             dbcontext.FantasyFolks.Update(d);
             List<FantasyFolk> all = dbcontext.FantasyFolks.ToList();
-            all.OrderByDescending(x => x.Winpercent);
+            all = all.OrderByDescending(x => x.Winpercent).ToList();
             int count = 1;
             foreach (FantasyFolk f in all)
             {
