@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { HotCold } from '../models/hot-cold';
 import { DefRank } from '../models/def-rank';
 import { FantasyFolk } from '../models/fantasy-folk';
+import { Watchlist } from '../models/watchlist';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,18 @@ getDeathDuel(): Observable<FantasyFolk[]>{
 
 getVotes(FF:FantasyFolk[], playerId:string): Observable<FantasyFolk[]>{
   return this.http.patch<FantasyFolk[]>(`${this.baseUrl}api/Player/${playerId}`,FF);
+}
+
+GetWatchlist(username:string):Observable<Watchlist[]>{
+  return this.http.get<Watchlist[]>(`${this.baseUrl}api/watchlist/${username}`)
+}
+
+AddWatchlistPlayer(newFavorite:Watchlist):Observable<Watchlist>{
+  return this.http.post<Watchlist>(`${this.baseUrl}api/watchlist`, newFavorite);
+}
+
+DeleteWatchlistPlayer(id:number):Observable<Watchlist>{
+  return this.http.delete<Watchlist>(`${this.baseUrl}api/watchlist/${id}`);
 }
 
 }
