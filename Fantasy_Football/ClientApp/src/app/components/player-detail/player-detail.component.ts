@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FantasyFolk } from 'src/app/models/fantasy-folk';
 import { PlayerElement } from 'src/app/models/player';
 import { DEFPosition, Def, IDPPosition, Idp, K, KPosition, QBPosition, Qb, RBPosition, Rb } from 'src/app/models/player-detail';
 import { FantasyService } from 'src/app/services/fantasy.service';
@@ -12,7 +13,9 @@ import { FantasyService } from 'src/app/services/fantasy.service';
 export class PlayerDetailComponent implements OnInit {
   constructor(private _fantasyService:FantasyService) { }
   
-@Input() combatplayer :Qb | Rb | K | Def | Idp | undefined
+@Input() combatplayer : FantasyFolk = {} as FantasyFolk
+
+setplayer: PlayerElement = this._fantasyService.getsetPlayer()
 
  player:Qb | Rb | K | Def | Idp | undefined
 
@@ -23,19 +26,19 @@ export class PlayerDetailComponent implements OnInit {
  IDP: Idp = {} as Idp
 
   ngOnInit(): void {
-    if (this.combatplayer == undefined){
-      this.DisplayProjections();
+    if (this.combatplayer.playerId == undefined){
+      console.log("set player?")
+      this.DisplayProjections(this.setplayer.playerId, this.setplayer.position);
     }
     else {
-      if((this.combatplayer as Rb).position== RBPosition.Rb){
-        this.Flex = this.combatplayer as Rb
-        console.log("Is a Flex")
-      }
+      this.DisplayProjections(this.combatplayer.playerId, this.combatplayer.position)
+      console.log(this.combatplayer)
     }
+   
   }
 
-DisplayProjections(): any {
-  return this._fantasyService.getROSDetails(this._fantasyService.getsetPlayer()).subscribe((response:any) =>{
+DisplayProjections(playerdId: string, position: string): any {
+  return this._fantasyService.getROSDetails(playerdId, position).subscribe((response:any) =>{
     console.log(response);
 
     if((response as Qb).position== QBPosition.Qb){

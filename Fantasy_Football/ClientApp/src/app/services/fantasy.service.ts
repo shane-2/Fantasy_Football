@@ -29,8 +29,8 @@ getsetPlayer():PlayerElement {
   return this.Player
 }
 
-getROSDetails(newPlayer:PlayerElement): Observable <any>{
-  return this.http.get<any>(`${this.baseUrl}api/Player/ROSDetails?playerId=${newPlayer.playerId}&position=${newPlayer.position}`);
+getROSDetails(playerId: string, position: string): Observable <any>{
+  return this.http.get<any>(`${this.baseUrl}api/Player/ROSDetails?playerId=${playerId}&position=${position}`);
 } 
 
 getHot(): Observable <HotCold>{

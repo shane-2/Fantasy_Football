@@ -7,6 +7,7 @@
     <p>Matches: {{c.matches}}</p>
     <p>Wins: {{c.votes}}</p>
     <p>Win Percentage: {{c.winpercent}}</p>
+    <p>Rank: {{c.rank}}</p>
     <button (click)="bool = !bool">Stats</button>
     <div *ngIf="bool">
         <app-player-detail [combatplayer]="c"></app-player-detail>

@@ -82,45 +82,67 @@ namespace Fantasy_Football.Controllers
             return result;
         }
 
-            Random r = new Random();            
+        Random r = new Random();
         [HttpGet("MatchPair")]
         public List<FantasyFolk> MatchPair()
         {
             List<FantasyFolk> Duo = new List<FantasyFolk>();
             int a = r.Next(1, 21);
-            int b = r.Next(1, 21);           
+            int b = r.Next(1, 21);
             FantasyFolk AB = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == a);
-            while (a == b)
-            {                
-                 b = r.Next(1, 21);                
+            Duo.Add(AB);
+            if (AB.Rank <= 0)
+            {
+                while (a == b)
+                {
+                    b = r.Next(1, 21);
+                }
+            }
+            else if (AB.Rank >= 1 && AB.Rank < 14)
+            {
+                b = r.Next(AB.Rank, AB.Rank + 6);
+                while (a == b)
+                {
+                    b = r.Next(AB.Rank, AB.Rank + 6);
+                }
+            }
+            else
+            {
+                b = r.Next(14, 21);
+                while (a == b)
+                {
+                    b = r.Next(14, 21);
+                }
             }
             FantasyFolk BA = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == b);
-            Duo.Add(AB);
             Duo.Add(BA);
-
             return Duo;
         }
-        
         [HttpPatch("{playerId}")]
-        public List <FantasyFolk> CountVote(List<FantasyFolk> t, string playerId)
+        public List<FantasyFolk> CountVote(List<FantasyFolk> t, string playerId)
         {
             List<FantasyFolk> Match = new List<FantasyFolk>();
             FantasyFolk c = t.FirstOrDefault(c => c.PlayerId == playerId);
             FantasyFolk d = t.FirstOrDefault(d => d.PlayerId != playerId);
-            
-                c.Votes++;
-                c.Matches++;
-                d.Matches++;
-           
+            c.Votes++;
+            c.Matches++;
+            d.Matches++;
             //change floats to doubles and add a math.round()
             decimal winPercentA = (decimal)(c.Votes / c.Matches);
             c.Winpercent = Math.Round(winPercentA, 2);
             dbcontext.FantasyFolks.Update(c);
-
             decimal winPercentB = (decimal)(d.Votes / d.Matches);
             d.Winpercent = Math.Round(winPercentB, 2); ;
             dbcontext.FantasyFolks.Update(d);
-
+            List<FantasyFolk> all = dbcontext.FantasyFolks.ToList();
+            all.OrderByDescending(x => x.Winpercent);
+            int count = 1;
+            foreach (FantasyFolk f in all)
+            {
+                f.Rank = count;
+                count++;
+                dbcontext.FantasyFolks.Update(f);
+            }
             dbcontext.SaveChanges();
             Match.Add(c);
             Match.Add(d);

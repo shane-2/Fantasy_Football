@@ -8,5 +8,5 @@ export interface FantasyFolk {
     votes: number;
     matches: number;
     winpercent: number;
-    
+    rank: number;
 }
