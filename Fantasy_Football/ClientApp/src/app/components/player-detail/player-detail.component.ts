@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PlayerElement } from 'src/app/models/player';
 import { DEFPosition, Def, IDPPosition, Idp, K, KPosition, QBPosition, Qb, RBPosition, Rb } from 'src/app/models/player-detail';
@@ -12,8 +12,9 @@ import { FantasyService } from 'src/app/services/fantasy.service';
 export class PlayerDetailComponent implements OnInit {
   constructor(private _fantasyService:FantasyService) { }
   
- player:Qb | Rb | K | Def | Idp | undefined
+@Input() combatplayer :Qb | Rb | K | Def | Idp | undefined
 
+ player:Qb | Rb | K | Def | Idp | undefined
 
  Quarterback: Qb = {} as Qb
  Flex: Rb = {} as Rb
@@ -22,7 +23,15 @@ export class PlayerDetailComponent implements OnInit {
  IDP: Idp = {} as Idp
 
   ngOnInit(): void {
-  this.DisplayProjections();
+    if (this.combatplayer == undefined){
+      this.DisplayProjections();
+    }
+    else {
+      if((this.combatplayer as Rb).position== RBPosition.Rb){
+        this.Flex = this.combatplayer as Rb
+        console.log("Is a Flex")
+      }
+    }
   }
 
 DisplayProjections(): any {

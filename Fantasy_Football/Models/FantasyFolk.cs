@@ -20,4 +20,6 @@ public partial class FantasyFolk
     public decimal? Matches { get; set; }
 
     public decimal? Winpercent { get; set; }
+
+    public int? Rank { get; set; }
 }

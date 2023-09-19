@@ -25,10 +25,12 @@ public partial class FfdbContext : DbContext
     {
         modelBuilder.Entity<FantasyFolk>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__FantasyF__3213E83FA8A43BC1");
+            entity.HasKey(e => e.Id).HasName("PK__FantasyF__3213E83F0EAFCA59");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Matches).HasColumnName("matches");
+            entity.Property(e => e.Matches)
+                .HasColumnType("decimal(5, 2)")
+                .HasColumnName("matches");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
@@ -38,10 +40,16 @@ public partial class FfdbContext : DbContext
             entity.Property(e => e.Position)
                 .HasMaxLength(255)
                 .HasColumnName("position");
+            entity.Property(e => e.Rank).HasColumnName("rank");
             entity.Property(e => e.Team)
                 .HasMaxLength(255)
                 .HasColumnName("team");
-            entity.Property(e => e.Votes).HasColumnName("votes");
+            entity.Property(e => e.Votes)
+                .HasColumnType("decimal(5, 2)")
+                .HasColumnName("votes");
+            entity.Property(e => e.Winpercent)
+                .HasColumnType("decimal(5, 2)")
+                .HasColumnName("winpercent");
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -9,7 +9,7 @@
     <p>Win Percentage: {{c.winpercent}}</p>
     <button (click)="bool = !bool">Stats</button>
     <div *ngIf="bool">
-        <app-player-detail></app-player-detail>
+        <app-player-detail [combatplayer]="c"></app-player-detail>
         <p (click)="getPlayer(c.playerId)">click me</p>
     </div>
 </div>
