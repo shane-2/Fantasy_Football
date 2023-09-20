@@ -17,7 +17,7 @@ namespace Fantasy_Football.Controllers
 
 
 
-        [HttpGet]
+        [HttpGet("{id}")]
 
         public List<Watchlist> GetById(string id)
         {

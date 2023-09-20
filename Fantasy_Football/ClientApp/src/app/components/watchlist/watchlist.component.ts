@@ -14,14 +14,15 @@ export class WatchlistComponent implements OnInit {
   watchlist:Watchlist[] = [];
   fantasyList:FantasyFolk[] = [];
   username:string = "";
+  user: SocialUser = {} as SocialUser;
   constructor(private _fantasyService:FantasyService, private router:Router, private authService: SocialAuthService) { }
 
   ngOnInit(): void {
-   this.DisplayWatchList(this.username);
-   this.DisplayFantasyFolk();
+   this.DisplayWatchList(this.user);
+  //  this.DisplayFantasyFolk();
   }  
-  DisplayWatchList(username:string):void{
-  this._fantasyService.GetWatchlist(username).subscribe((response:Watchlist[]) =>{
+  DisplayWatchList(user:SocialUser):void{
+  this._fantasyService.GetWatchlist(user.email).subscribe((response:Watchlist[]) =>{
     console.log(response);
    this.watchlist = response;
   });
@@ -37,11 +38,11 @@ export class WatchlistComponent implements OnInit {
       });
   }
 
-  DisplayFantasyFolk(): void {
-    this._fantasyService.getFantasyFolkList().subscribe((response:FantasyFolk[]) => {
-      console.log(response);
-      this.fantasyList = response;
-    });
-  }
+  // DisplayFantasyFolk(): void {
+  //   this._fantasyService.getFantasyFolkList(this.username).subscribe((response:FantasyFolk[]) => {
+  //     console.log(response);
+  //     this.fantasyList = response;
+  //   });
+  // }
 
 }
