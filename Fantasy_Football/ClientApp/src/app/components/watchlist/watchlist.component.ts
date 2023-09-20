@@ -11,16 +11,25 @@ import { FantasyFolk } from 'src/app/models/fantasy-folk';
   styleUrls: ['./watchlist.component.css']
 })
 export class WatchlistComponent implements OnInit {
+  constructor(private _fantasyService:FantasyService, private router:Router, private authService: SocialAuthService) { }
+  
   watchlist:Watchlist[] = [];
   fantasyList:FantasyFolk[] = [];
-  username:string = "";
-  user: SocialUser = {} as SocialUser;
-  constructor(private _fantasyService:FantasyService, private router:Router, private authService: SocialAuthService) { }
 
+  loggedIn: boolean = false;
+  user: SocialUser = {} as SocialUser;
+
+  
   ngOnInit(): void {
+  this.authService.authState.subscribe((user) => {
+    this.user = user;
+    this.loggedIn = (user != null);
+	});
    this.DisplayWatchList(this.user);
-  //  this.DisplayFantasyFolk();
+    this.DisplayFantasyFolk();
   }  
+
+
   DisplayWatchList(user:SocialUser):void{
   this._fantasyService.GetWatchlist(user.email).subscribe((response:Watchlist[]) =>{
     console.log(response);
@@ -38,11 +47,13 @@ export class WatchlistComponent implements OnInit {
       });
   }
 
-  // DisplayFantasyFolk(): void {
-  //   this._fantasyService.getFantasyFolkList(this.username).subscribe((response:FantasyFolk[]) => {
-  //     console.log(response);
-  //     this.fantasyList = response;
-  //   });
-  // }
+
+  
+  DisplayFantasyFolk(): void {
+    this._fantasyService.getFantasyFolkList().subscribe((response:FantasyFolk[]) => {
+      console.log(response);
+      this.fantasyList = response;
+    });
+  }
 
 }

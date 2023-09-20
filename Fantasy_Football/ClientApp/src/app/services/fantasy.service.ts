@@ -42,8 +42,8 @@ getDefRank(): Observable <DefRank>{
   return this.http.get<DefRank>(`${this.baseUrl}api/Player/DefRanking`);
 }
 
-getFantasyFolkList(username:string): Observable <FantasyFolk[]>{
-  return this.http.get<FantasyFolk[]>(`${this.baseUrl}api/Player/${username}`,);
+getFantasyFolkList(): Observable <FantasyFolk[]>{
+  return this.http.get<FantasyFolk[]>(`${this.baseUrl}api/Player/ListFantasyFolks`,);
 }
 
 getDeathDuel(): Observable<FantasyFolk[]>{

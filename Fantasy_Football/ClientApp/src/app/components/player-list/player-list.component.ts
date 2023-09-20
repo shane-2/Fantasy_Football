@@ -27,7 +27,7 @@ export class PlayerListComponent implements OnInit {
       this.allPlayers = response;
       console.log("call api is working");
       console.log(this.allPlayers);
-      this.allPlayers.splice(100); 
+      this.allPlayers.splice(125); 
       
       //this line cuts off to ten posts
       // this.status="";

@@ -93,15 +93,15 @@ namespace Fantasy_Football.Controllers
         public List<FantasyFolk> MatchPair()
         {
             List<FantasyFolk> Duo = new List<FantasyFolk>();
-            int a = r.Next(1, 21);
-            int b = r.Next(1, 21);
+            int a = r.Next(1, dbcontext.FantasyFolks.ToList().Count);
+            int b = r.Next(1, dbcontext.FantasyFolks.ToList().Count);
             FantasyFolk AB = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == a);
             Duo.Add(AB);
             if (AB.Rank <= 0)
             {
                 while (a == b)
                 {
-                    b = r.Next(1, 21);
+                    b = r.Next(1, dbcontext.FantasyFolks.ToList().Count);
                 }
             }
             else if (AB.Rank >= 1 && AB.Rank < 6)
@@ -132,7 +132,7 @@ namespace Fantasy_Football.Controllers
                 }
                 catch
                 {
-                    b = r.Next(AB.Rank - 6, AB.Rank);
+                    b = r.Next(AB.Rank - 6, AB.Rank - 1);
                 }
             }
             //else if (AB.Rank >= 6 && AB.Rank < 20)

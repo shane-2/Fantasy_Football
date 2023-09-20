@@ -1,17 +1,26 @@
-<table>
+<table style="color: rgb(136, 3, 3);">
 <tr>
     <th>Rank</th>
     <th>Name</th>
     <th>Position</th>
     <th>Team</th>
     <th>memorial tshirt</th>
+    <th>Delete</th>
 </tr>
 <tr *ngFor="let p of watchlist">
-    <td>{{p.player.rank}}</td>
-    <td>{{p.player.name}}</td>
+    <div *ngFor="let f of fantasyList ">
+        <td *ngIf="p.playerId == f.id">{{f.rank}}</td>    
+        <td *ngIf="p.playerId == f.id">{{f.name}}</td>    
+        <td *ngIf="p.playerId == f.id">{{f.position}}</td>      
+        <td *ngIf="p.playerId == f.id">{{f.team}}</td>       
+        <td *ngIf="p.playerId == f.id"><img
+            src="https://www.fantasynerds.com/images/nfl/players_small/{{ f.playerId }}.png"/></td>
+        </div>
+        <td><button (click)="DeletePlayer(p.id)">Remove</button></td>       
+    </tr>
+    <!-- <td>{{p.player.name}}</td>
     <td>{{p.player.position}}</td>
     <td>{{p.player.team}}</td>
     <td><img
-        src="https://www.fantasynerds.com/images/nfl/players_small/{{ p.player.playerId }}.png"/></td>
-</tr>
+        src="https://www.fantasynerds.com/images/nfl/players_small/{{ p.player.playerId }}.png"/></td> -->
 </table>
