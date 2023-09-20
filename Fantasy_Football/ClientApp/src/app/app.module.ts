@@ -12,10 +12,10 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { PlayerListComponent } from './components/player-list/player-list.component';
 import { PlayerDetailComponent } from './components/player-detail/player-detail.component';
-import { SinglePlayerComponent } from './components/single-player/single-player.component';
 import { AddDropComponent } from './components/add-drop/add-drop.component';
 import { DefRankingComponent } from './components/def-ranking/def-ranking.component';
 import { VotingComponent } from './components/voting/voting.component';
+import { WatchlistComponent } from './components/watchlist/watchlist.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +25,11 @@ import { VotingComponent } from './components/voting/voting.component';
     CounterComponent,
     FetchDataComponent,
     PlayerListComponent,
-    PlayerDetailComponent,
-    SinglePlayerComponent,
+    PlayerDetailComponent,    
     AddDropComponent,
     DefRankingComponent,
-    VotingComponent
+    VotingComponent,
+    WatchlistComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
