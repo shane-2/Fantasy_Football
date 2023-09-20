@@ -104,22 +104,61 @@ namespace Fantasy_Football.Controllers
                     b = r.Next(1, 21);
                 }
             }
-            else if (AB.Rank >= 1 && AB.Rank < 14)
+            else if (AB.Rank >= 1 && AB.Rank < 6)
             {
-                b = r.Next(AB.Rank, AB.Rank + 6);
+                b = r.Next(1, 6);
                 while (a == b)
                 {
-                    b = r.Next(AB.Rank, AB.Rank + 6);
+                    b = r.Next(1, AB.Rank + 3);
+                }
+            }
+            else if (AB.Rank >= 6 && AB.Rank < 16)
+            {
+                b = r.Next(6, 16);
+                while (a == b)
+                {
+                    b = r.Next(6, AB.Rank + 3);
                 }
             }
             else
             {
-                b = r.Next(14, 21);
-                while (a == b)
+                try
                 {
-                    b = r.Next(14, 21);
+                    b = r.Next(AB.Rank - 6, AB.Rank + 6);
+                    while (a == b)
+                    {
+                        b = r.Next(AB.Rank - 6, AB.Rank + 6);
+                    }
+                }
+                catch
+                {
+                    b = r.Next(AB.Rank - 6, AB.Rank);
                 }
             }
+            //else if (AB.Rank >= 6 && AB.Rank < 20)
+            //{
+            //    b = r.Next(6, 26);
+            //    while (a == b)
+            //    {
+            //        b = r.Next(6, 26);
+            //    }
+            //}
+            //else if (AB.Rank >= 6 && AB.Rank < 20)
+            //{
+            //    b = r.Next(6, 26);
+            //    while (a == b)
+            //    {
+            //        b = r.Next(6, 26);
+            //    }
+            //}
+            //else
+            //{
+            //    b = r.Next(75, 101);
+            //    while (a == b)
+            //    {
+            //        b = r.Next(75, 101);
+            //    }
+            //}
             FantasyFolk BA = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == b);
             Duo.Add(BA);
             return Duo;
