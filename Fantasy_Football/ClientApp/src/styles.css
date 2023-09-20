@@ -1,5 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
-
+* {
+  margin: 0 px;
+  padding: 0px;
+  box-sizing: border-box;
+}
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
@@ -15,6 +18,6 @@ code {
   border-color: #1861ac;
 }
 
-body {
+/* body {
   background-image: url("https://assets.editorial.aetnd.com/uploads/2014/06/soccer-ball-gettyimages-sb10066898ab-001.jpg")
-}
+} */
