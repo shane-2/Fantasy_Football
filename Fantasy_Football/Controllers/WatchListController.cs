@@ -12,6 +12,11 @@ namespace Fantasy_Football.Controllers
     {
         FfdbContext dbcontext = new FfdbContext();
 
+        
+
+
+
+
         [HttpGet]
 
         public List<Watchlist> GetById(int id)
@@ -36,7 +41,7 @@ namespace Fantasy_Football.Controllers
             {
                 players.Username = newPlayer.Username;
                 players.PlayerId = newPlayer.PlayerId;
-                //favorite.Event = newFav.Event;
+                
                 dbcontext.Watchlists.Add(players);
                 dbcontext.SaveChanges();
             }
@@ -44,7 +49,7 @@ namespace Fantasy_Football.Controllers
         }
 
 
-        // api/Favorite/3
+        // api/Watchlist/3
         [HttpDelete("{id}")]
         public Watchlist DeleteById(int id)
         {
@@ -55,6 +60,7 @@ namespace Fantasy_Football.Controllers
             return deleted;
         }
 
+       
 
     }
 }

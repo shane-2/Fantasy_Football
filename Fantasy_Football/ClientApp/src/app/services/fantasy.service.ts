@@ -42,6 +42,10 @@ getDefRank(): Observable <DefRank>{
   return this.http.get<DefRank>(`${this.baseUrl}api/Player/DefRanking`);
 }
 
+getFantasyFolkList(): Observable <FantasyFolk[]>{
+  return this.http.get<FantasyFolk[]>(`${this.baseUrl}api/Player/ListFantasyFolks`);
+}
+
 getDeathDuel(): Observable<FantasyFolk[]>{
   return this.http.get<FantasyFolk[]>(`${this.baseUrl}api/Player/MatchPair`);
 }
@@ -51,15 +55,23 @@ getVotes(FF:FantasyFolk[], playerId:string): Observable<FantasyFolk[]>{
 }
 
 GetWatchlist(username:string):Observable<Watchlist[]>{
-  return this.http.get<Watchlist[]>(`${this.baseUrl}api/watchlist/${username}`)
+  return this.http.get<Watchlist[]>(`${this.baseUrl}api/WatchList/${username}`)
 }
 
 AddWatchlistPlayer(newFavorite:Watchlist):Observable<Watchlist>{
-  return this.http.post<Watchlist>(`${this.baseUrl}api/watchlist`, newFavorite);
+  return this.http.post<Watchlist>(`${this.baseUrl}api/WatchList`, newFavorite);
 }
 
 DeleteWatchlistPlayer(id:number):Observable<Watchlist>{
-  return this.http.delete<Watchlist>(`${this.baseUrl}api/watchlist/${id}`);
+  return this.http.delete<Watchlist>(`${this.baseUrl}api/WatchList/${id}`);
+}
+
+AddFolk(newFolk:FantasyFolk):Observable<FantasyFolk>{
+  return this.http.post<FantasyFolk>(`${this.baseUrl}api/Player`, newFolk);
+}
+
+DeleteFolk(Id:number){
+  return this.http.delete<FantasyFolk>(`${this.baseUrl}api/Played/${Id}`);
 }
 
 }

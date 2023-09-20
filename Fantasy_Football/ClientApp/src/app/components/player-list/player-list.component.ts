@@ -11,7 +11,7 @@ import { FantasyService } from 'src/app/services/fantasy.service';
   styleUrls: ['./player-list.component.css']
 })
 export class PlayerListComponent implements OnInit {
-  watchlistresult:Watchlist[] = [];
+  // watchlistresult:Watchlist[] = [];
   allPlayers:PlayerElement[] = [];
   constructor(private _fantasyService:FantasyService, private _router:Router) { }
 
@@ -27,7 +27,7 @@ export class PlayerListComponent implements OnInit {
       this.allPlayers = response;
       console.log("call api is working");
       console.log(this.allPlayers);
-      this.allPlayers.splice(10); 
+      this.allPlayers.splice(100); 
       
       //this line cuts off to ten posts
       // this.status="";
@@ -43,14 +43,14 @@ NavToROS(p: PlayerElement):void {
   this._router.navigate(["/rosdetail"])
 }
 
-AddWatchlist(name:string, newPlayer:FantasyFolk):void{
-  let player:Watchlist = {} as Watchlist;  
-  player.playerId = newPlayer.id;
-  player.username = name;
-  this._fantasyService.AddWatchlistPlayer(player).subscribe((response:Watchlist) =>{
-    console.log(response)
-    this.watchlistresult.push(response);
-  });
-}
+// AddWatchlist(name:string, newPlayer:FantasyFolk):void{
+//   let player:Watchlist = {} as Watchlist;  
+//   player.playerId = newPlayer.id;
+//   player.username = name;
+//   this._fantasyService.AddWatchlistPlayer(player).subscribe((response:Watchlist) =>{
+//     console.log(response)
+//     this.watchlistresult.push(response);
+//   });
+// }
 
 }

@@ -1,0 +1,28 @@
+<p>crowd-source-ranking works!</p>
+
+<div style="color: white;">
+    <h1>Top 100!</h1>
+    <table>
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Position</th>        
+        <th>Team</th>
+        <th>Mugshot</th>
+        <th *ngIf="loggedIn"> Add To WatchList</th>
+      </tr>
+      <tr *ngFor="let p of FF">
+        <td>{{ p.rank }}</td>
+        <td>{{ p.name }}</td>
+        <td>{{ p.position }}</td>        
+        <td>{{ p.team }}</td>
+        <td>
+          <img
+            src="https://www.fantasynerds.com/images/nfl/players_small/{{ p.playerId }}.png"/>
+        </td>
+        <td *ngIf="loggedIn"><button (click)="AddWatchlist(user.email, p)">shalom </button></td>
+      </tr>
+    </table>
+    </div>
+
+

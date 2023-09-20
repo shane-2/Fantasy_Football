@@ -20,6 +20,12 @@ namespace Fantasy_Football.Controllers
             return result;
         }
 
+        [HttpGet("ListFantasyFolks")]
+        public List<FantasyFolk> GetFantasyFolks()
+        {
+            return dbcontext.FantasyFolks.OrderBy(x => x.Rank).ToList();
+        }
+
 
         [HttpGet("ROSDetails")]
         public IActionResult PlayerROS(string playerId, string position)
@@ -149,7 +155,24 @@ namespace Fantasy_Football.Controllers
             return Match;
         }
 
+        [HttpPost]
+        public FantasyFolk AddFolk([FromBody] FantasyFolk newFolk)
+        {
+            dbcontext.FantasyFolks.Add(newFolk);
+            dbcontext.SaveChanges();
+            return newFolk;
+        }
 
+        [HttpDelete("{Id}")]
+        public FantasyFolk DeleteFolk(int Id)
+        {
+            FantasyFolk deleted = dbcontext.FantasyFolks.Find(Id);
+            dbcontext.FantasyFolks.Remove(deleted);
+            dbcontext.SaveChanges();
+
+            return deleted;
+
+        }
 
 
         //I think this is supposed to be a patch
