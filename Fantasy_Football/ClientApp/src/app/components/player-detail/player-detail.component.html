@@ -1,6 +1,6 @@
-<div style="color: white;">
 <h1>Rest of Season Projections</h1>
 <br>
+<div *ngIf="DisplayFlex == true" style="color: white;">
 <p>Name: {{Flex.name}}</p>
 <p>Team: {{Flex.team}}</p>
 <p>Position: {{Flex.position}}</p>
@@ -15,7 +15,8 @@
 <p>Projected Fantasy Points: {{Flex.proj_pts}}</p>
 <p><img src="https://www.fantasynerds.com/images/nfl/players_large/{{Flex.playerId}}.png"/></p>
 </div>
-<!-- <p>Name: {{Quarterback.name}}</p>
+<div *ngIf="DisplayQB == true" style="color: white;">
+<p>Name: {{Quarterback.name}}</p>
 <p>Team: {{Quarterback.team}}</p>
 <p>Position: {{Quarterback.position}}</p>
 <p>Pass Att: {{Quarterback.passing_attempts}}</p>
@@ -26,4 +27,6 @@
 <p>Rush Att: {{Quarterback.rushing_attempts}}</p>
 <p>Rush Yds: {{Quarterback.rushing_yards}}</p>
 <p>Rush TDs: {{Quarterback.rushing_touchdowns}}</p>
-<p>Projected Fantasy Points: {{Quarterback.proj_pts}}</p> -->
+<p>Projected Fantasy Points: {{Quarterback.proj_pts}}</p>
+<p><img src="https://www.fantasynerds.com/images/nfl/players_large/{{Quarterback.playerId}}.png"/></p>
+</div>

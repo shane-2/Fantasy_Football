@@ -3,7 +3,7 @@
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-black border-bottom box-shadow mb-3"
   >
     <div class="container">
-      <a style="color: white;" class="navbar-brand" [routerLink]="['/']">Fantasy_Football</a>
+      <a style="color: white;" class="navbar-brand" [routerLink]="['/']"></a>
       <button
         class="navbar-toggler"
         type="button"
@@ -29,12 +29,12 @@
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-white" [routerLink]="['/crowdsource']"
-              >Crowd Source</a
+              >Crowd Source Rankings</a
             >
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-white" [routerLink]="['/top100']"
-              >Top 100</a
+              >Draft Rankings</a
             >
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
@@ -42,12 +42,17 @@
               >Hot Cold</a
             >
           </li>
+          <li *ngIf="loggedIn" class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-white" [routerLink]="['/watchlist']"
+              >Watchlist</a
+            >
+          </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-white" [routerLink]="['/defrank']"
               >Defensive Ranking Vs Position</a
             >
           </li>
-          <li class="nav-item">
+          <li style="color: white" class="nav-item">
             <!-- Below is the custom login component. -->
             <asl-google-signin-button
               *ngIf="!loggedIn"
@@ -56,7 +61,7 @@
             ></asl-google-signin-button>
             <!-- Calls the log out method from the notes -->
             <button
-              class="btn btn-outline-dark"
+              class="btn btn-outline-light"
               *ngIf="loggedIn"
               (click)="signOut()"
             >

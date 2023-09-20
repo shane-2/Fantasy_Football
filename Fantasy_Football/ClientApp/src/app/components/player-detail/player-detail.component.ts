@@ -14,7 +14,10 @@ export class PlayerDetailComponent implements OnInit {
   constructor(private _fantasyService:FantasyService) { }
   
 @Input() combatplayer : FantasyFolk = {} as FantasyFolk
-
+DisplayQB: boolean = false
+DisplayFlex: boolean = false
+DisplayKick: boolean = false
+DisplayDEF: boolean = false
 setplayer: PlayerElement = this._fantasyService.getsetPlayer()
 
  player:Qb | Rb | K | Def | Idp | undefined
@@ -43,18 +46,22 @@ DisplayProjections(playerdId: string, position: string): any {
 
     if((response as Qb).position== QBPosition.Qb){
       this.Quarterback = response
+      this.DisplayQB = true
       console.log("Is a QB")
     }
     if((response as Rb).position== RBPosition.Rb){
       this.Flex = response
+      this.DisplayFlex = true
       console.log("Is a Flex")
     }
     if((response as Rb).position== RBPosition.Wr){
       this.Flex = response
+      this.DisplayFlex = true
       console.log("Is a Flex") 
     }
     if((response as Rb).position== RBPosition.Te){
       this.Flex = response
+      this.DisplayFlex = true
       console.log("Is a Flex")
     }
     if((response as K).position == KPosition.K){

@@ -1,1 +1,17 @@
-<p>watchlist works!</p>
+<table>
+<tr>
+    <th>Rank</th>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Team</th>
+    <th>memorial tshirt</th>
+</tr>
+<tr *ngFor="let p of watchlist">
+    <td>{{p.player.rank}}</td>
+    <td>{{p.player.name}}</td>
+    <td>{{p.player.position}}</td>
+    <td>{{p.player.team}}</td>
+    <td><img
+        src="https://www.fantasynerds.com/images/nfl/players_small/{{ p.player.playerId }}.png"/></td>
+</tr>
+</table>

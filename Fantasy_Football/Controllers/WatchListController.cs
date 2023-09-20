@@ -19,9 +19,10 @@ namespace Fantasy_Football.Controllers
 
         [HttpGet]
 
-        public List<Watchlist> GetById(int id)
+        public List<Watchlist> GetById(string id)
         {
-            return dbcontext.Watchlists.Where(u => u.Id ==id).ToList();
+            Console.WriteLine(dbcontext.Watchlists.ToList());
+            return dbcontext.Watchlists.Where(u => u.Username ==id).ToList();
         }
 
         [HttpPost]

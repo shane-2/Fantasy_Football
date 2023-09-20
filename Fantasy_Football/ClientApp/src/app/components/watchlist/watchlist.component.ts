@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Watchlist } from 'src/app/models/watchlist';
 import { FantasyService } from 'src/app/services/fantasy.service';
 import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
+import { FantasyFolk } from 'src/app/models/fantasy-folk';
 
 @Component({
   selector: 'app-watchlist',
@@ -11,16 +12,21 @@ import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 })
 export class WatchlistComponent implements OnInit {
   watchlist:Watchlist[] = [];
-  
+  fantasyList:FantasyFolk[] = [];
   username:string = "";
   constructor(private _fantasyService:FantasyService, private router:Router, private authService: SocialAuthService) { }
 
   ngOnInit(): void {
-    this._fantasyService.GetWatchlist(this.username).subscribe((response:Watchlist[]) =>{
-      console.log(response);
-     this.watchlist = response;
-    });
+   this.DisplayWatchList(this.username);
+   this.DisplayFantasyFolk();
   }  
+  DisplayWatchList(username:string):void{
+  this._fantasyService.GetWatchlist(username).subscribe((response:Watchlist[]) =>{
+    console.log(response);
+   this.watchlist = response;
+  });
+}
+
     DeletePlayer(id:number):void{
       //feedback for user
       let target:number = this.watchlist.findIndex(e => e.id ==id);
@@ -29,6 +35,13 @@ export class WatchlistComponent implements OnInit {
       this._fantasyService.DeleteWatchlistPlayer(id).subscribe((response:Watchlist) => {
         console.log(response);
       });
+  }
+
+  DisplayFantasyFolk(): void {
+    this._fantasyService.getFantasyFolkList().subscribe((response:FantasyFolk[]) => {
+      console.log(response);
+      this.fantasyList = response;
+    });
   }
 
 }

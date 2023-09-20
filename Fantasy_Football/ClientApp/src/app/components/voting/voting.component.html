@@ -2,6 +2,8 @@
 <div style="color: white;" *ngFor="let c of combatPair"> 
     <div style="color: white;" class="individual">
     <button (click)="Vote(combatPair, c.playerId)">{{c.name}}</button>
+    <img
+        src="https://www.fantasynerds.com/images/nfl/players_small/{{ c.playerId }}.png"/>
     <p>Position: {{c.position}}</p>
     <p>Team: {{c.team}}</p>
     <p>Matches: {{c.matches}}</p>

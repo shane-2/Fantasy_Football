@@ -47,7 +47,8 @@ import { CrowdSourceRankingComponent } from './components/crowd-source-ranking/c
       { path: 'adddrop', component: AddDropComponent},
       { path: 'defrank', component: DefRankingComponent},
       { path: 'top100', component: PlayerListComponent},
-      { path: 'crowdsource', component: CrowdSourceRankingComponent}
+      { path: 'crowdsource', component: CrowdSourceRankingComponent},
+      { path: 'watchlist', component: WatchlistComponent}
 
 
     ])
