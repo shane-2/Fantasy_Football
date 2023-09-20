@@ -56,21 +56,19 @@ public partial class FfdbContext : DbContext
 
         modelBuilder.Entity<Watchlist>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("Watchlist");
+            entity.HasKey(e => e.Id).HasName("PK__Watchlis__3213E83F62F0C882");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedOnAdd()
-                .HasColumnName("id");
+            entity.ToTable("Watchlist");
+
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.PlayerId).HasColumnName("playerId");
             entity.Property(e => e.Username)
                 .HasMaxLength(255)
                 .HasColumnName("username");
 
-            entity.HasOne(d => d.Player).WithMany()
+            entity.HasOne(d => d.Player).WithMany(p => p.Watchlists)
                 .HasForeignKey(d => d.PlayerId)
-                .HasConstraintName("FK__Watchlist__playe__6754599E");
+                .HasConstraintName("FK__Watchlist__playe__6A30C649");
         });
 
         OnModelCreatingPartial(modelBuilder);
