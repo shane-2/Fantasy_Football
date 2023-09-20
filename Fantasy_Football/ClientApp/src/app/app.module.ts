@@ -12,7 +12,6 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { PlayerListComponent } from './components/player-list/player-list.component';
 import { PlayerDetailComponent } from './components/player-detail/player-detail.component';
-import { SinglePlayerComponent } from './components/watchlist/single-player.component';
 import { AddDropComponent } from './components/add-drop/add-drop.component';
 import { DefRankingComponent } from './components/def-ranking/def-ranking.component';
 import { VotingComponent } from './components/voting/voting.component';
