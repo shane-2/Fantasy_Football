@@ -22,4 +22,6 @@ public partial class FantasyFolk
     public decimal? Winpercent { get; set; }
 
     public int Rank { get; set; }
+
+    public virtual ICollection<Watchlist> Watchlists { get; set; } = new List<Watchlist>();
 }

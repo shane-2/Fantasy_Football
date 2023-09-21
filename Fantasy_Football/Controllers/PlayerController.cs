@@ -20,6 +20,12 @@ namespace Fantasy_Football.Controllers
             return result;
         }
 
+        [HttpGet("ListFantasyFolks")]
+        public List<FantasyFolk> GetFantasyFolks()
+        {
+            return dbcontext.FantasyFolks.OrderBy(x => x.Rank).ToList();
+        }
+
 
         [HttpGet("ROSDetails")]
         public IActionResult PlayerROS(string playerId, string position)
@@ -87,35 +93,60 @@ namespace Fantasy_Football.Controllers
         public List<FantasyFolk> MatchPair()
         {
             List<FantasyFolk> Duo = new List<FantasyFolk>();
-            int a = r.Next(1, 21);
-            int b = r.Next(1, 21);
+            int a = r.Next(1, dbcontext.FantasyFolks.ToList().Count);
+            int b = r.Next(1, dbcontext.FantasyFolks.ToList().Count);
             FantasyFolk AB = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == a);
-            Duo.Add(AB);
             if (AB.Rank <= 0)
             {
                 while (a == b)
                 {
-                    b = r.Next(1, 21);
+                    b = r.Next(1, dbcontext.FantasyFolks.ToList().Count);
                 }
             }
-            else if (AB.Rank >= 1 && AB.Rank < 14)
+            else if (AB.Rank >= 1 && AB.Rank < 6)
             {
-                b = r.Next(AB.Rank, AB.Rank + 6);
+                b = r.Next(1, 6);
                 while (a == b)
                 {
-                    b = r.Next(AB.Rank, AB.Rank + 6);
+                    b = r.Next(1, AB.Rank + 3);
+                }
+            }
+            else if (AB.Rank >= 6 && AB.Rank < 16)
+            {
+                b = r.Next(6, 16);
+                while (a == b)
+                {
+                    b = r.Next(6, AB.Rank + 3);
                 }
             }
             else
             {
-                b = r.Next(14, 21);
-                while (a == b)
+                try
                 {
-                    b = r.Next(14, 21);
+                    b = r.Next(AB.Rank - 6, AB.Rank + 6);
+                    while (a == b)
+                    {
+                        b = r.Next(AB.Rank - 6, AB.Rank + 6);
+                    }
+                }
+                catch
+                {
+                    b = r.Next(AB.Rank - 8, AB.Rank - 2);
                 }
             }
+
             FantasyFolk BA = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == b);
+            
+            if(BA == null)
+            {
+                b = r.Next(1, dbcontext.FantasyFolks.ToList().Count);
+
+                 BA = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == b);
+            }
+
+
             Duo.Add(BA);
+            Duo.Add(AB);
             return Duo;
         }
         [HttpPatch("{playerId}")]
@@ -149,7 +180,38 @@ namespace Fantasy_Football.Controllers
             return Match;
         }
 
+        [HttpGet("{VoterFraud}")]
+        public List <FantasyFolk> VoterFraud()
+        {
+            List<FantasyFolk> list = dbcontext.FantasyFolks.ToList();
+            foreach(FantasyFolk f in list)
+            {
+                f.Votes = f.Votes / 2;
+                f.Matches = f.Matches / 2;
+                dbcontext.FantasyFolks.Update(f) ;
+            }
+            return list;
 
+        }
+
+        [HttpPost]
+        public FantasyFolk AddFolk([FromBody] FantasyFolk newFolk)
+        {
+            dbcontext.FantasyFolks.Add(newFolk);
+            dbcontext.SaveChanges();
+            return newFolk;
+        }
+
+        [HttpDelete("{Id}")]
+        public FantasyFolk DeleteFolk(int Id)
+        {
+            FantasyFolk deleted = dbcontext.FantasyFolks.Find(Id);
+            dbcontext.FantasyFolks.Remove(deleted);
+            dbcontext.SaveChanges();
+
+            return deleted;
+
+        }
 
 
         //I think this is supposed to be a patch

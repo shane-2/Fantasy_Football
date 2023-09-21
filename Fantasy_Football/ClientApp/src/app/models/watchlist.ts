@@ -4,5 +4,5 @@ export interface Watchlist {
     id: number;
     username: string;
     playerId: number;
-    player: FantasyFolk
+    // player: FantasyFolk
 }

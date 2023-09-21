@@ -23,24 +23,28 @@ import { FantasyService } from 'src/app/services/fantasy.service';
   styleUrls: ['./player-detail.component.css'],
 })
 export class PlayerDetailComponent implements OnInit {
-  constructor(private _fantasyService: FantasyService) {}
+  constructor(private _fantasyService:FantasyService) { }
+  
+@Input() combatplayer : FantasyFolk = {} as FantasyFolk
+@Input() hideOnVotingExpand: boolean = false;
+@Input() hideOnPortraitDisplay: boolean = false;
+@Input()
+portraitUrl: string =
+  'https://www.fantasynerds.com/images/nfl/players_large/';
+DisplayQB: boolean = false
+DisplayFlex: boolean = false
+DisplayKick: boolean = false
+DisplayDEF: boolean = false
 
-  @Input() combatplayer: FantasyFolk = {} as FantasyFolk;
-  @Input() hideOnVotingExpand: boolean = false;
-  @Input() hideOnPortraitDisplay: boolean = false;
-  @Input()
-  portraitUrl: string =
-    'https://www.fantasynerds.com/images/nfl/players_large/';
+setplayer: PlayerElement = this._fantasyService.getsetPlayer()
 
-  setplayer: PlayerElement = this._fantasyService.getsetPlayer();
+ player:Qb | Rb | K | Def | Idp | undefined
 
-  player: Qb | Rb | K | Def | Idp | undefined;
-
-  Quarterback: Qb = {} as Qb;
-  Flex: Rb = {} as Rb;
-  Kicker: K = {} as K;
-  Defense: Def = {} as Def;
-  IDP: Idp = {} as Idp;
+ Quarterback: Qb = {} as Qb
+ Flex: Rb = {} as Rb
+ Kicker: K = {} as K
+ Defense: Def = {} as Def
+ IDP: Idp = {} as Idp
 
   ngOnInit(): void {
     if (this.combatplayer && this.combatplayer.playerId == undefined) {
@@ -62,34 +66,40 @@ export class PlayerDetailComponent implements OnInit {
       .subscribe((response: any) => {
         console.log(response);
 
-        if ((response as Qb).position == QBPosition.Qb) {
-          this.Quarterback = response;
-          console.log('Is a QB');
-        }
-        if ((response as Rb).position == RBPosition.Rb) {
-          this.Flex = response;
-          console.log('Is a Flex');
-        }
-        if ((response as Rb).position == RBPosition.Wr) {
-          this.Flex = response;
-          console.log('Is a Flex');
-        }
-        if ((response as Rb).position == RBPosition.Te) {
-          this.Flex = response;
-          console.log('Is a Flex');
-        }
-        if ((response as K).position == KPosition.K) {
-          this.Kicker = response;
-          console.log('Is a Kicker');
-        }
-        if ((response as Def).position == DEFPosition.Def) {
-          this.Defense = response;
-          console.log('Is a Defense');
-        }
-        // if((response as Idp).position == IDPPosition.Idp){
-        //   this.IDP = response
-        //   console.log("Is an IDP")
-        // }
-      });
-  }
+    if((response as Qb).position== QBPosition.Qb){
+      this.Quarterback = response
+      this.DisplayQB = true
+      console.log("Is a QB")
+    }
+    if((response as Rb).position== RBPosition.Rb){
+      this.Flex = response
+      this.DisplayFlex = true
+      console.log("Is a Flex")
+    }
+    if((response as Rb).position== RBPosition.Wr){
+      this.Flex = response
+      this.DisplayFlex = true
+      console.log("Is a Flex") 
+    }
+    if((response as Rb).position== RBPosition.Te){
+      this.Flex = response
+      this.DisplayFlex = true
+      console.log("Is a Flex")
+    }
+    if((response as K).position == KPosition.K){
+      this.Kicker = response
+      console.log("Is a Kicker")
+    }
+    if((response as Def).position== DEFPosition.Def){
+      this.Defense = response
+      console.log("Is a Defense")
+    }
+    // if((response as Idp).position == IDPPosition.Idp){
+    //   this.IDP = response
+    //   console.log("Is an IDP")
+    // }
+
+
+  });
+}
 }

@@ -16,6 +16,7 @@ import { AddDropComponent } from './components/add-drop/add-drop.component';
 import { DefRankingComponent } from './components/def-ranking/def-ranking.component';
 import { VotingComponent } from './components/voting/voting.component';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
+import { CrowdSourceRankingComponent } from './components/crowd-source-ranking/crowd-source-ranking.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { WatchlistComponent } from './components/watchlist/watchlist.component';
     AddDropComponent,
     DefRankingComponent,
     VotingComponent,
-    WatchlistComponent
+    WatchlistComponent,
+    CrowdSourceRankingComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -44,7 +46,10 @@ import { WatchlistComponent } from './components/watchlist/watchlist.component';
       { path: 'rosdetail', component: PlayerDetailComponent},
       { path: 'adddrop', component: AddDropComponent},
       { path: 'defrank', component: DefRankingComponent},
-      { path: 'top100', component: PlayerListComponent}
+      { path: 'top100', component: PlayerListComponent},
+      { path: 'crowdsource', component: CrowdSourceRankingComponent},
+      { path: 'watchlist', component: WatchlistComponent}
+
 
     ])
   ],

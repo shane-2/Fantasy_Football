@@ -17,6 +17,10 @@ code {
   border-color: #1861ac;
 }
 
-/* body {
-  background-image: url("https://assets.editorial.aetnd.com/uploads/2014/06/soccer-ball-gettyimages-sb10066898ab-001.jpg")
-} */
+body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://scontent.fdet1-2.fna.fbcdn.net/v/t39.30808-6/378139913_10231747787619794_5474116909620505237_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=49d041&_nc_ohc=dwWqfazSF9cAX9ejzn6&_nc_ht=scontent.fdet1-2.fna&oh=00_AfD80iB674WyBWlDASvghMl8cBNvrCSd5Ry8a0yGc-DLtQ&oe=651012CE");
+  background-size: cover;
+}
+

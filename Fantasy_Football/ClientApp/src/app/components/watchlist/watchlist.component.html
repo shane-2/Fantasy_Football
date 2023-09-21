@@ -1,1 +1,26 @@
-<p>watchlist works!</p>
+<table style="color: rgb(136, 3, 3);">
+<tr>
+    <th>Rank</th>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Team</th>
+    <th>memorial tshirt</th>
+    <th>Delete</th>
+</tr>
+
+    <tr *ngFor="let f of fantasyList ">
+        <td >{{f.rank}}</td>    
+        <td >{{f.name}}</td>    
+        <td >{{f.position}}</td>      
+        <td >{{f.team}}</td>       
+        <td ><img
+            src="https://www.fantasynerds.com/images/nfl/players_small/{{ f.playerId }}.png"/></td>
+            <td><button (click)="DeletePlayer(f.id)">Remove</button></td>      
+        </tr>
+    
+    <!-- <td>{{p.player.name}}</td>
+    <td>{{p.player.position}}</td>
+    <td>{{p.player.team}}</td>
+    <td><img
+        src="https://www.fantasynerds.com/images/nfl/players_small/{{ p.player.playerId }}.png"/></td> -->
+</table>
