@@ -5,6 +5,7 @@ import { FantasyService } from 'src/app/services/fantasy.service';
 import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { FantasyFolk } from 'src/app/models/fantasy-folk';
 
+
 @Component({
   selector: 'app-watchlist',
   templateUrl: './watchlist.component.html',
@@ -26,14 +27,14 @@ export class WatchlistComponent implements OnInit {
     this.loggedIn = (user != null);
 	});
    this.DisplayWatchList(this.user);
-    this.DisplayFantasyFolk();
   }  
-
+  
 
   DisplayWatchList(user:SocialUser):void{
   this._fantasyService.GetWatchlist(user.email).subscribe((response:Watchlist[]) =>{
     console.log(response);
    this.watchlist = response;
+  this.DisplayFantasyFolk();
   });
 }
 
@@ -42,18 +43,23 @@ export class WatchlistComponent implements OnInit {
       let target:number = this.watchlist.findIndex(e => e.id ==id);
       this.watchlist.splice(target,1);
   
-      this._fantasyService.DeleteWatchlistPlayer(id).subscribe((response:Watchlist) => {
+      this._fantasyService.DeleteWatchlistPlayer(id, this.user.email).subscribe((response:Watchlist) => {
         console.log(response);
+        this.DisplayWatchList(this.user);
       });
+      
   }
 
 
-  
+
   DisplayFantasyFolk(): void {
-    this._fantasyService.getFantasyFolkList().subscribe((response:FantasyFolk[]) => {
-      console.log(response);
-      this.fantasyList = response;
-    });
+    this.watchlist.forEach(p=>{
+      this._fantasyService.GetFolksInWatchlist(p.id).subscribe((response:FantasyFolk) => {
+        console.log(response);
+        this.fantasyList.push(response) ;
+      });
+
+    })
   }
 
 }

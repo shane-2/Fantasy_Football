@@ -7,17 +7,17 @@
     <th>memorial tshirt</th>
     <th>Delete</th>
 </tr>
-<tr *ngFor="let p of watchlist">
-    <div *ngFor="let f of fantasyList ">
-        <td *ngIf="p.playerId == f.id">{{f.rank}}</td>    
-        <td *ngIf="p.playerId == f.id">{{f.name}}</td>    
-        <td *ngIf="p.playerId == f.id">{{f.position}}</td>      
-        <td *ngIf="p.playerId == f.id">{{f.team}}</td>       
-        <td *ngIf="p.playerId == f.id"><img
+
+    <tr *ngFor="let f of fantasyList ">
+        <td >{{f.rank}}</td>    
+        <td >{{f.name}}</td>    
+        <td >{{f.position}}</td>      
+        <td >{{f.team}}</td>       
+        <td ><img
             src="https://www.fantasynerds.com/images/nfl/players_small/{{ f.playerId }}.png"/></td>
-        </div>
-        <td><button (click)="DeletePlayer(p.id)">Remove</button></td>       
-    </tr>
+            <td><button (click)="DeletePlayer(f.id)">Remove</button></td>      
+        </tr>
+    
     <!-- <td>{{p.player.name}}</td>
     <td>{{p.player.position}}</td>
     <td>{{p.player.team}}</td>

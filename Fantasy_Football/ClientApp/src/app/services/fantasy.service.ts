@@ -53,17 +53,22 @@ getDeathDuel(): Observable<FantasyFolk[]>{
 getVotes(FF:FantasyFolk[], playerId:string): Observable<FantasyFolk[]>{
   return this.http.patch<FantasyFolk[]>(`${this.baseUrl}api/Player/${playerId}`,FF);
 }
-
+commitVoterFraud(): Observable<FantasyFolk[]>{
+  return this.http.get<FantasyFolk[]>(`${this.baseUrl}api/Player/VoterFraud`);
+}
 GetWatchlist(username:string):Observable<Watchlist[]>{
   return this.http.get<Watchlist[]>(`${this.baseUrl}api/WatchList/${username}`)
+}
+GetFolksInWatchlist(id:number):Observable<FantasyFolk>{
+  return this.http.get<FantasyFolk>(`${this.baseUrl}api/WatchList/id/${id}`)
 }
 
 AddWatchlistPlayer(newFavorite:Watchlist):Observable<Watchlist>{
   return this.http.post<Watchlist>(`${this.baseUrl}api/WatchList`, newFavorite);
 }
 
-DeleteWatchlistPlayer(id:number):Observable<Watchlist>{
-  return this.http.delete<Watchlist>(`${this.baseUrl}api/WatchList/${id}`);
+DeleteWatchlistPlayer(id:number, username:string):Observable<Watchlist>{
+  return this.http.delete<Watchlist>(`${this.baseUrl}api/WatchList/${id}?username=${username}`);
 }
 
 AddFolk(newFolk:FantasyFolk):Observable<FantasyFolk>{

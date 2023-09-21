@@ -96,7 +96,6 @@ namespace Fantasy_Football.Controllers
             int a = r.Next(1, dbcontext.FantasyFolks.ToList().Count);
             int b = r.Next(1, dbcontext.FantasyFolks.ToList().Count);
             FantasyFolk AB = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == a);
-            Duo.Add(AB);
             if (AB.Rank <= 0)
             {
                 while (a == b)
@@ -132,35 +131,22 @@ namespace Fantasy_Football.Controllers
                 }
                 catch
                 {
-                    b = r.Next(AB.Rank - 6, AB.Rank - 1);
+                    b = r.Next(AB.Rank - 8, AB.Rank - 2);
                 }
             }
-            //else if (AB.Rank >= 6 && AB.Rank < 20)
-            //{
-            //    b = r.Next(6, 26);
-            //    while (a == b)
-            //    {
-            //        b = r.Next(6, 26);
-            //    }
-            //}
-            //else if (AB.Rank >= 6 && AB.Rank < 20)
-            //{
-            //    b = r.Next(6, 26);
-            //    while (a == b)
-            //    {
-            //        b = r.Next(6, 26);
-            //    }
-            //}
-            //else
-            //{
-            //    b = r.Next(75, 101);
-            //    while (a == b)
-            //    {
-            //        b = r.Next(75, 101);
-            //    }
-            //}
+
             FantasyFolk BA = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == b);
+            
+            if(BA == null)
+            {
+                b = r.Next(1, dbcontext.FantasyFolks.ToList().Count);
+
+                 BA = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == b);
+            }
+
+
             Duo.Add(BA);
+            Duo.Add(AB);
             return Duo;
         }
         [HttpPatch("{playerId}")]
@@ -192,6 +178,20 @@ namespace Fantasy_Football.Controllers
             Match.Add(c);
             Match.Add(d);
             return Match;
+        }
+
+        [HttpGet("{VoterFraud}")]
+        public List <FantasyFolk> VoterFraud()
+        {
+            List<FantasyFolk> list = dbcontext.FantasyFolks.ToList();
+            foreach(FantasyFolk f in list)
+            {
+                f.Votes = f.Votes / 2;
+                f.Matches = f.Matches / 2;
+                dbcontext.FantasyFolks.Update(f) ;
+            }
+            return list;
+
         }
 
         [HttpPost]
