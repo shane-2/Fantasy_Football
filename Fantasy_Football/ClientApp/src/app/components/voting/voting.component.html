@@ -1,24 +1,28 @@
 <head><meta charset="UTF-8"></head>
 <body>
+    <h1>Ready Set FIGHT!</h1>
 <div class="container">
 <div *ngFor="let c of combatPair, let i = index"> 
-    <div #playerCard class="player-card">
+    <div #playerCard class="player-card" >
         <!-- <div class="primary-container"> -->
-            <div class="face">
-                <img id="portrait" src="https://www.fantasynerds.com/images/nfl/players_large/1941.png" alt="placeholder img">
-                <app-player-detail [combatplayer]="c"  [hideOnPortraitDisplay]="true"></app-player-detail>
-                <button class="voteButton" (click)="Vote(combatPair, c.playerId)">{{c.name}}</button>
+            <div class="face" (click)="Vote(combatPair, c.playerId)">
+                
+                <img id="portrait" src="https://www.fantasynerds.com/images/nfl/players_large/{{c.playerId}}.png" alt="placeholder img">
+                <!-- <app-player-detail [combatplayer]="c"  [hideOnPortraitDisplay]="true"></app-player-detail> -->
+                <span class="name">{{c.name}}</span>
+                <div class="icons"><span>&#x2b50; &#x26a1;</span></div>
             </div>
-            <div class="info">
+            <div class="info" (click)="Vote(combatPair, c.playerId)">
                 <dl class="categories">
                     <dt>Position</dt> <dd>{{c.position}}</dd>
                     <dt>Team</dt> <dd>{{c.team}}</dd>
+                    <dt>Rank</dt> <dd>{{c.rank}}</dd>
                     <dt>Matches:</dt> <dd>{{c.matches}}</dd>
                     <dt>Wins:</dt> <dd>{{c.votes}}</dd>
                     <dt>Win Percentage:</dt> <dd>{{c.winPercent}}</dd>
-                    <dt>Rank</dt> <dd>{{c.rank}}</dd>
+       
                 </dl>
-                <div class="icons"><span>&#x2b50; &#x26a1; &#129352;</span></div>
+                
             </div>
         <!-- </div> -->
         <div class="expanded-container">

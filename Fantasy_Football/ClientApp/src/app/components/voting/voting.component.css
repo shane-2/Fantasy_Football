@@ -1,32 +1,55 @@
 .container {
     display: grid;
     grid-auto-flow: row;
-    gap: 1.5em;
+    gap: 1em;
+    justify-items: center;
+    
 }
 
-#portrait {
-    width: 100%;
-    margin-bottom: 0.5em;
-    border-radius: 10px;
-}
 
+
+/* parent of .face and .info */
 .player-card {
+
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 3fr 1fr;
     grid-template-areas: 
     "face info"
     "expand expand";
-    gap: 1 em;
-    
+   
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;    
 }
+
+/* parent of #portrait and #name */
 .face {
    grid-column-start: 1;
    grid-column-end: 1;
    grid-row-start: 1;
    grid-row-end: 2;  
    grid-area: face;
+   border-radius: 10px;
+   margin:10px;
+   cursor: pointer;
+
 }
+
+#portrait {
+    width: 95%;
+    margin-bottom: 0.5em;
+    border-radius: 10px;
+}
+
+.name {
+    font-size: 2em;
+    font-weight:600;
+    justify-self: center;
+}
+
+
+
 
 .info {
     grid-column-start: 2;
@@ -34,6 +57,8 @@
     grid-row-start: 1;
     grid-row-end: 2;
     grid-area: info;
+    cursor: pointer;
+    
     
 }
 
@@ -59,11 +84,11 @@
 
 /* gradient:  */
 .voteButton {
-    width: 100%;
+    width: 90%;
     background-color: white;
     border-radius: 10px;
-
-   border-top: 2px solid #96d1f8;
+    border-top: 2px solid #96d1f8;
+    padding: 0 10px 0 10px;
    
    background: -webkit-gradient(linear, left top, left bottom, from(#377fb0), to(#65a9d7));
    background: -webkit-linear-gradient(top, #377fb0, #65a9d7);
@@ -79,10 +104,10 @@
    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
    box-shadow: rgba(0,0,0,1) 0 1px 0;
    text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: white;
+   
    font-size: 1.25em;
    font-weight: 900;
-   font-family: Helvetica, Arial, Sans-Serif;
+   
    text-decoration: none;
    vertical-align: middle;
    }
