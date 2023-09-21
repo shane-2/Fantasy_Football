@@ -1,3 +1,7 @@
+body {
+    background-image: none;
+}
+
 .container {
     display: grid;
     grid-auto-flow: row;
@@ -5,8 +9,6 @@
     justify-items: center;
     
 }
-
-
 
 /* parent of .face and .info */
 .player-card {
@@ -48,9 +50,6 @@
     justify-self: center;
 }
 
-
-
-
 .info {
     grid-column-start: 2;
     grid-column-end: 2;
@@ -58,8 +57,6 @@
     grid-row-end: 2;
     grid-area: info;
     cursor: pointer;
-    
-    
 }
 
 .categories {
@@ -84,11 +81,11 @@
 
 /* gradient:  */
 .voteButton {
-    width: 90%;
-    background-color: white;
-    border-radius: 10px;
-    border-top: 2px solid #96d1f8;
-    padding: 0 10px 0 10px;
+   width: 90%;
+   background-color: white;
+   border-radius: 10px;
+   border-top: 2px solid #96d1f8;
+   padding: 0 10px 0 10px;
    
    background: -webkit-gradient(linear, left top, left bottom, from(#377fb0), to(#65a9d7));
    background: -webkit-linear-gradient(top, #377fb0, #65a9d7);
