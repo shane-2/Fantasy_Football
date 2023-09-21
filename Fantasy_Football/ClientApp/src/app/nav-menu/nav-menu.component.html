@@ -35,22 +35,23 @@
 
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-white" [routerLink]="['/adddrop']"
-              >Most Added/Dropped</a
+              >Top Adds/Drops</a
             >
           </li>
-          <li *ngIf="loggedIn" class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-white" [routerLink]="['/watchlist']"
-              >Watchlist</a
-            >
-          </li>
+
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-white" [routerLink]="['/defrank']"
-              >Defensive Ranking Vs Position</a
+              >DEF Ranking Vs Position</a
             >
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-white" [routerLink]="['/top100']"
               >Pre-Draft Rankings</a
+            >
+          </li>
+          <li *ngIf="loggedIn" class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-white" [routerLink]="['/watchlist']"
+              >My Watchlist</a
             >
           </li>
           <li style="color: white" class="nav-item">
