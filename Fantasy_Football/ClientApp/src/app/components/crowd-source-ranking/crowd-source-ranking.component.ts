@@ -44,6 +44,8 @@ export class CrowdSourceRankingComponent implements OnInit {
     let player:Watchlist = {} as Watchlist;  
     player.playerId = newPlayer.id;
     player.username = name;
+    console.log(" newfavoriteevent" )
+    console.log(player );
     this._fantasyService.AddWatchlistPlayer(player).subscribe((response:Watchlist) =>{
       console.log(response)
       this.watchlistresult.push(response);

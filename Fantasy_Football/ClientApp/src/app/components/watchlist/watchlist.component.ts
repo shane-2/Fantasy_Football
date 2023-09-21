@@ -32,6 +32,7 @@ export class WatchlistComponent implements OnInit {
 
   DisplayWatchList(user:SocialUser):void{
   this._fantasyService.GetWatchlist(user.email).subscribe((response:Watchlist[]) =>{
+    console.log("display watchlist");
     console.log(response);
    this.watchlist = response;
   this.DisplayFantasyFolk();
@@ -39,8 +40,9 @@ export class WatchlistComponent implements OnInit {
 }
 
     DeletePlayer(id:number):void{
+      // let id = parseInt(myString);
       //feedback for user
-      let target:number = this.watchlist.findIndex(e => e.id ==id);
+      let target:number = this.watchlist.findIndex(e => e.id == id);
       this.watchlist.splice(target,1);
   
       this._fantasyService.DeleteWatchlistPlayer(id, this.user.email).subscribe((response:Watchlist) => {
@@ -53,8 +55,9 @@ export class WatchlistComponent implements OnInit {
 
 
   DisplayFantasyFolk(): void {
+    this.fantasyList = [];
     this.watchlist.forEach(p=>{
-      this._fantasyService.GetFolksInWatchlist(p.id).subscribe((response:FantasyFolk) => {
+      this._fantasyService.GetFolksInWatchlist(p.playerId).subscribe((response:FantasyFolk) => {
         console.log(response);
         this.fantasyList.push(response) ;
       });

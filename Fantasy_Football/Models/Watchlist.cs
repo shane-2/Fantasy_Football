@@ -9,7 +9,7 @@ public partial class Watchlist
 
     public string? Username { get; set; }
 
-    public int? PlayerId { get; set; }
+    public int PlayerId { get; set; }
 
     public virtual FantasyFolk? Player { get; set; }
 }

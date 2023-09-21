@@ -21,7 +21,7 @@ namespace Fantasy_Football.Controllers
 
         public List<Watchlist> GetById(string username)
         {
-            Console.WriteLine(dbcontext.Watchlists.ToList());
+           
             return dbcontext.Watchlists.Where(u => u.Username ==username).ToList();
         }
 
@@ -50,24 +50,30 @@ namespace Fantasy_Football.Controllers
 
         public Watchlist AddWatchList([FromBody] Watchlist newPlayer)
         {
-            Watchlist players = new Watchlist();
-            int x = 0;
-            foreach (Watchlist p in dbcontext.Watchlists)
+            if (!dbcontext.Watchlists.Any(p => p.PlayerId == newPlayer.Id && p.Username == newPlayer.Username))
             {
-                if (newPlayer.Username == p.Username && newPlayer.PlayerId == p.PlayerId)
-                {
-                    x++;
-                }
-            }
-            if (x == 0)
-            {
-                players.Username = newPlayer.Username;
-                players.PlayerId = newPlayer.PlayerId;
-                
-                dbcontext.Watchlists.Add(players);
+                dbcontext.Watchlists.Add(newPlayer);
                 dbcontext.SaveChanges();
+                return newPlayer;
             }
-            return players;
+            return null;
+
+            //Watchlist players = new Watchlist();
+            //int x = 0;
+            //foreach (Watchlist p in dbcontext.Watchlists)
+            //{
+            //    if (newPlayer.Username == p.Username && newPlayer.PlayerId == p.PlayerId)
+            //    {
+            //        x++;
+            //    }
+            //}
+            //if (x == 0)
+            //{
+            //    players.Username = newPlayer.Username;
+            //    players.PlayerId = newPlayer.PlayerId;
+                
+                
+            //}
         }
 
 
@@ -75,7 +81,7 @@ namespace Fantasy_Football.Controllers
         [HttpDelete("{id}")]
         public Watchlist DeleteById(int id, string username)
         {
-            Watchlist deleted = dbcontext.Watchlists.FirstOrDefault(x => x.Id == id && x.Username == username);
+            Watchlist deleted = dbcontext.Watchlists.FirstOrDefault(x => x.PlayerId == id && x.Username == username);
             dbcontext.Watchlists.Remove(deleted);
             dbcontext.SaveChanges();
 
