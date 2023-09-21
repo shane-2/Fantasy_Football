@@ -1,18 +1,39 @@
-<p style="color: white">Using your intellect, intuituion, and inability to quit Fantasy Football, help us take rankings back from the Pros! Vote for the player you'd rather have on your team for the rest of the 2023 Fantasy Season. When you're done, check our rankings to see what your peers think!</p>
-<div style="color: white;" *ngFor="let c of combatPair"> 
-    <div style="color: white;" class="individual">
-    <button (click)="Vote(combatPair, c.playerId)">{{c.name}}</button>
-    <p>Position: {{c.position}}</p>
-    <p>Team: {{c.team}}</p>
-    <p>Matches: {{c.matches}}</p>
-    <p>Wins: {{c.votes}}</p>
-    <p>Win Percentage: {{c.winpercent}}</p>
-    <p>Rank: {{c.rank}}</p>
-    <button (click)="bool = !bool">Stats</button>
-    <div *ngIf="bool">
-        <app-player-detail [combatplayer]="c"></app-player-detail>
-        <p (click)="getPlayer(c.playerId)">click me</p>
+<head><meta charset="UTF-8"></head>
+<body>
+    <h1>Ready Set FIGHT!</h1>
+<div class="container">
+<div *ngFor="let c of combatPair, let i = index"> 
+    <div #playerCard class="player-card" >
+        <!-- <div class="primary-container"> -->
+            <div class="face" (click)="Vote(combatPair, c.playerId)">
+                
+                <img id="portrait" src="https://www.fantasynerds.com/images/nfl/players_large/{{c.playerId}}.png" alt="placeholder img">
+                <!-- <app-player-detail [combatplayer]="c"  [hideOnPortraitDisplay]="true"></app-player-detail> -->
+                <span class="name">{{c.name}}</span>
+                <div class="icons"><span>&#x2b50; &#x26a1;</span></div>
+            </div>
+            <div class="info" (click)="Vote(combatPair, c.playerId)">
+                <dl class="categories">
+    <dt>Position</dt> <dd>{{c.position}}</dd>
+    <dt>Team</dt> <dd>{{c.team}}</dd>
+    <dt>Rank</dt> <dd>{{c.rank}}</dd>
+                    <dt>Matches:</dt> <dd>{{c.matches}}</dd>
+    <dt>Wins:</dt> <dd>{{c.votes}}</dd>
+    <dt>Win Percentage:</dt> <dd>{{c.winPercent}}</dd>
+       
+                </dl>
+                
+            </div>
+        <!-- </div> -->
+        <div class="expanded-container">
+            <button class="toggleDetails" (click)="toggleDetails(i)">Details</button>
+    <div *ngIf="c.showDetails">
+                <app-player-detail [combatplayer]="c"  [hideOnVotingExpand]="true"></app-player-detail>
+                <!-- <app-player-detail [combatplayer]="c"  [hidePortrait]="true" [playerDetail]="playerDetail" [playerPortraitUrl="playerPortraitUrl"]></app-player-detail> -->
+
+                <!-- <p (click)="getPlayer(c.playerId)">Player Profile</p> -->
+        </div>
+    </div>
     </div>
 </div>
 </div>
-</body>
