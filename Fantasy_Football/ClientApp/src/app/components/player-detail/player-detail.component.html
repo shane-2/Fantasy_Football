@@ -1,9 +1,11 @@
-<div>
+<div id="dataContainer" *ngIf="!hideOnPortraitDisplay">
+<div id="playerInfo" *ngIf="!hideOnVotingExpand">
 <h1>Rest of Season Projections</h1>
-<br>
 <p>Name: {{Flex.name}}</p>
 <p>Team: {{Flex.team}}</p>
 <p>Position: {{Flex.position}}</p>
+</div>
+<div id="statBlock">
 <p>Rush Att: {{Flex.rushing_attempts}}</p>
 <p>Rush Yds: {{Flex.rushing_yards}}</p>
 <p>Rush TDs: {{Flex.rushing_touchdowns}}</p>
@@ -13,7 +15,9 @@
 <p>Rec Yds: {{Flex.receiving_yards}}</p>
 <p>Rec Tds: {{Flex.receiving_touchdowns}}</p>
 <p>Projected Fantasy Points: {{Flex.proj_pts}}</p>
-<p *ngIf="!hidePortrait"><img src="https://www.fantasynerds.com/images/nfl/players_large/{{Flex.playerId}}.png" alt="{{Flex.name}} player portrait"/></p>
+</div>
+<!-- <div *ngIf="!hideOnVotingExpand"><img [src]="portraitUrl + Flex.playerId + '.png'" alt="{{Flex.name}} player portrait"> -->
+<div *ngIf="!hideOnVotingExpand"><img src="https://www.fantasynerds.com/images/nfl/players_large/{{Flex.playerId}}.png" alt="{{Flex.name}} player portrait"/></div>
 </div>
 <!-- <p>Name: {{Quarterback.name}}</p>
 <p>Team: {{Quarterback.team}}</p>

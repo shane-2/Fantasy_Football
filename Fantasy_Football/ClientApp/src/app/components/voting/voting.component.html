@@ -1,24 +1,36 @@
-
-<div class="container" *ngFor="let c of combatPair, let i = index"> 
+<head><meta charset="UTF-8"></head>
+<body>
+<div class="container">
+<div *ngFor="let c of combatPair, let i = index"> 
     <div #playerCard class="player-card">
-        <!-- <img [src]="playerDetail?.playerPortraitUrl" alt="{{Flex.name}} player portrait"> -->
-        <button (click)="Vote(combatPair, c.playerId)">{{c.name}}</button>
-        <div class="info">
-            <dl>
-                <dt>Position</dt> <dd>{{c.position}}</dd>
-                <dt>Team</dt> <dd>{{c.team}}</dd>
-                <dt>Matches:</dt> <dd>{{c.matches}}</dd>
-                <dt>Wins:</dt> <dd>{{c.votes}}</dd>
-                <dt>Win Percentage:</dt> <dd>{{c.winPercent}}</dd>
-                <dt>Rank</dt> <dd>{{c.rank}}</dd>
-            </dl>
-        </div>
-        <button (click)="toggleDetails(i)">Expand</button>
-        <div *ngIf="c.showDetails">
-            <app-player-detail [combatplayer]="c"  [hidePortrait]="true"></app-player-detail>
-            <!-- <app-player-detail [combatplayer]="c"  [hidePortrait]="true" [playerDetail]="playerDetail" [playerPortraitUrl="playerPortraitUrl"]></app-player-detail> -->
+        <!-- <div class="primary-container"> -->
+            <div class="face">
+                <img id="portrait" src="https://www.fantasynerds.com/images/nfl/players_large/1941.png" alt="placeholder img">
+                <app-player-detail [combatplayer]="c"  [hideOnPortraitDisplay]="true"></app-player-detail>
+                <button class="voteButton" (click)="Vote(combatPair, c.playerId)">{{c.name}}</button>
+            </div>
+            <div class="info">
+                <dl class="categories">
+                    <dt>Position</dt> <dd>{{c.position}}</dd>
+                    <dt>Team</dt> <dd>{{c.team}}</dd>
+                    <dt>Matches:</dt> <dd>{{c.matches}}</dd>
+                    <dt>Wins:</dt> <dd>{{c.votes}}</dd>
+                    <dt>Win Percentage:</dt> <dd>{{c.winPercent}}</dd>
+                    <dt>Rank</dt> <dd>{{c.rank}}</dd>
+                </dl>
+                <div class="icons"><span>&#x2b50; &#x26a1; &#129352;</span></div>
+            </div>
+        <!-- </div> -->
+        <div class="expanded-container">
+            <button class="toggleDetails" (click)="toggleDetails(i)">Details</button>
+            <div *ngIf="c.showDetails">
+                <app-player-detail [combatplayer]="c"  [hideOnVotingExpand]="true"></app-player-detail>
+                <!-- <app-player-detail [combatplayer]="c"  [hidePortrait]="true" [playerDetail]="playerDetail" [playerPortraitUrl="playerPortraitUrl"]></app-player-detail> -->
 
-            <!-- <p (click)="getPlayer(c.playerId)">Player Profile</p> -->
+                <!-- <p (click)="getPlayer(c.playerId)">Player Profile</p> -->
+        </div>
+    </div>
     </div>
 </div>
 </div>
+</body>

@@ -26,9 +26,11 @@ export class PlayerDetailComponent implements OnInit {
   constructor(private _fantasyService: FantasyService) {}
 
   @Input() combatplayer: FantasyFolk = {} as FantasyFolk;
-  @Input() hidePortrait: boolean = false;
-  //@Input() playerDetail: PlayerDetail | undefined;
-  //playerPortraitUrl: string = '';
+  @Input() hideOnVotingExpand: boolean = false;
+  @Input() hideOnPortraitDisplay: boolean = false;
+  @Input()
+  portraitUrl: string =
+    'https://www.fantasynerds.com/images/nfl/players_large/';
 
   setplayer: PlayerElement = this._fantasyService.getsetPlayer();
 
