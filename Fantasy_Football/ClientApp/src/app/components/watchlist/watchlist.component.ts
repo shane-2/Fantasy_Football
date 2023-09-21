@@ -59,7 +59,7 @@ export class WatchlistComponent implements OnInit {
     this.watchlist.forEach(p=>{
       this._fantasyService.GetFolksInWatchlist(p.playerId).subscribe((response:FantasyFolk) => {
         console.log(response);
-        this.fantasyList.push(response) ;
+        this.fantasyList.push(response);
       });
 
     })

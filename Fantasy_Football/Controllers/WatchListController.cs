@@ -22,7 +22,8 @@ namespace Fantasy_Football.Controllers
         public List<Watchlist> GetById(string username)
         {
            
-            return dbcontext.Watchlists.Where(u => u.Username ==username).ToList();
+            return dbcontext.Watchlists.Where(u => u.Username == username).ToList();
+            
         }
 
         [HttpGet("id/{id}")]

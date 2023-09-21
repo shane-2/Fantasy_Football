@@ -88,6 +88,7 @@ namespace Fantasy_Football.Controllers
             return result;
         }
 
+
         Random r = new Random();
         [HttpGet("MatchPair")]
         public List<FantasyFolk> MatchPair()
@@ -95,60 +96,59 @@ namespace Fantasy_Football.Controllers
             List<FantasyFolk> Duo = new List<FantasyFolk>();
             int a = r.Next(1, dbcontext.FantasyFolks.ToList().Count);
             int b = r.Next(1, dbcontext.FantasyFolks.ToList().Count);
-            FantasyFolk AB = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == a);
-            if (AB.Rank <= 0)
+            if (a <= 0)
             {
                 while (a == b)
                 {
                     b = r.Next(1, dbcontext.FantasyFolks.ToList().Count);
                 }
             }
-            else if (AB.Rank >= 1 && AB.Rank < 6)
+            else if (a >= 1 && a < 6)
             {
                 b = r.Next(1, 6);
                 while (a == b)
                 {
-                    b = r.Next(1, AB.Rank + 3);
+                    b = r.Next(1, a + 3);
                 }
             }
-            else if (AB.Rank >= 6 && AB.Rank < 16)
+            else if (a >= 6 && a < 16)
             {
                 b = r.Next(6, 16);
                 while (a == b)
                 {
-                    b = r.Next(6, AB.Rank + 3);
+                    b = r.Next(6, a + 3);
                 }
             }
             else
             {
                 try
                 {
-                    b = r.Next(AB.Rank - 6, AB.Rank + 6);
+                    b = r.Next(a - 6, a + 6);
                     while (a == b)
                     {
-                        b = r.Next(AB.Rank - 6, AB.Rank + 6);
+                        b = r.Next(a - 6, a + 6);
                     }
                 }
                 catch
                 {
-                    b = r.Next(AB.Rank - 8, AB.Rank - 2);
+                    b = r.Next(a - 8, a - 2);
                 }
             }
 
-            FantasyFolk BA = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == b);
-            
-            if(BA == null)
-            {
-                b = r.Next(1, dbcontext.FantasyFolks.ToList().Count);
+            FantasyFolk AB = dbcontext.FantasyFolks.FirstOrDefault(x => x.Rank == a);
+            FantasyFolk BA = dbcontext.FantasyFolks.FirstOrDefault(x => x.Rank == b);            
+            //if(BA == null)
+            //{
+            //    b = r.Next(1, dbcontext.FantasyFolks.ToList().Count);
 
-                 BA = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == b);
-            }
-
-
+            //     BA = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == b);
+            //}
             Duo.Add(BA);
             Duo.Add(AB);
             return Duo;
         }
+
+
         [HttpPatch("{playerId}")]
         public List<FantasyFolk> CountVote(List<FantasyFolk> t, string playerId)
         {
