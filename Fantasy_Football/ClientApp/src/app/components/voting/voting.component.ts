@@ -29,6 +29,7 @@ export class VotingComponent implements OnInit {
     private router: Router
   ) {}
 
+  DisplayQB: boolean = false;
   combatPair: ExpandedPlayerDetail[] = [];
 
   ngOnInit(): void {

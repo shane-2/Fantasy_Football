@@ -1,37 +1,51 @@
 <div id="dataContainer" *ngIf="!hideOnPortraitDisplay">
-<div id="playerInfo" *ngIf="!hideOnVotingExpand">
-<h1>Rest of Season Projections</h1>
+  <div id="playerInfo" *ngIf="!hideOnVotingExpand">
+    <h1>Rest of Season Projections</h1>
 
-<p>Name: {{Flex.name}}</p>
-<p>Team: {{Flex.team}}</p>
-<p>Position: {{Flex.position}}</p>
+    <p>Name: {{ Flex.name }}</p>
+    <p>Team: {{ Flex.team }}</p>
+    <p>Position: {{ Flex.position }}</p>
+  </div>
+  <div id="statBlock">
+    <p>Rush Att: {{ Flex.rushing_attempts }}</p>
+    <p>Rush Yds: {{ Flex.rushing_yards }}</p>
+    <p>Rush TDs: {{ Flex.rushing_touchdowns }}</p>
+    <p>Fumbles: {{ Flex.fumbles }}</p>
+    <p>Receptions: {{ Flex.receptions }}</p>
+    <p>Targets: {{ Flex.targets }}</p>
+    <p>Rec Yds: {{ Flex.receiving_yards }}</p>
+    <p>Rec Tds: {{ Flex.receiving_touchdowns }}</p>
+    <p>Projected Fantasy Points: {{ Flex.proj_pts }}</p>
+  </div>
+  <!-- <div *ngIf="!hideOnVotingExpand"><img [src]="portraitUrl + Flex.playerId + '.png'" alt="{{Flex.name}} player portrait"> -->
+  <div *ngIf="!hideOnVotingExpand">
+    <img
+      src="https://www.fantasynerds.com/images/nfl/players_large/{{
+        Flex.playerId
+      }}.png"
+      alt="{{ Flex.name }} player portrait"
+    />
+  </div>
 </div>
-<div id="statBlock">
-<p>Rush Att: {{Flex.rushing_attempts}}</p>
-<p>Rush Yds: {{Flex.rushing_yards}}</p>
-<p>Rush TDs: {{Flex.rushing_touchdowns}}</p>
-<p>Fumbles: {{Flex.fumbles}}</p>
-<p>Receptions: {{Flex.receptions}}</p>
-<p>Targets: {{Flex.targets}}</p>
-<p>Rec Yds: {{Flex.receiving_yards}}</p>
-<p>Rec Tds: {{Flex.receiving_touchdowns}}</p>
-<p>Projected Fantasy Points: {{Flex.proj_pts}}</p>
-</div>
-<!-- <div *ngIf="!hideOnVotingExpand"><img [src]="portraitUrl + Flex.playerId + '.png'" alt="{{Flex.name}} player portrait"> -->
-<div *ngIf="!hideOnVotingExpand"><img src="https://www.fantasynerds.com/images/nfl/players_large/{{Flex.playerId}}.png" alt="{{Flex.name}} player portrait"/></div>
-</div>
-<div *ngIf="DisplayQB == true" style="color: white;">
-<p>Name: {{Quarterback.name}}</p>
-<p>Team: {{Quarterback.team}}</p>
-<p>Position: {{Quarterback.position}}</p>
-<p>Pass Att: {{Quarterback.passing_attempts}}</p>
-<p>Completions: {{Quarterback.passing_completions}}</p>
-<p>Pass Yds: {{Quarterback.passing_yards}}</p>
-<p>Pass TDs: {{Quarterback.passing_touchdowns}}</p>
-<p>INTs: {{Quarterback.passing_interceptions}}</p>
-<p>Rush Att: {{Quarterback.rushing_attempts}}</p>
-<p>Rush Yds: {{Quarterback.rushing_yards}}</p>
-<p>Rush TDs: {{Quarterback.rushing_touchdowns}}</p>
-<p>Projected Fantasy Points: {{Quarterback.proj_pts}}</p>
-<p><img src="https://www.fantasynerds.com/images/nfl/players_large/{{Quarterback.playerId}}.png"/></p>
+<div *ngIf="DisplayQB == true" style="color: white">
+  <p>Name: {{ Quarterback.name }}</p>
+  <p>Team: {{ Quarterback.team }}</p>
+  <p>Position: {{ Quarterback.position }}</p>
+  <p>Pass Att: {{ Quarterback.passing_attempts }}</p>
+  <p>Completions: {{ Quarterback.passing_completions }}</p>
+  <p>Pass Yds: {{ Quarterback.passing_yards }}</p>
+  <p>Pass TDs: {{ Quarterback.passing_touchdowns }}</p>
+  <p>INTs: {{ Quarterback.passing_interceptions }}</p>
+  <p>Rush Att: {{ Quarterback.rushing_attempts }}</p>
+  <p>Rush Yds: {{ Quarterback.rushing_yards }}</p>
+  <p>Rush TDs: {{ Quarterback.rushing_touchdowns }}</p>
+  <p>Projected Fantasy Points: {{ Quarterback.proj_pts }}</p>
+  <p>
+    <img
+      *ngIf="!hideOnVotingExpand"
+      src="https://www.fantasynerds.com/images/nfl/players_large/{{
+        Quarterback.playerId
+      }}.png"
+    />
+  </p>
 </div>
