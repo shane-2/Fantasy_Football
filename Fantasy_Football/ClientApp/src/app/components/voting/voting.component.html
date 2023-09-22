@@ -1,6 +1,9 @@
 <head>
   <meta charset="UTF-8" />
 </head>
+<p style="color: white">Using your intellect, intuition, and inability to quit Fantasy Football, 
+  help us take rankings back from the Pros! Vote for the player you'd rather have on your team for the rest of the 2023 Fantasy Season. 
+  When you're done, check our rankings to see what your peers think!</p>
 <body>
   <div class="container">
     <div *ngFor="let c of combatPair; let i = index">
@@ -42,7 +45,7 @@
         <!-- </div> -->
         <div class="expanded-container">
           <button class="toggleDetails" (click)="toggleDetails(i)">
-            Details
+            Rest of Season Projections
           </button>
           <div *ngIf="c.showDetails[i]">
             <app-player-detail
