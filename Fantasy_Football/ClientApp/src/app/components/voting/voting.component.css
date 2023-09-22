@@ -19,7 +19,7 @@ body {
 
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: minmax(200px, 300px) 20%;
+    grid-template-rows: minmax(200px, 350px) 20%;
     grid-template-areas: 
     "face info"
     "expand expand";
@@ -42,6 +42,7 @@ body {
    border-radius: 10px;
    margin-left: 25px;
    margin-right: 5px;
+   margin-bottom: 10px;
    cursor: pointer;
 
 }
@@ -67,6 +68,8 @@ body {
     grid-row-end: 2;
     grid-area: info;
     cursor: pointer;
+    padding-top: 20px;
+    gap: 0em;
 }
 
 .categories {

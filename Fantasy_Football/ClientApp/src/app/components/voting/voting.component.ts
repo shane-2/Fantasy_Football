@@ -49,7 +49,6 @@ export class VotingComponent implements OnInit {
   IDP: Idp = {} as Idp;
 
   playerDetail: PlayerDetail | undefined = undefined;
-  playerPortraitUrl: string | undefined;
 
   CallDB(): void {
     this._fantasyService.getDeathDuel().subscribe((response: FantasyFolk[]) => {
