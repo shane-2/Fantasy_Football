@@ -215,6 +215,14 @@ namespace Fantasy_Football.Controllers
 
         }
 
+        [HttpGet("News")]
+        public List<News> NewsList()
+        {
+            List<News> result = NewsDAL.GetNews().ToList();
+            return result;
+        }
+
+
 
         //I think this is supposed to be a patch
         //[HttpPost]

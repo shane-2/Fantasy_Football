@@ -18,6 +18,8 @@ import { VotingComponent } from './components/voting/voting.component';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
 import { CrowdSourceRankingComponent } from './components/crowd-source-ranking/crowd-source-ranking.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { NewsComponent } from './components/news/news.component';
+import { AddPlayerFormComponent } from './components/add-player-form/add-player-form.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { AdminComponent } from './components/admin/admin.component';
     VotingComponent,
     WatchlistComponent,
     CrowdSourceRankingComponent,
-    AdminComponent
+    AdminComponent,
+    NewsComponent,
+    AddPlayerFormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

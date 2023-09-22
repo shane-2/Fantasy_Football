@@ -21,7 +21,9 @@
             src="https://www.fantasynerds.com/images/nfl/players_small/{{ p.playerId }}.png"/>
         </td>
         <td *ngIf="loggedIn"><button (click)="AddWatchlist(user.email, p)">shalom </button></td>
+        <td><button (click)="DeleteFolk(p.id)">Delete Player</button></td>
       </tr>
     </table>
     </div>
+    <app-add-player-form (FantasyFolkCreated)="NewFolk($event)"></app-add-player-form>
 
