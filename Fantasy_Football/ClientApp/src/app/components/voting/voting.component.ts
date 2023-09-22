@@ -31,6 +31,7 @@ export class VotingComponent implements OnInit {
 
   DisplayQB: boolean = false;
   combatPair: ExpandedPlayerDetail[] = [];
+  showDetailsToggled: boolean = false;
 
   ngOnInit(): void {
     this.CallDB();
@@ -48,13 +49,12 @@ export class VotingComponent implements OnInit {
   IDP: Idp = {} as Idp;
 
   playerDetail: PlayerDetail | undefined = undefined;
-  playerPortraitUrl: string | undefined;
 
   CallDB(): void {
     this._fantasyService.getDeathDuel().subscribe((response: FantasyFolk[]) => {
       this.combatPair = response.map((player) => ({
         ...player,
-        showDetails: false,
+        showDetails: new Array(response.length).fill(false),
       }));
       console.log('call api is working');
       console.log(this.combatPair);
@@ -67,7 +67,7 @@ export class VotingComponent implements OnInit {
       .subscribe((response: FantasyFolk[]) => {
         this.combatPair = response.map((player) => ({
           ...player,
-          showDetails: false,
+          showDetails: new Array(response.length).fill(false),
         })) as ExpandedPlayerDetail[];
         this.CallDB();
         console.log(this.combatPair);
@@ -75,14 +75,8 @@ export class VotingComponent implements OnInit {
   }
 
   toggleDetails(index: number) {
-    this.combatPair.forEach((player, i) => {
-      if (i == index) {
-        player.showDetails = !player.showDetails;
-        console.log(`Displaying expanded stats for player at index ${index}`);
-      } else {
-        player.showDetails = false;
-      }
-    });
+    this.combatPair[index].showDetails[index] =
+      !this.combatPair[index].showDetails[index];
   }
 
   getPlayer(playerId: string): void {

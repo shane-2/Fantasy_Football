@@ -1,15 +1,17 @@
 body {
-    background-image: none;
-    height: auto;
     width: auto;
+  
+    
 }
 
 .container {
+    
     display: grid;
     grid-auto-flow: row;
     gap: 1em;
     justify-items: center;
-    
+    background-color: white;
+    padding: 10px;
 }
 
 /* parent of .face and .info */
@@ -17,7 +19,7 @@ body {
 
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 3fr 1fr;
+    grid-template-rows: minmax(200px, 350px) 20%;
     grid-template-areas: 
     "face info"
     "expand expand";
@@ -25,6 +27,9 @@ body {
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;    
+    background-image: none;
+    background-color: white;
+    opacity: 0.9;
 }
 
 /* parent of #portrait and #name */
@@ -35,7 +40,9 @@ body {
    grid-row-end: 2;  
    grid-area: face;
    border-radius: 10px;
-   margin:10px;
+   margin-left: 25px;
+   margin-right: 5px;
+   margin-bottom: 10px;
    cursor: pointer;
 
 }
@@ -49,8 +56,8 @@ body {
 .name {
     font-size: 2em;
     font-weight:600;
-    justify-self: center;
-    display: inline-block;
+    /* justify-self: center;
+    display: inline-block; */
     text-align: center;
 }
 
@@ -61,6 +68,8 @@ body {
     grid-row-end: 2;
     grid-area: info;
     cursor: pointer;
+    padding-top: 20px;
+    gap: 0em;
 }
 
 .categories {
@@ -81,15 +90,19 @@ body {
     grid-column-end: 2;
     grid-row-end: 2;
     grid-area: expand;
+    background-color: white;
+    opacity: 0.9;
+    margin-bottom: 5px;
 }
 
 /* gradient:  */
 .voteButton {
-   width: 90%;
+   width: 95%;
    background-color: white;
    border-radius: 10px;
    border-top: 2px solid #96d1f8;
    padding: 0 10px 0 10px;
+   
    
    background: -webkit-gradient(linear, left top, left bottom, from(#377fb0), to(#65a9d7));
    background: -webkit-linear-gradient(top, #377fb0, #65a9d7);
@@ -114,8 +127,9 @@ body {
    }
 
 .toggleDetails {
-    margin-bottom: 1em;
-    width: 100%;
+    margin-left: 5%;
+    margin-bottom: 5px;
+    width: 90%;
     background-color: white;
     border-radius: 10px;
    border-top: 2px solid #96d1f8;
@@ -151,12 +165,15 @@ button:active {
    background: #1b435e;
    }
     
-
+.expanded-details {
+    grid-template-rows: 1fr 20%;
+}
 
 @media (min-width: 768px) {
     .container {
         /* grid-auto-flow: column; */
         grid-template-columns: 1fr 1fr;
+        gap: 3em;
     }
 }
 

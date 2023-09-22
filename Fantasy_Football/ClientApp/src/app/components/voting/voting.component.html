@@ -2,10 +2,13 @@
   <meta charset="UTF-8" />
 </head>
 <body>
-  <h1>Ready Set FIGHT!</h1>
   <div class="container">
     <div *ngFor="let c of combatPair; let i = index">
-      <div #playerCard class="player-card">
+      <div
+        #playerCard
+        class="player-card"
+        [class.expanded-details]="showDetailsToggled"
+      >
         <!-- <div class="primary-container"> -->
         <div class="face" (click)="Vote(combatPair, c.playerId)">
           <img
@@ -17,7 +20,8 @@
           />
           <!-- <app-player-detail [combatplayer]="c"  [hideOnPortraitDisplay]="true"></app-player-detail> -->
           <span class="name">{{ c.name }}</span>
-          <div class="icons"><span>&#x2b50; &#x26a1;</span></div>
+          <!-- player icons go here -->
+          <!-- <div class="icons"><span>&#x2b50; &#x26a1;</span></div> -->
         </div>
         <div class="info" (click)="Vote(combatPair, c.playerId)">
           <dl class="categories">
@@ -31,16 +35,16 @@
             <dd>{{ c.matches }}</dd>
             <dt>Wins:</dt>
             <dd>{{ c.votes }}</dd>
-            <dt>Win Percentage:</dt>
-            <dd>{{ c.winPercent }}</dd>
-          </dl>
+            <!-- <dt>Win Percentage:</dt>
+            <dd>{{ c.winPercent }}</dd> -->
+            </dl>
         </div>
         <!-- </div> -->
         <div class="expanded-container">
           <button class="toggleDetails" (click)="toggleDetails(i)">
             Details
           </button>
-          <div *ngIf="c.showDetails">
+          <div *ngIf="c.showDetails[i]">
             <app-player-detail
               [combatplayer]="c"
               [hideOnVotingExpand]="true"

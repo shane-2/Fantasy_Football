@@ -1,12 +1,12 @@
-<div id="dataContainer" *ngIf="!hideOnPortraitDisplay">
-  <div id="playerInfo" *ngIf="!hideOnVotingExpand">
+<div id="dataContainer">
+  <div class="playerInfo" *ngIf="DisplayFlex == true && !hideOnVotingExpand">
     <h1>Rest of Season Projections</h1>
 
     <p>Name: {{ Flex.name }}</p>
     <p>Team: {{ Flex.team }}</p>
     <p>Position: {{ Flex.position }}</p>
   </div>
-  <div id="statBlock">
+  <div class="statBlock" *ngIf="DisplayFlex == true && DisplayQB == false">
     <p>Rush Att: {{ Flex.rushing_attempts }}</p>
     <p>Rush Yds: {{ Flex.rushing_yards }}</p>
     <p>Rush TDs: {{ Flex.rushing_touchdowns }}</p>
@@ -27,25 +27,28 @@
     />
   </div>
 </div>
-<div *ngIf="DisplayQB == true" style="color: white">
-  <p>Name: {{ Quarterback.name }}</p>
-  <p>Team: {{ Quarterback.team }}</p>
-  <p>Position: {{ Quarterback.position }}</p>
-  <p>Pass Att: {{ Quarterback.passing_attempts }}</p>
-  <p>Completions: {{ Quarterback.passing_completions }}</p>
-  <p>Pass Yds: {{ Quarterback.passing_yards }}</p>
-  <p>Pass TDs: {{ Quarterback.passing_touchdowns }}</p>
-  <p>INTs: {{ Quarterback.passing_interceptions }}</p>
-  <p>Rush Att: {{ Quarterback.rushing_attempts }}</p>
-  <p>Rush Yds: {{ Quarterback.rushing_yards }}</p>
-  <p>Rush TDs: {{ Quarterback.rushing_touchdowns }}</p>
-  <p>Projected Fantasy Points: {{ Quarterback.proj_pts }}</p>
-  <p>
-    <img
-      *ngIf="!hideOnVotingExpand"
-      src="https://www.fantasynerds.com/images/nfl/players_large/{{
-        Quarterback.playerId
-      }}.png"
-    />
-  </p>
+<div>
+  <div class="playerInfo" *ngIf="DisplayQB == true && !hideOnVotingExpand">
+    X
+    <p>Name: {{ Quarterback.name }}</p>
+    <p>Team: {{ Quarterback.team }}</p>
+    <p>Position: {{ Quarterback.position }}</p>
+  </div>
+  <div class="statBlock" *ngIf="DisplayFlex == false && DisplayQB == true">
+    <p>Pass Att: {{ Quarterback.passing_attempts }}</p>
+    <p>Completions: {{ Quarterback.passing_completions }}</p>
+    <p>Pass Yds: {{ Quarterback.passing_yards }}</p>
+    <p>Pass TDs: {{ Quarterback.passing_touchdowns }}</p>
+    <p>INTs: {{ Quarterback.passing_interceptions }}</p>
+    <p>Rush Att: {{ Quarterback.rushing_attempts }}</p>
+    <p>Rush Yds: {{ Quarterback.rushing_yards }}</p>
+    <p>Rush TDs: {{ Quarterback.rushing_touchdowns }}</p>
+    <p>Projected Fantasy Points: {{ Quarterback.proj_pts }}</p>
+  </div>
+  <img
+    *ngIf="!hideOnVotingExpand"
+    src="https://www.fantasynerds.com/images/nfl/players_large/{{
+      Quarterback.playerId
+    }}.png"
+  />
 </div>
