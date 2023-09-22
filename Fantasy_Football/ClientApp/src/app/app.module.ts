@@ -17,6 +17,7 @@ import { DefRankingComponent } from './components/def-ranking/def-ranking.compon
 import { VotingComponent } from './components/voting/voting.component';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
 import { CrowdSourceRankingComponent } from './components/crowd-source-ranking/crowd-source-ranking.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CrowdSourceRankingComponent } from './components/crowd-source-ranking/c
     DefRankingComponent,
     VotingComponent,
     WatchlistComponent,
-    CrowdSourceRankingComponent
+    CrowdSourceRankingComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -48,7 +50,8 @@ import { CrowdSourceRankingComponent } from './components/crowd-source-ranking/c
       { path: 'defrank', component: DefRankingComponent},
       { path: 'top100', component: PlayerListComponent},
       { path: 'crowdsource', component: CrowdSourceRankingComponent},
-      { path: 'watchlist', component: WatchlistComponent}
+      { path: 'watchlist', component: WatchlistComponent},
+      { path: 'admin', component: AdminComponent}
 
 
     ])
