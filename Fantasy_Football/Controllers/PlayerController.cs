@@ -188,8 +188,10 @@ namespace Fantasy_Football.Controllers
             {
                 f.Votes = f.Votes / 2;
                 f.Matches = f.Matches / 2;
-                dbcontext.FantasyFolks.Update(f) ;
+                dbcontext.FantasyFolks.Update(f);
+                
             }
+            dbcontext.SaveChanges();
             return list;
 
         }

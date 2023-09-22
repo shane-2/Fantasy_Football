@@ -79,8 +79,8 @@ DeleteFolk(Id:number){
   return this.http.delete<FantasyFolk>(`${this.baseUrl}api/Player/${Id}`);
 }
 
-GetVoterFraud():Observable<FantasyFolk>{
-  return this.http.get<FantasyFolk>(`${this.baseUrl}api/Player/VoterFraud`);
+GetVoterFraud():Observable<FantasyFolk[]>{
+  return this.http.get<FantasyFolk[]>(`${this.baseUrl}api/Player/VoterFraud`);
 }
 
 }

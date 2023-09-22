@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FantasyFolk } from 'src/app/models/fantasy-folk';
 import { FantasyService } from 'src/app/services/fantasy.service';
 
 @Component({
@@ -9,20 +10,23 @@ import { FantasyService } from 'src/app/services/fantasy.service';
 export class AdminComponent implements OnInit {
 
   constructor(private _fantasyService:FantasyService) { }
+  allPlayers:FantasyFolk[] =[];
 
+  
   ngOnInit(): void {
   }
   UseVoterFraud():void{
    
       // this.status="loading";
-       this._fantasyService.GetVoterFraud();
-      //  .subscribe((response:FantasyFolk [])=>{      
+       this._fantasyService.GetVoterFraud().subscribe((response:FantasyFolk[])=>{      
         
       //   //saving response in a variable
-      //   this.allPlayers = response;
+        this.allPlayers = response;
       //   console.log("call api is working");
-      //   console.log(this.allPlayers);
+        console.log(this.allPlayers);
       //   this.allPlayers.splice(125); 
-  }
+  });
+
+}
 
 }
