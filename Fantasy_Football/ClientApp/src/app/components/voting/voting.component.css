@@ -1,5 +1,7 @@
 body {
     background-image: none;
+    height: auto;
+    width: auto;
 }
 
 .container {
@@ -28,8 +30,8 @@ body {
 /* parent of #portrait and #name */
 .face {
    grid-column-start: 1;
-   grid-column-end: 1;
    grid-row-start: 1;
+   grid-column-end: 1;
    grid-row-end: 2;  
    grid-area: face;
    border-radius: 10px;
@@ -48,12 +50,14 @@ body {
     font-size: 2em;
     font-weight:600;
     justify-self: center;
+    display: inline-block;
+    text-align: center;
 }
 
 .info {
-    grid-column-start: 2;
-    grid-column-end: 2;
+    grid-column-start: 2;  
     grid-row-start: 1;
+    grid-column-end: 2;
     grid-row-end: 2;
     grid-area: info;
     cursor: pointer;
@@ -73,8 +77,8 @@ body {
 
 .expanded-container {
     grid-column-start: 1;
+    grid-row-start: 2;
     grid-column-end: 2;
-    grid-row-start: 1;
     grid-row-end: 2;
     grid-area: expand;
 }
