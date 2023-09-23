@@ -1,20 +1,23 @@
 <header>
   <nav
-    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-black border-bottom box-shadow mb-3"
+  class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-black border-bottom box-shadow mb-3"
   >
-    <div class="container">
-      <a style="color: white;" class="navbar-brand" [routerLink]="['/']"></a>
-      <button
-        class="navbar-toggler"
-        type="button"
+  
+  <div class="container">
+    <a style="color: white;" class="navbar-brand" [routerLink]="['/']"></a>
+    <button
+    class="navbar-toggler"
+    type="button"
         data-toggle="collapse"
         data-target=".navbar-collapse"
         aria-label="Toggle navigation"
         [attr.aria-expanded]="isExpanded"
         (click)="toggle()"
-      >
+        >
         <span class="navbar-toggler-icon"></span>
       </button>
+      
+
       <div
         class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
         [ngClass]="{ show: isExpanded }"
@@ -41,7 +44,7 @@
           </li>
           <li *ngIf="yesAdmin" class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-white" [routerLink]="['/admin']"
-              >Admin</a
+            >Admin</a
             >
           </li>
 
@@ -58,7 +61,7 @@
         </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-white" [routerLink]="['/top100']"
-              >Pre-Draft Rankings</a
+            >Pre-Draft Rankings</a
             >
           </li>
           <li *ngIf="loggedIn" class="nav-item" [routerLinkActive]="['link-active']">
@@ -66,19 +69,22 @@
               >My Watchlist</a
             >
           </li>
+
+
+          
           <li style="color: white" class="nav-item">
             <!-- Below is the custom login component. -->
             <asl-google-signin-button
-              *ngIf="!loggedIn"
-              type="icon"
+            *ngIf="!loggedIn"
+            type="icon"
               size="medium"
-            ></asl-google-signin-button>
+              ></asl-google-signin-button>
             <!-- Calls the log out method from the notes -->
             <button
               class="btn btn-outline-light"
               *ngIf="loggedIn"
               (click)="signOut()"
-            >
+              >
               Sign Out
             </button>
           </li>
@@ -87,3 +93,16 @@
     </div>
   </nav>
 </header>
+<!-- <div class="btn-group">
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    Right-aligned menu
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">   
+    <li><a class="dropdown-item" href="/watchlist">/My Watchlist</a></li>
+    <li><a class="dropdown-item" href="/crowdsource">/The People's Ranking</a></li>
+    <li><a class="dropdown-item" href="/adddrop">/Top Adds/Drops</a></li>
+    <li><a class="dropdown-item" href="/top100">Pre-Draft Rankings</a></li>
+    <li><a class="dropdown-item" href="/defranking">Defense Ranking vs Individual Players</a></li>
+    <li><a class="dropdown-item" href="/FAQ">/FAQ</a></li>
+  </ul>
+</div> -->

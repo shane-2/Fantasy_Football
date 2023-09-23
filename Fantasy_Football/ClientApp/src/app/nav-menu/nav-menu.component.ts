@@ -11,7 +11,7 @@ export class NavMenuComponent {
   user: SocialUser = {} as SocialUser;
   loggedIn: boolean = false;
   admin:string = "shanechastain10@gmail.com"
-  admin1:string = "shanechastain10@gmail.com"
+  admin1:string = "zachbuth@gmail.com"
   admin2:string = "shanechastain10@gmail.com"
   admin3:string = "shanechastain10@gmail.com"
 adminp:string = this.user.email;

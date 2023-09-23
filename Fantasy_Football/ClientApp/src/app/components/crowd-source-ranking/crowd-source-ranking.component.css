@@ -27,3 +27,22 @@ table, td {
     text-align: center;
     color:white
 }
+
+button{
+  background-color: red;
+  border-radius: 15%;
+  
+  color: white;
+  padding: 5px 15px;
+  border: 2px solid black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: #ff5e00; /* Green */
+  color: white;
+}
