@@ -36,37 +36,37 @@
               >The People's Rankings</a
             >
           </li>
-
+          <li *ngIf="loggedIn" class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-white" [routerLink]="['/watchlist']"
+              >My Watchlist</a
+            >
+          </li>
+          
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-white" [routerLink]="['/adddrop']"
               >Top Adds/Drops</a
             >
           </li>
-          <li *ngIf="yesAdmin" class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-white" [routerLink]="['/admin']"
-            >Admin</a
-            >
-          </li>
-
+          
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-white" [routerLink]="['/defrank']"
-              >DEF Ranking Vs Position</a
+            >DEF Ranking Vs Position</a
             >
           </li>
       
-        <li class="nav-item" [routerLinkActive]="['link-active']">
-          <a class="nav-link text-white" [routerLink]="['/FAQ']"
-            >FAQs</a
-          >
-        </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-white" [routerLink]="['/top100']"
             >Pre-Draft Rankings</a
             >
           </li>
-          <li *ngIf="loggedIn" class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-white" [routerLink]="['/watchlist']"
-              >My Watchlist</a
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-white" [routerLink]="['/FAQ']"
+            >FAQs</a
+            >
+          </li>
+          <li *ngIf="yesAdmin" class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-white" [routerLink]="['/admin']"
+            >Admin</a
             >
           </li>
 
@@ -77,12 +77,12 @@
             <asl-google-signin-button
             *ngIf="!loggedIn"
             type="icon"
-              size="medium"
-              ></asl-google-signin-button>
+            size="medium"
+            ></asl-google-signin-button>
             <!-- Calls the log out method from the notes -->
             <button
-              class="btn btn-outline-light"
-              *ngIf="loggedIn"
+            class="btn btn-outline-light"
+            *ngIf="loggedIn"
               (click)="signOut()"
               >
               Sign Out
