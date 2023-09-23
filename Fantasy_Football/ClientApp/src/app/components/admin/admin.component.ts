@@ -12,7 +12,7 @@ export class AdminComponent implements OnInit {
   constructor(private _fantasyService:FantasyService) { }
   allPlayers:FantasyFolk[] =[];
 
-  
+ 
   ngOnInit(): void {
   }
   UseVoterFraud():void{
@@ -28,5 +28,15 @@ export class AdminComponent implements OnInit {
   });
 
 }
+
+FolkListResult: FantasyFolk [] = [];
+
+NewFolk(newFolk:FantasyFolk){
+  this._fantasyService.AddFolk(newFolk).subscribe((response: FantasyFolk) =>{
+   console.log(response);
+   this.FolkListResult.push(response);
+  })
+ }
+
 
 }

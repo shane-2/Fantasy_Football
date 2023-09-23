@@ -15,6 +15,27 @@ export class CrowdSourceRankingComponent implements OnInit {
   loggedIn: boolean = false;
  
  
+  admin:string = "shanechastain10@gmail.com"
+  admin1:string = "shanechastain10@gmail.com"
+  admin2:string = "shanechastain10@gmail.com"
+  admin3:string = "shanechastain10@gmail.com"
+adminp:string = this.user.email;
+yesAdmin:boolean = false;
+
+isAdmin():void{
+  if(this.user.email == this.admin){
+    this.yesAdmin = true;
+  }
+  if(this.user.email == this.admin1){
+    this.yesAdmin = true;
+  }
+  if(this.user.email == this.admin2){
+    this.yesAdmin = true;
+  }
+  if(this.user.email == this.admin3){
+    this.yesAdmin = true;
+  }
+}
 //  ngOnInit(): void {
  
 //    this.authService.authState.subscribe((user) => {
@@ -34,6 +55,7 @@ export class CrowdSourceRankingComponent implements OnInit {
         this.authService.authState.subscribe((user) => {
           this.user = user;
           this.loggedIn = (user != null);
+          this.isAdmin();
         });
       });    
   }
