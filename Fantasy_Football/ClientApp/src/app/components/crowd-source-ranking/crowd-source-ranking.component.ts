@@ -15,6 +15,27 @@ export class CrowdSourceRankingComponent implements OnInit {
   loggedIn: boolean = false;
  
  
+  admin:string = "shanechastain10@gmail.com"
+  admin1:string = "zachbuth@gmail.com"
+  admin2:string = "heathj873@gmail.com"
+  admin3:string = "dougychu@gmail.com"
+adminp:string = this.user.email;
+yesAdmin:boolean = false;
+
+isAdmin():void{
+  if(this.user.email == this.admin){
+    this.yesAdmin = true;
+  }
+  if(this.user.email == this.admin1){
+    this.yesAdmin = true;
+  }
+  if(this.user.email == this.admin2){
+    this.yesAdmin = true;
+  }
+  if(this.user.email == this.admin3){
+    this.yesAdmin = true;
+  }
+}
 //  ngOnInit(): void {
  
 //    this.authService.authState.subscribe((user) => {
@@ -27,13 +48,13 @@ export class CrowdSourceRankingComponent implements OnInit {
   FF:FantasyFolk[] = [];
   watchlistresult:Watchlist[] = [];
   ngOnInit(): void {
-      
-      this._fantasyService.getFantasyFolkList().subscribe((response:FantasyFolk[])=>{      
-        
+    this.yesAdmin= false;
+      this._fantasyService.getFantasyFolkList().subscribe((response:FantasyFolk[])=>{             
         this.FF = response;
         this.authService.authState.subscribe((user) => {
           this.user = user;
           this.loggedIn = (user != null);
+          this.isAdmin();
         });
       });    
   }

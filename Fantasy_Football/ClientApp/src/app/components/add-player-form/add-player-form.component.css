@@ -1,11 +1,9 @@
-.ap{
-    border: 1px solid;
-    background-color: rgba(0, 0, 0, 0.4);
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    width: fit-content;
+p{
+    color:white
 }
+
 button{
-    background-color: red;
+    background-color: green;
     border-radius: 15%;
     
     color: white;
@@ -19,7 +17,7 @@ button{
 }
   
 button:hover {
-    background-color: #b08700b4; 
+    background-color: rgb(0, 106, 0);
     color: white;
   }
   

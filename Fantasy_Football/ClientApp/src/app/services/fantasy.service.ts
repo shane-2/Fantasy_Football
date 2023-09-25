@@ -6,6 +6,7 @@ import { HotCold } from '../models/hot-cold';
 import { DefRank } from '../models/def-rank';
 import { FantasyFolk } from '../models/fantasy-folk';
 import { Watchlist } from '../models/watchlist';
+import { News } from '../models/news';
 
 @Injectable({
   providedIn: 'root'
@@ -79,8 +80,12 @@ DeleteFolk(Id:number){
   return this.http.delete<FantasyFolk>(`${this.baseUrl}api/Player/${Id}`);
 }
 
-GetVoterFraud():Observable<FantasyFolk>{
-  return this.http.get<FantasyFolk>(`${this.baseUrl}api/Player/VoterFraud`);
+GetVoterFraud():Observable<FantasyFolk[]>{
+  return this.http.get<FantasyFolk[]>(`${this.baseUrl}api/Player/VoterFraud`);
+}
+
+GetNews():Observable<News[]>{
+  return this.http.get<News[]>(`${this.baseUrl}api/Player/News`)
 }
 
 }

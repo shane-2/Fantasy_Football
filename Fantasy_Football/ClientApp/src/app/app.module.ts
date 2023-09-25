@@ -18,6 +18,9 @@ import { VotingComponent } from './components/voting/voting.component';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
 import { CrowdSourceRankingComponent } from './components/crowd-source-ranking/crowd-source-ranking.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { NewsComponent } from './components/news/news.component';
+import { AddPlayerFormComponent } from './components/add-player-form/add-player-form.component';
+import { FAQComponent } from './components/faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { AdminComponent } from './components/admin/admin.component';
     VotingComponent,
     WatchlistComponent,
     CrowdSourceRankingComponent,
-    AdminComponent
+    AdminComponent,
+    NewsComponent,
+    AddPlayerFormComponent,
+    FAQComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -51,7 +57,8 @@ import { AdminComponent } from './components/admin/admin.component';
       { path: 'top100', component: PlayerListComponent},
       { path: 'crowdsource', component: CrowdSourceRankingComponent},
       { path: 'watchlist', component: WatchlistComponent},
-      { path: 'admin', component: AdminComponent}
+      { path: 'admin', component: AdminComponent},
+      { path: 'FAQ', component: FAQComponent}
 
 
     ])

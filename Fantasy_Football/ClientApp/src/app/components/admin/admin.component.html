@@ -1,1 +1,6 @@
-<button (click)="UseVoterFraud()">push</button>
+<div *ngIf="loggedIn && yesAdmin" ><button (click)="UseVoterFraud()">Half Votes</button>
+
+<div class="ap">
+<app-add-player-form (FantasyFolkCreated)="NewFolk($event)"></app-add-player-form>
+</div>
+</div>
