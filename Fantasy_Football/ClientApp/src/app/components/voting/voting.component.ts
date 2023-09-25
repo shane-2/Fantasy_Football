@@ -94,10 +94,9 @@ export class VotingComponent implements OnInit {
     });
   }
 
-  // teamColor = this.getTeamColor(team);
-  // getTeamColor(team: string): string {
-  //   return this.teamColors[team] || "#ffffff"
-  // }
+  getTeamColor(team: string): string {
+    return `var(--team-color-${team})`
+  }
  
 
   NavToROS(p: PlayerElement) {

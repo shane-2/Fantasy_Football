@@ -1,9 +1,12 @@
 <head>
   <meta charset="UTF-8" />
 </head>
-<p class="title" style="color: white">Using your intellect, intuition, and inability to quit Fantasy Football, 
-  help us take rankings back from the Pros! Vote for the player you'd rather have on your team for the rest of the 2023 Fantasy Season by clicking their portrait. 
-  When you're done, check our rankings to see what your peers think!</p>
+<p class="title" style="color: white">
+  Using your intellect, intuition, and inability to quit Fantasy Football, help
+  us take rankings back from the Pros! Vote for the player you'd rather have on
+  your team for the rest of the 2023 Fantasy Season by clicking their portrait.
+  When you're done, check our rankings to see what your peers think!
+</p>
 <body>
   <div class="container">
     <div *ngFor="let c of combatPair; let i = index">
@@ -11,16 +14,21 @@
         #playerCard
         class="player-card"
         [class.expanded-details]="showDetailsToggled"
-        
+        [ngStyle]="{ 'background-color': getTeamColor(c.team) }"
       >
-      <!-- [ngStyle] = "{'background-color': getTeamColor(c.team)}" -->
+        <!-- [ngStyle] = "{'background-color': getTeamColor(c.team)}" -->
         <!-- <div class="primary-container"> -->
         <div class="face" (click)="Vote(combatPair, c.playerId)">
-          <img
-            id="portrait"
-            src="https://www.fantasynerds.com/images/nfl/players_large/{{
-              c.playerId }}.png"
-            alt="{{ c.name }} photo"/>
+          <div class="image-container">
+            <img
+              id="portrait"
+              src="https://www.fantasynerds.com/images/nfl/players_large/{{
+                c.playerId
+              }}.png"
+              alt="{{ c.name }} photo"
+            />
+          </div>
+
           <span class="name">{{ c.name }}</span>
           <!-- player icons go here -->
           <!-- <div class="icons"><span>&#x2b50; &#x26a1;</span></div> -->
@@ -39,14 +47,14 @@
             <dd>{{ c.votes }}</dd>
             <!-- <dt>Win Percentage:</dt>
             <dd>{{ c.winPercent }}</dd> -->
-            </dl>
+          </dl>
         </div>
         <!-- </div> -->
         <div class="expanded-container">
           <button class="toggleDetails" (click)="toggleDetails(i)">
-            Click for Rest of Season Projections
+            Rest of Season Projections
           </button>
-          <div *ngIf="c.showDetails[i]">
+          <div class="stat-block" *ngIf="c.showDetails[i]">
             <app-player-detail
               [combatplayer]="c"
               [hideOnVotingExpand]="true"
