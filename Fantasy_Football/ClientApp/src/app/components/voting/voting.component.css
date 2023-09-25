@@ -6,17 +6,21 @@ p {
 
 body {
     width: auto;
-    background-image: url("https://static.profootballnetwork.com/wp-content/uploads/2023/04/14132325/NFL-Teams-in-Alphabetical-Order-scaled.webp") ;
-    
-   
-    background-size: 100%;
+    color: black;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: "montserrat", sans-serif;
+    background: transparent;
+}
+
+dt, dd, dl { 
+text-decoration: none;
 }
 
 .title{
     background-color: rgb(6, 6, 6, .5);
     font-size: 1em;
     font-weight:400;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: sans-serif;
 }
 
 .container {
@@ -25,7 +29,6 @@ body {
     grid-auto-flow: row;
     gap: 1.5em;
     justify-items: center;
-    background-color: rgb(255, 255, 255, );
     padding: 10px;
 }
 
@@ -42,9 +45,12 @@ body {
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;    
-    background-image: none;
-    background-color: white;
-    opacity: 0.9;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.4)
+      );
+    color: #ffffff;
+   
 }
 
 /* parent of #portrait and #name */
@@ -55,22 +61,36 @@ body {
    grid-row-end: 2;  
    grid-area: face;
    border-radius: 10px;
+   margin-top: 10px;
    margin-left: 25px;
    margin-right: 5px;
-   margin-bottom: 10px;
+   margin-bottom: 15px;
    cursor: pointer;
 
 }
 
+.image-container {
+    width: 100%;
+    background-color: #ffffff95;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
 #portrait {
     width: 95%;
-    margin-bottom: 0.5em;
+    margin: 0;
+    padding: 0;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 .name {
     font-size: 2em;
     font-weight:600;
+    letter-spacing: 0.03em;
     /* justify-self: center;
     display: inline-block; */
     text-align: center;
@@ -84,7 +104,8 @@ body {
     grid-area: info;
     cursor: pointer;
     padding-top: 20px;
-    gap: 0em;
+    margin-left: 10%;
+    gap: 1em;
 }
 
 .categories {
@@ -105,43 +126,11 @@ body {
     grid-column-end: 2;
     grid-row-end: 2;
     grid-area: expand;
-    background-color: white;
-    opacity: 0.9;
     margin-bottom: 5px;
 }
 
-/* gradient:  */
-.voteButton {
-   width: 95%;
-   background-color: white;
-   border-radius: 10px;
-   border-top: 2px solid #96d1f8;
-   padding: 0 10px 0 10px;
-   
-   
-   background: -webkit-gradient(linear, left top, left bottom, from(#377fb0), to(#65a9d7));
-   background: -webkit-linear-gradient(top, #377fb0, #65a9d7);
-   background: -moz-linear-gradient(top, #377fb0, #65a9d7);
-   background: -ms-linear-gradient(top, #377fb0, #65a9d7);
-   background: -o-linear-gradient(top, #377fb0, #65a9d7);
-   background: black;
-   padding: 5px 10px;
-   -webkit-border-radius: 8px;
-   -moz-border-radius: 8px;
-   border-radius: 8px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   
-   font-size: 1.25em;
-   font-weight: 900;
-   
-   text-decoration: none;
-   vertical-align: middle;
-   }
-
 .toggleDetails {
+    margin-top: 10px;
     margin-left: 5%;
     margin-bottom: 5px;
     width: 90%;
@@ -162,7 +151,7 @@ body {
    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
    box-shadow: rgba(0,0,0,1) 0 1px 0;
    /* text-shadow: rgba(0,0,0,.4) 0 1px 0; */
-   color: black;
+   color: white;
    font-size: 1.25em;
    font-weight: 900;
    font-family: Helvetica, Arial, Sans-Serif;
@@ -182,6 +171,20 @@ button:active {
     
 .expanded-details {
     grid-template-rows: 1fr 20%;
+}
+
+.stat-block {
+    padding: 10px;
+    margin-top: 15px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    color: black;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.8)
+      );
 }
 
 @media (min-width: 768px) {

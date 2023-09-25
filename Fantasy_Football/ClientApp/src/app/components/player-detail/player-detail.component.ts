@@ -27,7 +27,7 @@ export class PlayerDetailComponent implements OnInit {
 
   @Input() combatplayer: FantasyFolk = {} as FantasyFolk;
   @Input() hideOnVotingExpand: boolean = false;
-  @Input() hideOnPortraitDisplay: boolean = false;
+
   @Input()
   portraitUrl: string =
     'https://www.fantasynerds.com/images/nfl/players_large/';

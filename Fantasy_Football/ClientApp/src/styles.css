@@ -20,7 +20,7 @@ code {
 body {
   width: 100vw;
   height: 100vh;
-  background-image: url("https://scontent.fdet1-2.fna.fbcdn.net/v/t39.30808-6/378139913_10231747787619794_5474116909620505237_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=49d041&_nc_ohc=dwWqfazSF9cAX9ejzn6&_nc_ht=scontent.fdet1-2.fna&oh=00_AfD80iB674WyBWlDASvghMl8cBNvrCSd5Ry8a0yGc-DLtQ&oe=651012CE");
+  background-image: url("https://i.imgur.com/PFQs14m.jpg");
   background-size: cover;
 }
 .scroll-left {
@@ -57,3 +57,37 @@ font-family: 'Roboto Condensed', sans-serif;
   }
  }
 
+:root {
+  --team-color-ARI: #97233F;
+  --team-color-ATL: #A71930;
+  --team-color-BAL: #241773;
+  --team-color-BUF: #00338D;
+  --team-color-CAR: #0085CA;
+  --team-color-CIN: #FB4F14;
+  --team-color-CHI: #0B162A;
+  --team-color-CLE: #311D00;
+  --team-color-DAL: #003594;
+  --team-color-DEN: #FB4F14;
+  --team-color-DET: #0076B6;
+  --team-color-GB: #203731;
+  --team-color-HOU: #03202F;
+  --team-color-IND: #002C5F;
+  --team-color-JAX: #101820;
+  --team-color-KC: #E31837;
+  --team-color-LAC: #0080C6;
+  --team-color-LAR: #003594;
+  --team-color-MIA: #008E97;
+  --team-color-MIN: #4F2683;
+  --team-color-NE: #002244;
+  --team-color-NO: #D3BC8D;
+  --team-color-NYG: #0B2265;
+  --team-color-NYJ: #125740;
+  --team-color-OAK: #000000;
+  --team-color-PHI: #004C54;
+  --team-color-PIT: #FFB612;
+  --team-color-SF: #AA0000;
+  --team-color-SEA: #69BE28;
+  --team-color-TB: #D50A0A;
+  --team-color-TEN: #0C2340;
+  --team-color-WSH: #5A1414;
+}

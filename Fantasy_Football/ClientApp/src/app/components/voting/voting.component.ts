@@ -32,6 +32,8 @@ export class VotingComponent implements OnInit {
   DisplayQB: boolean = false;
   combatPair: ExpandedPlayerDetail[] = [];
   showDetailsToggled: boolean = false;
+  
+ 
 
   ngOnInit(): void {
     this.CallDB();
@@ -92,11 +94,17 @@ export class VotingComponent implements OnInit {
     });
   }
 
+  getTeamColor(team: string): string {
+    return `var(--team-color-${team})`
+  }
+ 
+
   NavToROS(p: PlayerElement) {
     this._fantasyService.setPlayer(p);
     console.log(p);
     this.router.navigate(['/rosdetail']);
   }
+}
 
   // compare(): any {
   //   return this._fantasyService.getROSDetails(this._fantasyService.getsetPlayer()).subscribe((response:any) =>{
@@ -133,4 +141,4 @@ export class VotingComponent implements OnInit {
 
   //   });
   //}
-}
+//}
