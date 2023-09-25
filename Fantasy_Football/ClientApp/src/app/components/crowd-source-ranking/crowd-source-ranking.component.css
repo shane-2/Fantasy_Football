@@ -28,8 +28,8 @@ table, td {
     color:white
 }
 
-button{
-  background-color: red;
+.button1{
+  background-color: rgb(64, 202, 0);
   border-radius: 15%;
   
   color: white;
@@ -42,7 +42,25 @@ button{
   transition-duration: 0.4s;
 }
 
-button:hover {
-  background-color: #ff5e00; /* Green */
+.button2{
+  background-color: rgb(255, 0, 0);
+  border-radius: 15%;
+  
+  color: white;
+  padding: 5px 15px;
+  border: 2px solid black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+}
+
+.button1:hover {
+  background-color: #178c02; 
+  color: white;
+}
+.button2:hover {
+  background-color: #9a3800; 
   color: white;
 }

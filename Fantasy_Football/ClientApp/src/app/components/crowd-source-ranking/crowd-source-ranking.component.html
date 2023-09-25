@@ -21,8 +21,8 @@
           <img
             src="https://www.fantasynerds.com/images/nfl/players_small/{{ p.playerId }}.png"/>
         </td>
-        <td *ngIf="loggedIn"><button (click)="AddWatchlist(user.email, p)">shalom </button></td>
-        <td *ngIf="yesAdmin && loggedIn"><button (click)="DeleteFolk(p.id)">Delete Player</button></td>
+        <td *ngIf="loggedIn"><button class="button1" (click)="AddWatchlist(user.email, p)">Add To Watchlist </button></td>
+        <td *ngIf="yesAdmin && loggedIn"><button class="button2" (click)="DeleteFolk(p.id)">Delete Player</button></td>
       </tr>
     </table>
     </div>

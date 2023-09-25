@@ -4,17 +4,22 @@ p {
 
 body {
     width: auto;
-  
-    
+}
+
+.title{
+    background-color: rgb(6, 6, 6, .5);
+    font-size: 1em;
+    font-weight:400;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .container {
     
     display: grid;
     grid-auto-flow: row;
-    gap: 1em;
+    gap: 1.5em;
     justify-items: center;
-    background-color: white;
+    background-color: rgb(255, 255, 255, .01);
     padding: 10px;
 }
 

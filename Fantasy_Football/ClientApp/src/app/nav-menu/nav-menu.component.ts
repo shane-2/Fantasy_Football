@@ -12,8 +12,8 @@ export class NavMenuComponent {
   loggedIn: boolean = false;
   admin:string = "shanechastain10@gmail.com"
   admin1:string = "zachbuth@gmail.com"
-  admin2:string = "shanechastain10@gmail.com"
-  admin3:string = "shanechastain10@gmail.com"
+  admin2:string = "heathj873@gmail.com"
+  admin3:string = "dougy@gmail.com"
 adminp:string = this.user.email;
 yesAdmin:boolean = false;
 
