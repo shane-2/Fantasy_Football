@@ -1,21 +1,21 @@
 <div id="dataContainer">
   <div class="playerInfo" *ngIf="DisplayFlex == true && !hideOnVotingExpand">
     <h1>Rest of Season Projections</h1>
-
     <p>Name: {{ Flex.name }}</p>
     <p>Team: {{ Flex.team }}</p>
     <p>Position: {{ Flex.position }}</p>
   </div>
   <div class="statBlock" *ngIf="DisplayFlex == true && DisplayQB == false">
-    <p>Rush Att: {{ Flex.rushing_attempts }}</p>
-    <p>Rush Yds: {{ Flex.rushing_yards }}</p>
-    <p>Rush TDs: {{ Flex.rushing_touchdowns }}</p>
-    <p>Fumbles: {{ Flex.fumbles }}</p>
-    <p>Receptions: {{ Flex.receptions }}</p>
-    <p>Targets: {{ Flex.targets }}</p>
-    <p>Rec Yds: {{ Flex.receiving_yards }}</p>
-    <p>Rec Tds: {{ Flex.receiving_touchdowns }}</p>
-    <p>Projected Fantasy Points: {{ Flex.proj_pts }}</p>
+    <p>Per Game</p>
+    <p>Rush Att: {{ GetNumber(Flex.rushing_attempts) / divider | number:'1.0-1'}}</p>
+    <p>Rush Yds: {{ GetNumber(Flex.rushing_yards) / divider | number:'1.0-1'}}</p>
+    <p>Rush TDs: {{ GetNumber(Flex.rushing_touchdowns) / divider | number:'1.0-1'}}</p>
+    <p>Fumbles: {{ GetNumber(Flex.fumbles) / divider | number:'1.0-1'}}</p>
+    <p>Receptions: {{ GetNumber(Flex.receptions) / divider | number:'1.0-1'}}</p>
+    <p>Targets: {{ GetNumber(Flex.targets) / divider | number:'1.0-1'}}</p>
+    <p>Rec Yds: {{ GetNumber(Flex.receiving_yards) / divider | number:'1.0-1'}}</p>
+    <p>Rec Tds: {{ GetNumber(Flex.receiving_touchdowns) / divider | number:'1.0-1'}}</p>
+    <p>Projected Fantasy Points: {{ GetNumber(Flex.proj_pts) / divider | number:'1.0-1'}}</p>
   </div>
   <!-- <div *ngIf="!hideOnVotingExpand"><img [src]="portraitUrl + Flex.playerId + '.png'" alt="{{Flex.name}} player portrait"> -->
   <div *ngIf="!hideOnVotingExpand">
@@ -35,15 +35,16 @@
     <p>Position: {{ Quarterback.position }}</p>
   </div>
   <div class="statBlock" *ngIf="DisplayFlex == false && DisplayQB == true">
-    <p>Pass Att: {{ Quarterback.passing_attempts }}</p>
-    <p>Completions: {{ Quarterback.passing_completions }}</p>
-    <p>Pass Yds: {{ Quarterback.passing_yards }}</p>
-    <p>Pass TDs: {{ Quarterback.passing_touchdowns }}</p>
-    <p>INTs: {{ Quarterback.passing_interceptions }}</p>
-    <p>Rush Att: {{ Quarterback.rushing_attempts }}</p>
-    <p>Rush Yds: {{ Quarterback.rushing_yards }}</p>
-    <p>Rush TDs: {{ Quarterback.rushing_touchdowns }}</p>
-    <p>Projected Fantasy Points: {{ Quarterback.proj_pts }}</p>
+    <p>Per Game</p>
+    <p>Pass Att: {{ GetNumber(Quarterback.passing_attempts) / divider | number:'1.0-1'}}</p>
+    <p>Completions: {{ GetNumber(Quarterback.passing_completions) / divider | number:'1.0-1'}}</p>
+    <p>Pass Yds: {{ GetNumber(Quarterback.passing_yards) / divider | number:'1.0-1'}}</p>
+    <p>Pass TDs: {{ GetNumber(Quarterback.passing_touchdowns) / divider | number:'1.0-1'}}</p>
+    <p>INTs: {{ GetNumber(Quarterback.passing_interceptions) / divider | number:'1.0-1'}}</p>
+    <p>Rush Att: {{ GetNumber(Quarterback.rushing_attempts) / divider | number:'1.0-1'}}</p>
+    <p>Rush Yds: {{ GetNumber(Quarterback.rushing_yards) / divider | number:'1.0-1'}}</p>
+    <p>Rush TDs: {{ GetNumber(Quarterback.rushing_touchdowns) / divider | number:'1.0-1'}}</p>
+    <p>Projected Fantasy Points: {{ GetNumber(Quarterback.proj_pts) / divider | number:'1.0-1'}}</p>
   </div>
   <img
     *ngIf="!hideOnVotingExpand"

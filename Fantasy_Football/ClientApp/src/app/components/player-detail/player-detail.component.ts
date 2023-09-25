@@ -38,6 +38,8 @@ export class PlayerDetailComponent implements OnInit {
 
   setplayer: PlayerElement = this._fantasyService.getsetPlayer();
 
+  divider: number = 15;
+
   player: Qb | Rb | K | Def | Idp | undefined;
 
   Quarterback: Qb = {} as Qb;
@@ -45,6 +47,13 @@ export class PlayerDetailComponent implements OnInit {
   Kicker: K = {} as K;
   Defense: Def = {} as Def;
   IDP: Idp = {} as Idp;
+
+  GetNumber(x: string): any {
+    const parsedFloat = parseFloat(x);
+    if (!isNaN(parsedFloat)) {
+      return parsedFloat;
+    } 
+  }
 
   ngOnInit(): void {
     if (this.combatplayer && this.combatplayer.playerId == undefined) {
