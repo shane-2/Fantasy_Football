@@ -6,7 +6,12 @@ body {
     width: auto;
     color: black;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    font-family: "open sans", sans-serif;
+    font-family: "montserrat", sans-serif;
+    background: transparent;
+}
+
+dt, dd, dl { 
+text-decoration: none;
 }
 
 .title{
@@ -54,9 +59,10 @@ body {
    grid-row-end: 2;  
    grid-area: face;
    border-radius: 10px;
+   margin-top: 10px;
    margin-left: 25px;
    margin-right: 5px;
-   margin-bottom: 10px;
+   margin-bottom: 15px;
    cursor: pointer;
 
 }
@@ -81,8 +87,8 @@ body {
 
 .name {
     font-size: 2em;
-    font-weight:500;
-    letter-spacing: 0.05em;
+    font-weight:600;
+    letter-spacing: 0.03em;
     /* justify-self: center;
     display: inline-block; */
     text-align: center;
@@ -96,7 +102,8 @@ body {
     grid-area: info;
     cursor: pointer;
     padding-top: 20px;
-    gap: 0em;
+    margin-left: 10%;
+    gap: 1em;
 }
 
 .categories {
