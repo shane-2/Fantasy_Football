@@ -2,8 +2,14 @@ p {
     text-align: center;
 }
 
+
+
 body {
     width: auto;
+    background-image: url("https://static.profootballnetwork.com/wp-content/uploads/2023/04/14132325/NFL-Teams-in-Alphabetical-Order-scaled.webp") ;
+    
+   
+    background-size: 100%;
 }
 
 .title{
@@ -19,7 +25,7 @@ body {
     grid-auto-flow: row;
     gap: 1.5em;
     justify-items: center;
-    background-color: rgb(255, 255, 255, .01);
+    background-color: rgb(255, 255, 255, );
     padding: 10px;
 }
 
@@ -166,7 +172,7 @@ body {
 }
 button:hover {
    border-top-color: #28597a;
-   background: #28597a;
+   background: #275675;
    color: #ccc;
    }
 button:active {
