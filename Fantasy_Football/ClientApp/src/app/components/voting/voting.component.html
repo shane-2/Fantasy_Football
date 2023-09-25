@@ -8,17 +8,16 @@
         #playerCard
         class="player-card"
         [class.expanded-details]="showDetailsToggled"
+        
       >
+      <!-- [ngStyle] = "{'background-color': getTeamColor(c.team)}" -->
         <!-- <div class="primary-container"> -->
         <div class="face" (click)="Vote(combatPair, c.playerId)">
           <img
             id="portrait"
             src="https://www.fantasynerds.com/images/nfl/players_large/{{
-              c.playerId
-            }}.png"
-            alt="placeholder img"
-          />
-          <!-- <app-player-detail [combatplayer]="c"  [hideOnPortraitDisplay]="true"></app-player-detail> -->
+              c.playerId }}.png"
+            alt="{{ c.name }} photo"/>
           <span class="name">{{ c.name }}</span>
           <!-- player icons go here -->
           <!-- <div class="icons"><span>&#x2b50; &#x26a1;</span></div> -->

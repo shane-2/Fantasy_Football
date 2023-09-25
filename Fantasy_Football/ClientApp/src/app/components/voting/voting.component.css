@@ -28,8 +28,8 @@ body {
     border-width: 2px;
     border-radius: 10px;    
     background-image: none;
-    background-color: white;
-    opacity: 0.9;
+    background-color: rgba(151, 35, 63, 0.8);
+    
 }
 
 /* parent of #portrait and #name */

@@ -24,3 +24,37 @@ body {
   background-size: cover;
 }
 
+:root {
+  --team-color-ARI: #97233F;
+  --team-color-ATL: #A71930;
+  --team-color-BAL: #241773;
+  --team-color-BUF: #00338D;
+  --team-color-CAR: #0085CA;
+  --team-color-CIN: #FB4F14;
+  --team-color-CHI: #0B162A;
+  --team-color-CLE: #311D00;
+  --team-color-DAL: #003594;
+  --team-color-DEN: #FB4F14;
+  --team-color-DET: #0076B6;
+  --team-color-GB: #203731;
+  --team-color-HOU: #03202F;
+  --team-color-IND: #002C5F;
+  --team-color-JAX: #101820;
+  --team-color-KC: #E31837;
+  --team-color-LAC: #0080C6;
+  --team-color-LAR: #003594;
+  --team-color-MIA: #008E97;
+  --team-color-MIN: #4F2683;
+  --team-color-NE: #002244;
+  --team-color-NO: #D3BC8D;
+  --team-color-NYG: #0B2265;
+  --team-color-NYJ: #125740;
+  --team-color-OAK: #000000;
+  --team-color-PHI: #004C54;
+  --team-color-PIT: #FFB612;
+  --team-color-SF: #AA0000;
+  --team-color-SEA: #69BE28;
+  --team-color-TB: #D50A0A;
+  --team-color-TEN: #0C2340;
+  --team-color-WSH: #5A1414;
+}
