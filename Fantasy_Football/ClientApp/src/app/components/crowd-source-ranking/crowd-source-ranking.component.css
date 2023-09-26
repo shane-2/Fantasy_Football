@@ -4,6 +4,7 @@ body {
 
 .container {
   width: auto;
+  height: auto;
   display: grid;
   grid-auto-flow: row;
   gap: 2em;
@@ -13,81 +14,108 @@ body {
 .card {
   min-width: 300px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: minmax(1.5em, 2.5em) minmax(1.5em, 2.5em) minmax(250px, 300px) minmax(2em, 4em) 2em;
   grid-template-areas:
-  "title title"
-  "photo photo"
-  "team" "position"
+  "rank rank rank rank rank watchlist"
+  "name name name name name name"
+  "photo photo photo photo photo photo"
+  "team team team" " position position position"
+  "delete delete delete delete delete delete"
 }
 
-.title {
-  grid-area: title;
+.rank {
+  grid-area: rank;
   grid-column-start: 1;
   grid-row-start: 1;
-  grid-column-end: 2;
+  grid-column-end: 6;
   grid-row-end: 2;
-  max-height: 4em;
   gap: 1em;
-  padding: 10px 0 0 10px;
+  padding: 10px 0 10px 0;
+  margin: 0 0 10px 10px;
+  font-weight: 500;
+}
+
+.watch-list {
+  grid-area: watch-list;
+  grid-column-start: 6;
+  grid-row-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 2;
+  max-height: 2em;
+  margin-top: 5px;
+}
+
+.name {
+  grid-area: name;
+  grid-column-start: 1;
+  grid-row-start: 2;
+  grid-column-end: 7;
+  grid-row-end: 3;
+  margin: 10px 0 0 10px;
+  padding: 5px;
+  font-weight: 600;
 }
 
 .photo {
   grid-area: photo;
   grid-column-start: 1;
   grid-row-start: 2;
-  grid-column-end: 3;
+  grid-column-end: 7;
   grid-row-end: 3;
+  margin-top: 2em;
   margin-bottom: 1em;
+  min-height: 300px;
 }
 
 .team {
   grid-area: team;
   grid-column-start: 1;
-  grid-row-start: 3;
-  grid-column-end: 2;
-  grid-row-end: 4;
+  grid-row-start: 4;
+  grid-column-end: 4;
+  grid-row-end: 5;
   display: grid;
-  justify-content: center;
+  
 }
 
 .position {
-  grid-column-start: 2;
-  grid-row-start: 3;
-  grid-column-end: 2;
-  grid-row-end: 4;
+  grid-column-start: 4;
+  grid-row-start: 4;
+  grid-column-end: 7;
+  grid-row-end: 5;
   display: grid;
-  justify-content: center;
+  
+
+}
+
+.delete {
+  grid-column-start: 1;
+  grid-row-start: 5;
+  grid-column-end: 7;
+  grid-row-end: 6;
+  display: grid;
+  place-content: center;
 }
 
 dt.name, dt.rank {
   display: none;
 }
 
-span.rank {
+.number {
   font-size: 1.5em;
-  display: block;
 }
 
 span.player-name {
   font-size: 1.5em;}
 
-
 .portrait {
+  object-fit: cover;
+  object-position: 40% center;
   max-width: 100%;
   max-height: 100%;
 }
 
-@media (min-width: 45em) {
-  .container {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5em;
-  }
 
-  .card {
-    grid-template-rows: 1fr 2fr 1fr;
-  }
-}
 
 .button1{
   background-color: rgb(64, 202, 0);
@@ -124,4 +152,26 @@ span.player-name {
 .button2:hover {
   background-color: #9a3800; 
   color: white;
+}
+
+@media (min-width: 45em) {
+  .container {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5em;
+      
+  }
+
+  .card {
+    grid-template-rows: minmax(20px, 30px) minmax(30px, 40px) 300px minmax(1em, 3em) 2em
+  }
+
+  .name {
+    padding: 0;
+  }
+
+  .photo {
+    padding: 5px;
+    margin-top: 40px;
+    margin-bottom: 0px;
+  }
 }

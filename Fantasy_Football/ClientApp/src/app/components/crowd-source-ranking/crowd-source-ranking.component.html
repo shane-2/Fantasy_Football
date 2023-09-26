@@ -1,10 +1,19 @@
 <app-news></app-news>
 <div class="container">
   <div class="card" *ngFor="let p of FF">
-    <div class="title">
-      <span class="rank">#{{ p.rank }} </span>
+    <div class="rank">
+      <span class="number">#{{ p.rank }} </span>
+    </div>
+    <div class="watch-list" >
+      <!-- <button *ngIf="loggedIn" (click)="AddWatchlist(user.email, p)"> -->
+      <button  (click)="AddWatchlist(user.email, p)">
+        Watch
+      </button>
+    </div>
+    <div class = "name">
       <span class="player-name">{{ p.name }}</span>
     </div>
+    
     <div class="photo">
       <img
         class="portrait"
@@ -26,11 +35,12 @@
         <dd>{{ p.position }}</dd>
       </dl>
     </div>
-    <button *ngIf="loggedIn" (click)="AddWatchlist(user.email, p)">
-      Watch
-    </button>
-    <button *ngIf="yesAdmin && loggedIn" (click)="DeleteFolk(p.id)">
+
+    <!-- <div *ngIf="yesAdmin && loggedIn" class="delete"> -->
+    <div class="delete">
+    <button  (click)="DeleteFolk(p.id)">
       Delete
     </button>
+  </div>
   </div>
 </div>
