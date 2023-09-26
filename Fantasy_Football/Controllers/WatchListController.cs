@@ -51,7 +51,7 @@ namespace Fantasy_Football.Controllers
 
         public Watchlist AddWatchList([FromBody] Watchlist newPlayer)
         {
-            if (!dbcontext.Watchlists.Any(p => p.PlayerId == newPlayer.Id && p.Username == newPlayer.Username))
+            if (!dbcontext.Watchlists.Any(p => p.PlayerId == newPlayer.PlayerId && p.Username == newPlayer.Username))
             {
                 dbcontext.Watchlists.Add(newPlayer);
                 dbcontext.SaveChanges();
