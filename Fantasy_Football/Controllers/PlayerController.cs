@@ -136,13 +136,13 @@ namespace Fantasy_Football.Controllers
             }
 
             FantasyFolk AB = dbcontext.FantasyFolks.FirstOrDefault(x => x.Rank == a);
-            FantasyFolk BA = dbcontext.FantasyFolks.FirstOrDefault(x => x.Rank == b);            
-            //if(BA == null)
-            //{
-            //    b = r.Next(1, dbcontext.FantasyFolks.ToList().Count);
+            FantasyFolk BA = dbcontext.FantasyFolks.FirstOrDefault(x => x.Rank == b);
+            if (BA == null)
+            {
+                b = r.Next(1, dbcontext.FantasyFolks.ToList().Count);
 
-            //     BA = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == b);
-            //}
+                BA = dbcontext.FantasyFolks.FirstOrDefault(x => x.Id == b);
+            }
             Duo.Add(BA);
             Duo.Add(AB);
             return Duo;

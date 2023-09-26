@@ -95,4 +95,8 @@ export class CrowdSourceRankingComponent implements OnInit {
       console.log(response);
     });
   }
+
+  getTeamColor(team: string): string {
+    return `var(--team-color-${team})`
+  }
 }

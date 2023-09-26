@@ -1,6 +1,6 @@
 <app-news></app-news>
 <div class="container">
-  <div class="card" *ngFor="let p of FF">
+  <div class="card" *ngFor="let p of FF" [ngStyle]="{ 'background-color': getTeamColor(p.team) }">
     <div class="rank">
       <span class="number">#{{ p.rank }} </span>
     </div>
@@ -13,8 +13,8 @@
     <div class="name">
       <span class="player-name">{{ p.name }}</span>
     </div>
-
     <div class="photo">
+      <div class="photo-frame">
       <img
         class="portrait"
         src="https://www.fantasynerds.com/images/nfl/players_large/{{
@@ -22,6 +22,7 @@
         }}.png"
         alt="{{ p.name }} photo"
       />
+    </div>
     </div>
     <div class="team">
       <dl>
@@ -40,7 +41,7 @@
     <div class="delete">
       <div class="delete-button">
         <svg>
-          (click)="DeleteFolk(p.id)" fill="currentColor" viewBox="-10 -10 50 50"
+          (click)="DeleteFolk(p.id)" fill="currentColor" viewBox="30 10 30 30"
           xmlns="http://www.w3.org/2000/svg" aria-hidden="true" >
           <path
             clip-rule="evenodd"

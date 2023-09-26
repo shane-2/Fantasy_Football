@@ -12,7 +12,7 @@
   <div class="container">
     <div *ngFor="let c of combatPair; let i = index">
       <div
-        #playerCard
+        
         class="player-card"
         [class.expanded-details]="showDetailsToggled"
         [ngStyle]="{ 'background-color': getTeamColor(c.team) }"

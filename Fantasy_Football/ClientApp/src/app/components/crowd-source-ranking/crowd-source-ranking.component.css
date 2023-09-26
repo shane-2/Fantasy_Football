@@ -1,11 +1,9 @@
 body {
   font-family: 'montserrat', sans-serif;
-  box-sizing: border-box;
 }
 
 .container {
   width: 100%;
-  height: auto;
   display: grid;
   grid-auto-flow: row;
   gap: 2em;
@@ -23,10 +21,12 @@ body {
   "rank rank rank rank rank watchlist"
   "name name name name name name"
   "photo photo photo photo photo photo"
-  "team team" "" "position position" "delete"
+  "team team" "" "position position" "delete";
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.7)
+  );
 }
-
-
 
 .rank {
   grid-area: rank;
@@ -116,19 +116,23 @@ body {
 }
 
 .delete {
+  grid-area: delete;
   grid-column-start: 6;
   grid-row-start: 4;
   grid-column-end: 7;
   grid-row-end: 5;
   display: grid;
   margin: 5px;
-  
 }
 
 .delete-button {
-  width:auto;
+  height: 2em;
+  width: 2em;
   cursor: pointer;
-  border-style: solid;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 0px;
+  padding: 5px;
 }
 
 .delete-button:hover {
@@ -193,7 +197,6 @@ dt.name, dt.rank {
 }
 @media (min-width: 64em) {
   .container {
-    
       grid-template-columns: repeat(4, 1fr);
       gap: 1.5em;
       
@@ -224,6 +227,14 @@ dt.name, dt.rank {
     padding: 5px;
     margin-top: 40px;
     margin-bottom: 0px;
+  }
+
+  .photo-frame {
+    border-radius: 10px;
+    background-image: linear-gradient(
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.9)
+  );
   }
 
   .team, .position {
