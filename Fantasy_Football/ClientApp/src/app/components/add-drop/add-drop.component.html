@@ -1,45 +1,59 @@
 <app-news></app-news>
-<div>
 <h1 class="whatever" style="color: aliceblue">Top Adds this Week</h1>
-<table class="t1">
-    <tr>
-      <th>Name</th>
-      <th>Team</th>
-      <th>Position</th>
-      <th>Glamour Shot</th>
-    </tr>
-    <tr *ngFor="let h of list.most_added">
+<div class="container">
+  <div class="card" *ngFor="let h of list.most_added">
+    <div #playerCard
+      class="player-card"     
+      [ngStyle]="{ 'background-color': getTeamColor(h.team) }">
 
-      <td>{{ h.name }}</td>
-      <td>{{ h.team }}</td>
-      <td>{{ h.position }}</td>   
-      <td>
-        <img
-          src="https://www.fantasynerds.com/images/nfl/players_small/{{ h.playerId }}.png"/>
-      </td>
-    </tr>
-  </table>
+      <span class="player-name">{{ h.name }}</span>
+      <div class="team">
+        <dl>
+          <dt >Team</dt>
+          <dd>{{ h.team }}</dd>
+        </dl>
+      </div>
+      <div class="position">
+        <dl>
+          <dt>Position</dt>
+          <dd>{{ h.position }}</dd>
+        </dl>
+      </div>
+      <img class="portrait"
+      src="https://www.fantasynerds.com/images/nfl/players_small/{{
+        h.playerId
+      }}.png"
+      />
+    </div>
+  </div>
 </div>
-  
+<br>
+<br>
 <h5 class="t2"></h5>
-<div>
-  
-  <h1 class="whatever" style="color: aliceblue">Top Drops this Week</h1>
-  <table class="t1">
-    <tr>
-      <th>Name</th>
-      <th>Team</th>
-      <th>Position</th>
-      <th>Mug Shot</th>
-    </tr>
-    <tr *ngFor="let h of list.most_dropped">
-      <td>{{ h.name }}</td>
-      <td>{{ h.team }}</td>
-      <td>{{ h.position }}</td>   
-      <td>
-        <img
-          src="https://www.fantasynerds.com/images/nfl/players_small/{{ h.playerId }}.png"/>
-      </td>
-    </tr>
-  </table>
+<h1 class="whatever" style="color: aliceblue">Most dropped this Week</h1>
+<div class="container">
+  <div class="card" *ngFor="let h of list.most_dropped">
+    <div #playerCard
+      class="player-card"     
+      [ngStyle]="{ 'background-color': getTeamColor(h.team) }">
+    <span class="player-name">{{ h.name }}</span>
+    <div class="team">
+      <dl>
+        <dt >Team</dt>
+        <dd>{{ h.team }}</dd>
+      </dl>
+    </div>
+    <div class="position">
+      <dl>
+        <dt>Position</dt>
+        <dd>{{ h.position }}</dd>
+      </dl>
+    </div>
+    <img class="portrait"
+      src="https://www.fantasynerds.com/images/nfl/players_small/{{
+        h.playerId
+      }}.png"
+    />
+    </div>
+  </div>
 </div>

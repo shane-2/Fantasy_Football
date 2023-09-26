@@ -29,4 +29,9 @@ export class AddDropComponent implements OnInit {
          
        });      
 
-}}
+}
+getTeamColor(team: string): string {
+  return `var(--team-color-${team})`
+}
+
+}
