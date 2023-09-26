@@ -64,5 +64,7 @@ export class WatchlistComponent implements OnInit {
 
     })
   }
-
+  getTeamColor(team: string): string {
+    return `var(--team-color-${team})`
+  }
 }

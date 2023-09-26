@@ -12,15 +12,28 @@ button{
   font-size: 16px;
   transition-duration: 0.4s;
 }
+.player-card {
 
-button:hover {
-  background-color: #ff5e00; /* Green */
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: minmax(350px, 350px) 20%;
+  grid-template-areas: 
+  "face info"
+  "expand expand";
+ 
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;    
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    );
   color: white;
-}
+  
+ }
 body {
   font-family: 'montserrat', sans-serif;
 }
-
 .container {
   width: auto;
   height:50%;
@@ -30,8 +43,17 @@ body {
   margin-top: 2em;
   justify-items: center;
 }
+button:hover {
+  background-color: #ff5e00; /* Green */
+  color: white;
+}
+body {
+  font-family: 'montserrat', sans-serif;
+}
 
-.card {
+
+
+/* .card {
  
   min-width: 300px;
   display: grid;
@@ -41,7 +63,7 @@ body {
   "title title"
   "photo photo"
   "team" "position"
-}
+} */
 
 .title {
   grid-area: title;

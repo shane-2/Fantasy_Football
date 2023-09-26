@@ -2,6 +2,9 @@
 <h1 style="color: aliceblue">My WatchList</h1>
 <div class="container">
   <div class="card" *ngFor="let f of fantasyList">
+    <div #playerCard
+      class="player-card"     
+      [ngStyle]="{ 'background-color': getTeamColor(f.team) }">
     <div class="title">
       <span class="rank">#{{ f.rank }} </span>
       <span class="player-name">{{ f.name }}</span>
@@ -21,9 +24,10 @@
             f.playerId
           }}.png"
         />
-      </div>
+      </div>      
       <button (click)="DeletePlayer(f.id)">Remove</button>
     </dl>
+    </div>
   </div>
 </div>
 <!-- <td>{{p.player.name}}</td>

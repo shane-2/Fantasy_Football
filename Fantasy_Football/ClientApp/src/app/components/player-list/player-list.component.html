@@ -3,6 +3,9 @@
 <h1 style="color: aliceblue">Top 100!</h1>
 <div class="container">
   <div class="card" *ngFor="let p of allPlayers">
+    <div #playerCard
+      class="player-card"     
+      [ngStyle]="{ 'background-color': getTeamColor(p.team) }">
     <dl>
     <button (click)="NavToROS(p)">{{ p.name }}</button>
     <dt>Rank</dt>
@@ -17,4 +20,5 @@
     src="https://www.fantasynerds.com/images/nfl/players_small/{{ p.playerId }}.png" alt="player portrait"/>
     </dl>
 </div>
+  </div>
 <!-- <p *ngFor="let i of allPlayers">('{{i.playerId}}', '{{i.name}}', '{{i.team}}', '{{i.position}}', 0, 0, 0, 0), </p> -->
