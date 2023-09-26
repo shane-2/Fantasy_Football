@@ -1,7 +1,10 @@
 h2 {
     text-align: center;
 }
-
+button{
+    background-color: rgb(225, 233, 239, .01);
+    
+}
 p {
     color: black
 }

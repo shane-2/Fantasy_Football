@@ -1,30 +1,104 @@
 <h2>FAQs</h2>
 <div>
-<p>Do acronyms like RB and WR sound like gibberish?</p>
+  <p (click)="(bool1=!bool1)">
+    1. Do acronyms like RB and WR sound like gibberish?
+  </p>
 <br>
-<p>No problem, I'll explain. Running backs (RB) take handoffs directly from the line of scrimmage, and tend to carry the ball more often for fewer yards. Receivers (WR) on the other hand, usually catch the ball from the quarterback for more yards but with less frequency. They both have relatively equal value for fantasy, and will always make up in the Top 10 spots in our rankings because you need two of each to field a roster. On top of that, most leagues have an added FLEX position where you can score an additional RB or WR. Even though Quarterbacks (QB) score the most points, most leagues only have one QB spot, which lessens their value due to something called positional scarcity.  The best QB (usually Patrick Mahomes) will always rank lower than you would expect because of this property, even though he just won league MVP.</p>
-<br>
-<p>Tips:
-    You can use our rankings to determine which RBs and WRs have the most value, but also keep an eye on outliers at the QB position and the Tight End (TE) position (like Travis Kelce) as well.
-    Use our Top Adds/Drops page to see which players are hot or not right now. If you have bench space and a Top Add is available in your league, consider picking them up!</p>
-<br>
-<p>Are you comfortable with the basics, but wondering how to improve your team through trades?</p>
-<br>
-<p>To use a basketball metaphor (because sports!), setting your lineup and checking the waiver wire is like mastering your dominant hand. You can navigate the court, make highlight plays, and get off jumpers. But learning how to trade is like developing the ability to finish and dribble with your offhand. Before long, the whole court opens up and almost any player you want becomes acquirable... for the right price. Your ability to make smart trades often depends on your knowledge of your league mates and opening relationships. Sometimes a failed trade offer isn't a failure at all, because it opens up lines of communication between two players. UNLESS you offer two bench RBs and a kicker for Justin Jefferson. Everybody hates that guy.  </p>
-<br>
-<p>Tips: 
-    Start every trade process by looking at other team's holes. You have two reliable TEs? Great, see who's been dropping and picking up TEs every week searching for an answer.
-    From there, 2 for 1 trades are almost always your best friend. Package Hunter Henry with DJ Moore and see if you can go get a WR upgrade like Tee Higgins.
-    Target players coming off down weeks, especially if they've just played a tough defense. You can check our Defensive Rankings v Position page for that information.
-    On the flip side, be careful targeting players coming off boom weeks. Often the seller will want more in return than the player is actually worth.
-    Everyone will be looking at their league specific rankings (ESPN, Yahoo, Sleeper) when evaluating trade offers. Use this to your advantage.
-    Check our rankings to look for discrepancies and find an edge on the trade block.</p>
-<br>
-<p>Are you wondering what FantasyBros has to offer in the very saturated market of fantasy sports?</p>
-<br>
-<p>Same, we're just a group of students trying to figure it out. What I do know is I'm sick of hearing the same old fantasy moguls run the game just because they entered the space at the right time. I have my personal role models like Andy and Jason from the Fantasy Footballers, who have shaped my views and passions for fantasy football. But then there's other characters (such as Derek Brown from that site we don't talk about) who yell dumb stats into a mic, victory lap every win, and run away from every bad take. But our goal isn't to take aim at the big boys, just to provide an alternate, user-sourced ranking system that's inclusive to all levels of fantasy players. Am I worried Jimmy G will shoot up the rankings because he's so hot? Yeah a little bit, but maybe that means you can offer him out to Sharon from the work league and get back a decent WR3.</p>
-<br>
-<p>Have you learned from multiple sources that rostering more than two TEs is inefficient, but still can't shake the feeling that there's a market inefficiency and maybe one will break out?</p>
-<br>
-<p>Welcome, I hope you've enjoyed our website so far. While our rankings are for the people, the core principles of this site's design is for you. I've been lucky enough to build everything we have so far with an incredible group of coders and instructors for the final project of our C# boot camp, but I intend to keep building throughout the course of this season and hopefully beyond. My email is zachbuth@gmail.com. Shoot me an email if you have any ideas on how to improve on our design, have coding experience, or just want to discuss fantasy football. </p>
+  <div *ngIf="bool1">
+    <p>
+      No problem, I'll explain. Running backs (RB) take handoffs directly from
+      the line of scrimmage, and tend to carry the ball more often for fewer
+      yards. Receivers (WR) on the other hand, usually catch the ball from the
+      quarterback for more yards but with less frequency. They both have
+      relatively equal value for fantasy, and will always make up in the Top 10
+      spots in our rankings because you need two of each to field a roster. On
+      top of that, most leagues have an added FLEX position where you can score
+      an additional RB or WR. Even though Quarterbacks (QB) score the most
+      points, most leagues only have one QB spot, which lessens their value due
+      to something called positional scarcity. The best QB (usually Patrick
+      Mahomes) will always rank lower than you would expect because of this
+      property, even though he just won league MVP.
+    </p>
+    <br />
+
+    <p>
+      Tips: You can use our rankings to determine which RBs and WRs have the
+      most value, but also keep an eye on outliers at the QB position and the
+      Tight End (TE) position (like Travis Kelce) as well. Use our Top
+      Adds/Drops page to see which players are hot or not right now. If you have
+      bench space and a Top Add is available in your league, consider picking
+      them up!
+    </p>
+  </div>
+  <br />
+  <p (click)="(bool2=!bool2)">
+    Are you comfortable with the basics, but wondering how to improve your team
+    through trades?
+  </p>
+  <br />
+  <p *ngIf="bool2">
+    To use a basketball metaphor (because sports!), setting your lineup and
+    checking the waiver wire is like mastering your dominant hand. You can
+    navigate the court, make highlight plays, and get off jumpers. But learning
+    how to trade is like developing the ability to finish and dribble with your
+    offhand. Before long, the whole court opens up and almost any player you
+    want becomes acquirable... for the right price. Your ability to make smart
+    trades often depends on your knowledge of your league mates and opening
+    relationships. Sometimes a failed trade offer isn't a failure at all,
+    because it opens up lines of communication between two players. UNLESS you
+    offer two bench RBs and a kicker for Justin Jefferson. Everybody hates that
+    guy.
+  </p>
+  <br />
+  <p *ngIf="bool2">
+    Tips: Start every trade process by looking at other team's holes. You have
+    two reliable TEs? Great, see who's been dropping and picking up TEs every
+    week searching for an answer. From there, 2 for 1 trades are almost always
+    your best friend. Package Hunter Henry with DJ Moore and see if you can go
+    get a WR upgrade like Tee Higgins. Target players coming off down weeks,
+    especially if they've just played a tough defense. You can check our
+    Defensive Rankings v Position page for that information. On the flip side,
+    be careful targeting players coming off boom weeks. Often the seller will
+    want more in return than the player is actually worth. Everyone will be
+    looking at their league specific rankings (ESPN, Yahoo, Sleeper) when
+    evaluating trade offers. Use this to your advantage. Check our rankings to
+    look for discrepancies and find an edge on the trade block.
+  </p>
+  <br />
+  <p (click)="(bool3=!bool3)">
+    Are you wondering what FantasyBros has to offer in the very saturated market
+    of fantasy sports?
+  </p>
+  <br />
+  <p *ngIf="bool3">
+    Same, we're just a group of students trying to figure it out. What I do know
+    is I'm sick of hearing the same old fantasy moguls run the game just because
+    they entered the space at the right time. I have my personal role models
+    like Andy and Jason from the Fantasy Footballers, who have shaped my views
+    and passions for fantasy football. But then there's other characters (such
+    as Derek Brown from that site we don't talk about) who yell dumb stats into
+    a mic, victory lap every win, and run away from every bad take. But our goal
+    isn't to take aim at the big boys, just to provide an alternate,
+    user-sourced ranking system that's inclusive to all levels of fantasy
+    players. Am I worried Jimmy G will shoot up the rankings because he's so
+    hot? Yeah a little bit, but maybe that means you can offer him out to Sharon
+    from the work league and get back a decent WR3.
+  </p>
+  <br />
+  <p (click)="(bool4=!bool4)">
+    Have you learned from multiple sources that rostering more than two TEs is
+    inefficient, but still can't shake the feeling that there's a market
+    inefficiency and maybe one will break out?
+  </p>
+  <br />
+  <p *ngIf="bool4">
+    Welcome, I hope you've enjoyed our website so far. While our rankings are
+    for the people, the core principles of this site's design is for you. I've
+    been lucky enough to build everything we have so far with an incredible
+    group of coders and instructors for the final project of our C# boot camp,
+    but I intend to keep building throughout the course of this season and
+    hopefully beyond. My email is zachbuth@gmail.com. Shoot me an email if you
+    have any ideas on how to improve on our design, have coding experience, or
+    just want to discuss fantasy football.
+  </p>
 </div>

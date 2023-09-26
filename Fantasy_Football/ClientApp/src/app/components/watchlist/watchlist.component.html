@@ -1,28 +1,33 @@
 <app-news></app-news>
 <h1 style="color: aliceblue">My WatchList</h1>
-<table style="color: rgb(136, 3, 3);">
-<tr>
-    <th>Rank</th>
-    <th>Name</th>
-    <th>Position</th>
-    <th>Team</th>
-    <th>memorial tshirt</th>
-    <th>Delete</th>
-</tr>
-
-    <tr *ngFor="let f of fantasyList ">
-        <td >{{f.rank}}</td>    
-        <td >{{f.name}}</td>    
-        <td >{{f.position}}</td>      
-        <td >{{f.team}}</td>       
-        <td ><img
-            src="https://www.fantasynerds.com/images/nfl/players_small/{{ f.playerId }}.png"/></td>
-            <td><button (click)="DeletePlayer(f.id)">Remove</button></td>      
-        </tr>
-    
-    <!-- <td>{{p.player.name}}</td>
+<div class="container">
+  <div class="card" *ngFor="let f of fantasyList">
+    <div class="title">
+      <span class="rank">#{{ f.rank }} </span>
+      <span class="player-name">{{ f.name }}</span>
+    </div>
+    <dl>
+      <div class="position">
+        <dt>Position</dt>
+        <dd>{{ f.position }}</dd>
+      </div>
+      <div class="team">
+        <dt>Team</dt>
+        <dd>{{ f.team }}</dd>
+      </div>
+      <div class="photo">
+        <img
+          src="https://www.fantasynerds.com/images/nfl/players_small/{{
+            f.playerId
+          }}.png"
+        />
+      </div>
+      <button (click)="DeletePlayer(f.id)">Remove</button>
+    </dl>
+  </div>
+</div>
+<!-- <td>{{p.player.name}}</td>
     <td>{{p.player.position}}</td>
     <td>{{p.player.team}}</td>
     <td><img
         src="https://www.fantasynerds.com/images/nfl/players_small/{{ p.player.playerId }}.png"/></td> -->
-</table>
