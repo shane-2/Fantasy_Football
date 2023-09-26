@@ -9,7 +9,7 @@ body {
     color: black;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     font-family: "montserrat", sans-serif;
-    background: transparent;
+    background: rgba(255, 255, 255, 0)
 }
 
 dt, dd, dl { 
@@ -24,7 +24,6 @@ text-decoration: none;
 }
 
 .container {
-    
     display: grid;
     grid-auto-flow: row;
     gap: 1.5em;

@@ -7,94 +7,92 @@ import { FantasyService } from 'src/app/services/fantasy.service';
 @Component({
   selector: 'app-crowd-source-ranking',
   templateUrl: './crowd-source-ranking.component.html',
-  styleUrls: ['./crowd-source-ranking.component.css']
+  styleUrls: ['./crowd-source-ranking.component.css'],
 })
 export class CrowdSourceRankingComponent implements OnInit {
-
   user: SocialUser = {} as SocialUser;
   loggedIn: boolean = false;
- 
- 
-  admin:string = "shanechastain10@gmail.com"
-  admin1:string = "zachbuth@gmail.com"
-  admin2:string = "heathj873@gmail.com"
-  admin3:string = "dougychu@gmail.com"
-adminp:string = this.user.email;
-yesAdmin:boolean = false;
 
-isAdmin():void{
-  if(this.user.email == this.admin){
-    this.yesAdmin = true;
-  }
-  if(this.user.email == this.admin1){
-    this.yesAdmin = true;
-  }
-  if(this.user.email == this.admin2){
-    this.yesAdmin = true;
-  }
-  if(this.user.email == this.admin3){
-    this.yesAdmin = true;
-  }
-}
-//  ngOnInit(): void {
- 
-//    this.authService.authState.subscribe((user) => {
-//      this.user = user;
-//      this.loggedIn = (user != null);
-//    });
-//  }
+  admin: string = 'shanechastain10@gmail.com';
+  admin1: string = 'zachbuth@gmail.com';
+  admin2: string = 'heathj873@gmail.com';
+  admin3: string = 'doug.e.chu@gmail.com';
+  adminp: string = this.user.email;
+  yesAdmin: boolean = false;
 
-  constructor(private _fantasyService:FantasyService, private authService: SocialAuthService) { }
-  FF:FantasyFolk[] = [];
-  watchlistresult:Watchlist[] = [];
+  isAdmin(): void {
+    if (this.user.email == this.admin) {
+      this.yesAdmin = true;
+    }
+    if (this.user.email == this.admin1) {
+      this.yesAdmin = true;
+    }
+    if (this.user.email == this.admin2) {
+      this.yesAdmin = true;
+    }
+    if (this.user.email == this.admin3) {
+      this.yesAdmin = true;
+    }
+  }
+  //  ngOnInit(): void {
+
+  //    this.authService.authState.subscribe((user) => {
+  //      this.user = user;
+  //      this.loggedIn = (user != null);
+  //    });
+  //  }
+
+  constructor(
+    private _fantasyService: FantasyService,
+    private authService: SocialAuthService
+  ) {}
+  FF: FantasyFolk[] = [];
+  watchlistresult: Watchlist[] = [];
   ngOnInit(): void {
-    this.yesAdmin= false;
-      this._fantasyService.getFantasyFolkList().subscribe((response:FantasyFolk[])=>{             
+    this.yesAdmin = false;
+    this._fantasyService
+      .getFantasyFolkList()
+      .subscribe((response: FantasyFolk[]) => {
         this.FF = response;
         this.authService.authState.subscribe((user) => {
           this.user = user;
-          this.loggedIn = (user != null);
+          this.loggedIn = user != null;
           this.isAdmin();
         });
-      });    
+      });
   }
 
-  AddWatchlist(name:string, newPlayer:FantasyFolk):void{
+  AddWatchlist(name: string, newPlayer: FantasyFolk): void {
     console.log(name);
     console.log(newPlayer);
-    let player:Watchlist = {} as Watchlist;  
+    let player: Watchlist = {} as Watchlist;
     player.playerId = newPlayer.id;
     player.username = name;
-    console.log(" newfavoriteevent" )
-    console.log(player );
-    this._fantasyService.AddWatchlistPlayer(player).subscribe((response:Watchlist) =>{
-      console.log(response)
-      this.watchlistresult.push(response);
+    console.log(' newfavoriteevent');
+    console.log(player);
+    this._fantasyService
+      .AddWatchlistPlayer(player)
+      .subscribe((response: Watchlist) => {
+        console.log(response);
+        this.watchlistresult.push(response);
+      });
+  }
+
+  FolkListResult: FantasyFolk[] = [];
+
+  NewFolk(newFolk: FantasyFolk) {
+    this._fantasyService.AddFolk(newFolk).subscribe((response: FantasyFolk) => {
+      console.log(response);
+      this.FolkListResult.push(response);
     });
   }
 
-  FolkListResult: FantasyFolk [] = [];
-
- NewFolk(newFolk:FantasyFolk){
-  this._fantasyService.AddFolk(newFolk).subscribe((response: FantasyFolk) =>{
-   console.log(response);
-   this.FolkListResult.push(response);
-  })
- }
-
-
-DeleteFolk(Id:number):void{
-  //feedback for user
-  let target:number = this.FolkListResult.findIndex(f => f.id ==Id);
-  this.FolkListResult.splice(target,1);
-  this._fantasyService.DeleteFolk(Id).subscribe((response:FantasyFolk) => {
-   console.log(response);
-  });
-
+  DeleteFolk(Id: number): void {
+    //feedback for user
+    let target: number = this.FolkListResult.findIndex((f) => f.id == Id);
+    this.FolkListResult.splice(target, 1);
+    this._fantasyService.DeleteFolk(Id).subscribe((response: FantasyFolk) => {
+      console.log(response);
+    });
   }
-
-
-
 }
-
-

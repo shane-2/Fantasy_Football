@@ -18,8 +18,8 @@ code {
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw; */
+  /* height: 100vh; */
   background-image: url("https://i.imgur.com/PFQs14m.jpg");
   background-size: cover;
 }
@@ -72,22 +72,22 @@ font-family: 'Roboto Condensed', sans-serif;
   --team-color-GB: #203731;
   --team-color-HOU: #03202F;
   --team-color-IND: #002C5F;
-  --team-color-JAX: #101820;
+  --team-color-JAC: #101820;
   --team-color-KC: #E31837;
   --team-color-LAC: #0080C6;
   --team-color-LAR: #003594;
+  --team-color-LV: #000000;
   --team-color-MIA: #008E97;
   --team-color-MIN: #4F2683;
   --team-color-NE: #002244;
   --team-color-NO: #D3BC8D;
   --team-color-NYG: #0B2265;
   --team-color-NYJ: #125740;
-  --team-color-OAK: #000000;
   --team-color-PHI: #004C54;
   --team-color-PIT: #FFB612;
   --team-color-SF: #AA0000;
   --team-color-SEA: #69BE28;
   --team-color-TB: #D50A0A;
   --team-color-TEN: #0C2340;
-  --team-color-WSH: #5A1414;
+  --team-color-WAS: #5A1414;
 }
