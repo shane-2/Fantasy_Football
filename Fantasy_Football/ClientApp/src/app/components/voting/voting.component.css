@@ -1,18 +1,11 @@
-p {
-    text-align: center;
-}
-
 body {
     width: auto;
     color: black;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     font-family: "montserrat", sans-serif;
-    background: rgba(255, 255, 255, 0)
 }
 
-dt, dd, dl { 
-text-decoration: none;
-}
+
 
 .title{
     background-color: rgb(6, 6, 6, .5);
@@ -21,12 +14,16 @@ text-decoration: none;
     font-family: sans-serif;
 }
 
+
+
 .container {
     display: grid;
     grid-auto-flow: row;
     gap: 1.5em;
     justify-items: center;
     padding: 10px;
+    filter: none;
+    
 }
 
 /* parent of .face and .info */

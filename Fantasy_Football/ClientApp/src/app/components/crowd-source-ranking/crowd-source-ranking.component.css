@@ -68,6 +68,7 @@ body {
   font-weight: 600;
   display: grid;
   font-size: 1.75em;
+  letter-spacing: 0.03em;
 }
 
 .photo {
@@ -78,7 +79,16 @@ body {
   grid-row-end: 3;
   margin-top: 2em;
   margin-bottom: 0;
-  min-height: 300px;
+}
+
+.photo-frame {
+  border-radius: 10px;
+  background-image: linear-gradient(
+  rgba(255, 255, 255, 0.5),
+  rgba(255, 255, 255, 0.5)
+  
+);
+height: minmax(200px 300px);
 }
 
 .portrait {
@@ -86,8 +96,7 @@ body {
   /* object-fit and object-position are to crop out the excess whitespace on the right edge of player photos from the API*/
   object-fit: cover;
   /* object-position: 40% center; */
-  max-width: 90%;
-  max-height: 90%;
+  width: 70%;
 }
 
 .team {
@@ -229,13 +238,7 @@ dt.name, dt.rank {
     margin-bottom: 0px;
   }
 
-  .photo-frame {
-    border-radius: 10px;
-    background-image: linear-gradient(
-    rgba(255, 255, 255, 0.9),
-    rgba(255, 255, 255, 0.9)
-  );
-  }
+ 
 
   .team, .position {
     font-size: 1em;
