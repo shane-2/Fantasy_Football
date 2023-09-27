@@ -1,108 +1,101 @@
-<header>
-  <nav
-  class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3"
+<header class="header flex">
+  <div>
+    <img
+      alt="FantasyBros logo"
+      class="logo"
+      src="https://i.imgur.com/Y7xAeNn.png"
+    />
+  </div>
+
+  <button
+    class="mobile-nav-toggle"
+    (click)="toggleMenu()"
+    aria-controls="navigation"
+    aria-expanded="false"
   >
-  
-  <div class="container">
-    <a style="color: white;" class="navbar-brand" [routerLink]="['/']"></a>
-    <button
-    class="navbar-toggler"
-    type="button"
-        data-toggle="collapse"
-        data-target=".navbar-collapse"
-        aria-label="Toggle navigation"
-        [attr.aria-expanded]="isExpanded"
-        (click)="toggle()"
-        >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      
+    <span class="sr-only">Menu</span>
+    <!-- Hamburger icon -->
 
-      <div
-        class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
-        [ngClass]="{ show: isExpanded }"
+    <svg
+      fill="white"
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        clip-rule="evenodd"
+        fill-rule="evenodd"
+        d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10zm0 5.25a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75a.75.75 0 01-.75-.75z"
+      ></path>
+    </svg>
+    <!-- Close "X" icon (initially hidden) -->
+    <!-- <div class="close-icon" style="display: none">
+      <svg
+        fill="white"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
       >
-        <ul class="navbar-nav flex-grow">
-          <img alt="FantasyBros logo" class='logo' src="https://i.imgur.com/Y7xAeNn.png">
-          <li
-            class="nav-item"
-            [routerLinkActive]="['link-active']"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
-            <a style="color: white;" class="nav-link text-white" [routerLink]="['/']">Vote</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-white" [routerLink]="['/crowdsource']"
-              >The People's Rankings</a
-            >
-          </li>
-          <li *ngIf="loggedIn" class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-white" [routerLink]="['/watchlist']"
-              >My Watchlist</a
-            >
-          </li>
-          
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-white" [routerLink]="['/adddrop']"
-              >Top Adds/Drops</a
-            >
-          </li>
-          
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-white" [routerLink]="['/defrank']"
-            >DEF Ranking Vs Position</a
-            >
-          </li>
-      
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-white" [routerLink]="['/top100']"
-            >Pre-Draft Rankings</a
-            >
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-white" [routerLink]="['/FAQ']"
-            >FAQs</a
-            >
-          </li>
-          <li *ngIf="yesAdmin && loggedIn" class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-white" [routerLink]="['/admin']"
-            >Admin</a
-            >
-          </li>
+        <path
+          d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"
+        ></path>
+      </svg>
+    </div> -->
+  </button>
 
+  <nav>
+    <ul class="navigation flex" data-visible="false">
+      <li class="active">
+        <!-- Below is the custom login component. -->
+        <asl-google-signin-button
+          *ngIf="!loggedIn"
+          type="icon"
+          size="medium"
+        ></asl-google-signin-button>
+        <!-- Calls the log out method from the notes -->
+        <button
+          class="btn btn-outline-light"
+          *ngIf="loggedIn"
+          (click)="signOut()"
+        >
+          Sign Out
+        </button>
+      </li>
+      <li
+        class="active"
+        [routerLinkActive]="['link-active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a [routerLink]="['/']">Vote</a>
+      </li>
+      <li class="active" [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/crowdsource']">The People's Rankings</a>
+      </li>
+      <li class="active" *ngIf="loggedIn" [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/watchlist']">My Watchlist</a>
+      </li>
 
-          
-          <li style="color: white" class="nav-item">
-            <!-- Below is the custom login component. -->
-            <asl-google-signin-button
-            *ngIf="!loggedIn"
-            type="icon"
-            size="medium"
-            ></asl-google-signin-button>
-            <!-- Calls the log out method from the notes -->
-            <button
-            class="btn btn-outline-light"
-            *ngIf="loggedIn"
-              (click)="signOut()"
-              >
-              Sign Out
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
+      <li class="active" [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/adddrop']">Top Adds/Drops</a>
+      </li>
+
+      <li class="active" [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/defrank']">DEF Ranking Vs Position</a>
+      </li>
+
+      <li class="active" [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/top100']">Pre-Draft Rankings</a>
+      </li>
+      <li class="active" [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/FAQ']">FAQs</a>
+      </li>
+      <li
+        class="active"
+        *ngIf="yesAdmin && loggedIn"
+        [routerLinkActive]="['link-active']"
+      >
+        <a [routerLink]="['/admin']">Admin</a>
+      </li>
+    </ul>
   </nav>
 </header>
-<!-- <div class="btn-group">
-  <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    Right-aligned menu
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">   
-    <li><a class="dropdown-item" href="/watchlist">/My Watchlist</a></li>
-    <li><a class="dropdown-item" href="/crowdsource">/The People's Ranking</a></li>
-    <li><a class="dropdown-item" href="/adddrop">/Top Adds/Drops</a></li>
-    <li><a class="dropdown-item" href="/top100">Pre-Draft Rankings</a></li>
-    <li><a class="dropdown-item" href="/defranking">Defense Ranking vs Individual Players</a></li>
-    <li><a class="dropdown-item" href="/FAQ">/FAQ</a></li>
-  </ul>
-</div> -->

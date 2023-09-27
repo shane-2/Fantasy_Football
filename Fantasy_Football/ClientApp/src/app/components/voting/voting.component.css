@@ -1,8 +1,7 @@
 body {
     width: auto;
     color: black;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    font-family: "montserrat", sans-serif;
+    font-family: "montserrat", arial, helvetica, sans-serif;
 }
 
 
@@ -83,7 +82,7 @@ body {
 
 .name {
     font-size: 2em;
-    font-weight:600;
+    font-weight:500;
     letter-spacing: 0.03em;
     /* justify-self: center;
     display: inline-block; */
@@ -129,26 +128,19 @@ body {
     margin-bottom: 5px;
     width: 90%;
     background-color: white;
+    border: 2px solid #fff;
     border-radius: 10px;
-   border-top: 2px solid #96d1f8;
    background-color: transparent;
-   background: -webkit-gradient(linear, left top, left bottom, from(#377fb0), to(#65a9d7));
-   background: -webkit-linear-gradient(top, #377fb0, #65a9d7);
-   background: -moz-linear-gradient(top, #377fb0, #65a9d7);
-   background: -ms-linear-gradient(top, #377fb0, #65a9d7);
-   background: -o-linear-gradient(top, #377fb0, #65a9d7);
    padding: 5px 10px;
    -webkit-border-radius: 8px;
    -moz-border-radius: 8px;
    border-radius: 8px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
+
    /* text-shadow: rgba(0,0,0,.4) 0 1px 0; */
    color: white;
    font-size: 1.25em;
-   font-weight: 900;
-   font-family: Helvetica, Arial, Sans-Serif;
+   font-weight: 500;
+   font-family: "Montserrat,", Helvetica, Arial, Sans-Serif;
    text-decoration: none;
    vertical-align: middle;
 
