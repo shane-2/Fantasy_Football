@@ -1,13 +1,15 @@
 <h5></h5>
 <app-news></app-news>
-<h1 style="color: aliceblue">Top 100!</h1>
+<h1 style="color: aliceblue">Pre-Draft Rankings</h1>
 <div class="container">
   <div class="card" *ngFor="let p of allPlayers">
     <div #playerCard
       class="player-card"     
       [ngStyle]="{ 'background-color': getTeamColor(p.team) }">
     <dl>
-    <button (click)="NavToROS(p)">{{ p.name }}</button>
+    <!-- <button (click)="NavToROS(p)">{{ p.name }}</button> -->
+    <div class="face"> 
+    <h6>{{p.name}}</h6>
     <dt>Rank</dt>
     <dd>{{ p.rank }}</dd>
     <dt>Position</dt>
@@ -18,7 +20,8 @@
     <dd>{{ p.team }}</dd>
     <img
     src="https://www.fantasynerds.com/images/nfl/players_small/{{ p.playerId }}.png" alt="player portrait"/>
-    </dl>
+  </div> 
+</dl>
 </div>
   </div>
 <!-- <p *ngFor="let i of allPlayers">('{{i.playerId}}', '{{i.name}}', '{{i.team}}', '{{i.position}}', 0, 0, 0, 0), </p> -->

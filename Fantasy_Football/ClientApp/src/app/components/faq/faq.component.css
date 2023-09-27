@@ -1,14 +1,25 @@
-h2 {
+h1 {
     text-align: center;
+    color: white
 }
-button{
-    background-color: rgb(225, 233, 239, .01);
-    
+ button{
+        background-color: rgb(50, 50, 50, .8);
+        border-radius: 15%;
+        
+        color: white;
+        padding: 5px 15px;
+        border: 2px solid black;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        transition-duration: 0.4s;
 }
 p {
     color: black
 }
 
 div {
-    background-color: rgba(255, 255, 255, .6);
+    background-color: rgba(255, 255, 255, .5);
 }
+

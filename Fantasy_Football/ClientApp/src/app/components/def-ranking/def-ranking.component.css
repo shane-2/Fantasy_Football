@@ -1,7 +1,8 @@
 .t1{
     float: left;
     width: 20%;
-    
+    background-color: rgba(255, 255, 255, .6);
+    text-align: center;
   }
 
  .t2{
@@ -17,15 +18,20 @@ h1 {
 th, td {
     padding: 15px;
     text-align: center;
+    border: 1px solid;
+    background-color: rgba(255, 255, 255, .6);
   }
 th {
     background-color: rgba(161, 8, 8, 0.7);
     color: rgb(20, 2, 2);
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'montserrat', 'helvetica', sans-serif;
     text-align: center;
   }
 table, td {
-    border: 1px solid;
-    background-color: rgba(255, 255, 255, .4);
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgba(255, 255, 255, .6);
+    font-family: 'montserrat', 'helvetica', sans-serif;
+  }
+
+  h3 {
+    text-align: center;
   }

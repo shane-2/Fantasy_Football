@@ -132,6 +132,30 @@ span.player-name {
     grid-template-rows: 1fr 1fr 1fr;
   }
 }
+.delete {
+  grid-area: delete;
+  grid-column-start: 6;
+  grid-row-start: 4;
+  grid-column-end: 7;
+  grid-row-end: 5;
+  display: grid;
+  margin: 5px;
+}
+
+.delete-button {
+  height: 2em;
+  width: 2em;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 0px;
+  padding: 5px;
+}
+
+.delete-button:hover {
+  color: red;
+}
+
 
 /* 
 tr {

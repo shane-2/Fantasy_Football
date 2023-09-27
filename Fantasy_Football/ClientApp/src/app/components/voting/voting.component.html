@@ -44,9 +44,9 @@
             <dt>Rank</dt>
             <dd>{{ c.rank }}</dd>
             <dt>Matches:</dt>
-            <dd>{{ c.matches }}</dd>
+            <dd>{{ c.matches | number:'1.0-0' }}</dd>
             <dt>Wins:</dt>
-            <dd>{{ c.votes }}</dd>
+            <dd>{{ c.votes | number:'1.0-0' }}</dd>
             <!-- <dt>Win Percentage:</dt>
             <dd>{{ c.winPercent }}</dd> -->
           </dl>

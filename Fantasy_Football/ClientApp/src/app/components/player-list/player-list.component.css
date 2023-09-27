@@ -17,8 +17,20 @@
   color: white;
   
  }
+
+ h1 {
+  text-align: center;
+ 
+ }
+
+ .face{
+  margin-left: 10px;
+  margin-top: 10px;
+ }
+
 body {
   font-family: 'montserrat', sans-serif;
+
 }
 .container {
   width: auto;

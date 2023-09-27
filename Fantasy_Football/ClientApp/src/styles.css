@@ -51,6 +51,7 @@ body {
   );;
   color: white;
   border: 1px solid orange;
+  font-size: x-large;
   font-family: 'Playfair Display', serif;
 font-family: 'Poppins', sans-serif;
 font-family: 'Roboto Condensed', sans-serif;
@@ -61,14 +62,15 @@ z-index: 1;
 
 }
 .scroll-left ul {
-  list-style: none;
+  list-style: none; 
   padding: 0;
   margin: 0;
   display: flex;
-  animation: scroll-left 30s linear infinite;
+  animation: scroll-left 35s linear infinite;
 }
 .scroll-left li {
-  flex: 0 0 auto;
+  flex: 0 0 auto;  
+ ;
   margin-right: 75px; /* Add some spacing between articles */
 }
  /* Move it (define the animation) */
