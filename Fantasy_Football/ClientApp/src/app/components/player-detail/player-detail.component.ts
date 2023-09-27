@@ -66,7 +66,7 @@ export class PlayerDetailComponent implements OnInit {
 
   setplayer: PlayerElement = this._fantasyService.getsetPlayer();
   
-  divider: number = 15;
+  divider: number = 14;
 
   player: Qb | Rb | K | Def | Idp | undefined;
 
