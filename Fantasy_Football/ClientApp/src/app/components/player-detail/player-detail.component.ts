@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FantasyFolk } from 'src/app/models/fantasy-folk';
 import { PlayerElement } from 'src/app/models/player';
+import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import {
   DEFPosition,
   Def,
@@ -23,7 +24,34 @@ import { FantasyService } from 'src/app/services/fantasy.service';
   styleUrls: ['./player-detail.component.css'],
 })
 export class PlayerDetailComponent implements OnInit {
-  constructor(private _fantasyService: FantasyService) {}
+  
+  constructor(private _fantasyService: FantasyService, private authService: SocialAuthService
+    ) {}
+  user: SocialUser = {} as SocialUser;
+  loggedIn: boolean = false;
+
+  admin: string = 'shanechastain10@gmail.com';
+  admin1: string = 'zachbuth@gmail.com';
+  admin2: string = 'heathj873@gmail.com';
+  admin3: string = 'doug.e.chu@gmail.com';
+  adminp: string = this.user.email;
+  yesAdmin: boolean = false;
+
+  isAdmin(): void {
+    if (this.user.email == this.admin) {
+      this.yesAdmin = true;
+    }
+    if (this.user.email == this.admin1) {
+      this.yesAdmin = true;
+    }
+    if (this.user.email == this.admin2) {
+      this.yesAdmin = true;
+    }
+    if (this.user.email == this.admin3) {
+      this.yesAdmin = true;
+    }
+  }
+
 
   @Input() combatplayer: FantasyFolk = {} as FantasyFolk;
   @Input() hideOnVotingExpand: boolean = false;
@@ -56,6 +84,12 @@ export class PlayerDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.yesAdmin = false;
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = user != null;
+      this.isAdmin();
+  });
     if (this.combatplayer && this.combatplayer.playerId == undefined) {
       console.log('set player?');
       this.DisplayProjections(this.setplayer.playerId, this.setplayer.position);

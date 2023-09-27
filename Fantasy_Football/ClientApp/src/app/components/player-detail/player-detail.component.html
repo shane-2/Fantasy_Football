@@ -46,6 +46,7 @@
     <p>Rush Yds: {{ GetNumber(Quarterback.rushing_yards) / divider | number:'1.0-1'}}</p>
     <p>Rush TDs: {{ GetNumber(Quarterback.rushing_touchdowns) / divider | number:'1.0-1'}}</p>
     <p>Projected Fantasy Points: {{ GetNumber(Quarterback.proj_pts) / divider | number:'1.0-1'}}</p>
+    <p *ngIf="yesAdmin && loggedIn"> Weeks Remaining:<input type="number" id="dividerInput" [(ngModel)]="divider" />  </p>
   </div>
   <img
     *ngIf="!hideOnVotingExpand"
