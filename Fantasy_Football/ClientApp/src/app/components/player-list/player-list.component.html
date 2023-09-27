@@ -7,7 +7,8 @@
       class="player-card"     
       [ngStyle]="{ 'background-color': getTeamColor(p.team) }">
     <dl>
-    <button (click)="NavToROS(p)">{{ p.name }}</button>
+    <!-- <button (click)="NavToROS(p)">{{ p.name }}</button> -->
+    <button>{{p.name}}</button>
     <dt>Rank</dt>
     <dd>{{ p.rank }}</dd>
     <dt>Position</dt>

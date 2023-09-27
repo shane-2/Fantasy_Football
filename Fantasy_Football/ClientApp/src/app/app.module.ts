@@ -21,6 +21,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { NewsComponent } from './components/news/news.component';
 import { AddPlayerFormComponent } from './components/add-player-form/add-player-form.component';
 import { FAQComponent } from './components/faq/faq.component';
+import { EmptyComponent } from './components/empty/empty.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { FAQComponent } from './components/faq/faq.component';
     AdminComponent,
     NewsComponent,
     AddPlayerFormComponent,
-    FAQComponent
+    FAQComponent,
+    EmptyComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
