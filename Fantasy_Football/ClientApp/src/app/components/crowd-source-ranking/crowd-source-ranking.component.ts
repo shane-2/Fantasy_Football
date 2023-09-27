@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FantasyFolk } from 'src/app/models/fantasy-folk';
 import { Watchlist } from 'src/app/models/watchlist';
 import { FantasyService } from 'src/app/services/fantasy.service';
+//import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-crowd-source-ranking',
@@ -94,9 +95,10 @@ export class CrowdSourceRankingComponent implements OnInit {
     this._fantasyService.DeleteFolk(Id).subscribe((response: FantasyFolk) => {
       console.log(response);
     });
+    this.ngOnInit();
   }
 
   getTeamColor(team: string): string {
-    return `var(--team-color-${team})`
+    return `var(--team-color-${team})`;
   }
 }
