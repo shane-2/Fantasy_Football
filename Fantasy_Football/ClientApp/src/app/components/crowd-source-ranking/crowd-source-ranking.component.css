@@ -7,16 +7,17 @@ body {
   display: grid;
   grid-auto-flow: row;
   gap: 2em;
-  margin-top: 2em;
+  margin: 1em 0 0 1em;
   padding: 0 10px
 }
 
 .card {
-  height: 375px;
+  height: 27em;
   width: 100%;
   display: grid;
+  gap: 0.5em;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: minmax(2em, 2.5em) minmax(2em, 3em) minmax(100px, 200px) minmax(3em, 4em);
+  grid-template-rows: minmax(20px, 30px) minmax(2em, 3em) minmax(150px 250px) minmax(2em, 3em);
   grid-template-areas:
   "rank rank rank rank rank watchlist"
   "name name name name name name"
@@ -35,7 +36,7 @@ body {
   grid-column-end: 6;
   grid-row-end: 2;
   padding: 10px 0 10px 0;
-  margin: 0 0 10px 10px;
+  margin: 0 0 0 10px;
   font-size: 2em;
   font-weight: 500;
 }
@@ -46,15 +47,19 @@ body {
   grid-row-start: 1;
   grid-column-end: 7;
   grid-row-end: 2;
-  max-height: 2em;
+  display: grid;
   margin-top: 5px;
 }
 
 .watch-list-button {
+  height: 50%;
+  width: 100%;
   margin-top: 5px;
   margin-right: 10px;
-  padding: 5px;
+  padding: 0px;
   border-radius: 5px;
+  align-self: start;
+  justify-self: center;
 }
 
 .name {
@@ -63,10 +68,9 @@ body {
   grid-row-start: 2;
   grid-column-end: 7;
   grid-row-end: 3;
-  margin: 10px 0 0 10px;
-  padding: 5px;
+  margin: 0 0 0 10px;
+  padding: 0;
   font-weight: 600;
-  display: grid;
   font-size: 1.75em;
   letter-spacing: 0.03em;
 }
@@ -74,11 +78,10 @@ body {
 .photo {
   grid-area: photo;
   grid-column-start: 1;
-  grid-row-start: 2;
+  grid-row-start: 3;
   grid-column-end: 7;
-  grid-row-end: 3;
-  margin-top: 2em;
-  margin-bottom: 0;
+  grid-row-end: 4;
+  padding: 0 15px 0 10px;
 }
 
 .photo-frame {
@@ -86,17 +89,16 @@ body {
   background-image: linear-gradient(
   rgba(255, 255, 255, 0.5),
   rgba(255, 255, 255, 0.5)
-  
 );
-height: minmax(200px 300px);
 }
 
 .portrait {
-  padding: 15px 5px 50px 5px;
+  padding: 0;
+  margin: 0;
   /* object-fit and object-position are to crop out the excess whitespace on the right edge of player photos from the API*/
   object-fit: cover;
   /* object-position: 40% center; */
-  width: 70%;
+  width: 90%;
 }
 
 .team {
@@ -116,7 +118,7 @@ height: minmax(200px 300px);
   grid-area: position;
   grid-column-start: 4;
   grid-row-start: 4;
-  grid-column-end: 7;
+  grid-column-end: 6;
   grid-row-end: 5;
   display: grid;
   font-size: 1.25em;
@@ -152,15 +154,9 @@ dt.name, dt.rank {
   display: none;
 }
 
-
-
-
-
-
 .button1{
   background-color: rgb(64, 202, 0);
   border-radius: 15%;
-  
   color: white;
   padding: 5px 15px;
   border: 2px solid black;
@@ -174,7 +170,6 @@ dt.name, dt.rank {
 .button2{
   background-color: rgb(255, 0, 0);
   border-radius: 15%;
-  
   color: white;
   padding: 5px 15px;
   border: 2px solid black;
@@ -208,44 +203,43 @@ dt.name, dt.rank {
   .container {
       grid-template-columns: repeat(4, 1fr);
       gap: 1.5em;
-      
+      margin: 2em 0;
+      padding: 0;
   }
 
   .card {
-    height: auto;
+    height: 30em;
     width: auto; 
-    grid-template-rows: minmax(2em, 3em) minmax(2em, 5em) minmax(200px 400px) minmax(1.5em, 3em)
+    grid-template-rows: minmax(1.5em, 2em) minmax(2em, 4em) minmax(150px 400px) minmax(1.5em, 2.5em)
   }
+
+  .rank {
+    padding-bottom: 0;
+  }
+
   .watch {
-    padding: 10px;
+    padding: 5px;
   }
 
   .watch-list-button {
     margin-top: 5px;
-    margin-left: 40px;
-    margin-right: 10px;
     padding: 5px;
     border-radius: 5px;
   }
 
-  .name {
-    padding: 5px;
-  }
-
-  .photo {
-    padding: 5px;
-    margin-top: 40px;
-    margin-bottom: 0px;
-  }
-
- 
-
   .team, .position {
-    font-size: 1em;
-    padding-bottom: 0.5em;
+    font-size: 1.25em;
+    padding: 1em 0;
+    display: grid;
+    place-content: center;
+  }
+
+  .delete {
+
   }
 
   .delete-button {
-    margin: 10px 10px 0 10px;
+    justify-self: end;
+    align-self: end;
   }
 }
