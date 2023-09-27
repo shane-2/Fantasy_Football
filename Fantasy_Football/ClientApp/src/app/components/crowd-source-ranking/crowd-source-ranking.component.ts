@@ -51,18 +51,25 @@ export class CrowdSourceRankingComponent implements OnInit {
   watchlistresult: Watchlist[] = [];
   ngOnInit(): void {
     this.yesAdmin = false;
-    this._fantasyService
-      .getFantasyFolkList()
-      .subscribe((response: FantasyFolk[]) => {
-        this.FF = response;
+    this.GetFolks();
+    // this._fantasyService
+    //   .getFantasyFolkList()
+    //   .subscribe((response: FantasyFolk[]) => {
+    //     this.FF = response;
+    //   });
         this.authService.authState.subscribe((user) => {
           this.user = user;
           this.loggedIn = user != null;
           this.isAdmin();
-        });
       });
   }
-
+GetFolks():void{
+  this._fantasyService
+      .getFantasyFolkList()
+      .subscribe((response: FantasyFolk[]) => {
+        this.FF = response;
+      });
+}
   AddWatchlist(name: string, newPlayer: FantasyFolk): void {
     console.log(name);
     console.log(newPlayer);
@@ -78,26 +85,22 @@ export class CrowdSourceRankingComponent implements OnInit {
         this.watchlistresult.push(response);
       });
   }
-
   FolkListResult: FantasyFolk[] = [];
-
   NewFolk(newFolk: FantasyFolk) {
     this._fantasyService.AddFolk(newFolk).subscribe((response: FantasyFolk) => {
       console.log(response);
       this.FolkListResult.push(response);
     });
   }
-
   DeleteFolk(Id: number): void {
     //feedback for user
     let target: number = this.FolkListResult.findIndex((f) => f.id == Id);
     this.FolkListResult.splice(target, 1);
     this._fantasyService.DeleteFolk(Id).subscribe((response: FantasyFolk) => {
       console.log(response);
+      this.GetFolks();
     });
-    this.ngOnInit();
   }
-
   getTeamColor(team: string): string {
     return `var(--team-color-${team})`;
   }
