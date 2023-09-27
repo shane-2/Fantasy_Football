@@ -33,7 +33,7 @@ export class VotingComponent implements OnInit {
   combatPair: ExpandedPlayerDetail[] = [];
   showDetailsToggled: boolean = false;
   
- 
+
 
   ngOnInit(): void {
     this.CallDB();

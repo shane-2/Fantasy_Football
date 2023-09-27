@@ -1,8 +1,8 @@
 <h2>FAQs</h2>
 <div>
-  <p (click)="(bool1=!bool1)">
-    1. Do acronyms like RB and WR sound like gibberish?
-  </p>
+  <button (click)="(bool1=!bool1)">
+    Do acronyms like RB and WR sound like gibberish?
+  </button>
 <br>
   <div *ngIf="bool1">
     <p>
@@ -31,10 +31,10 @@
     </p>
   </div>
   <br />
-  <p (click)="(bool2=!bool2)">
+  <button (click)="(bool2=!bool2)">
     Are you comfortable with the basics, but wondering how to improve your team
     through trades?
-  </p>
+  </button>
   <br />
   <p *ngIf="bool2">
     To use a basketball metaphor (because sports!), setting your lineup and
@@ -65,16 +65,16 @@
     look for discrepancies and find an edge on the trade block.
   </p>
   <br />
-  <p (click)="(bool3=!bool3)">
+  <button (click)="(bool3=!bool3)">
     Are you wondering what FantasyBros has to offer in the very saturated market
     of fantasy sports?
-  </p>
+  </button>
   <br />
   <p *ngIf="bool3">
     Same, we're just a group of students trying to figure it out. What I do know
     is I'm sick of hearing the same old fantasy moguls run the game just because
     they entered the space at the right time. I have my personal role models
-    like Andy and Jason from the Fantasy Footballers, who have shaped my views
+    like Andy and Jason from the Fantasy Footballers, who have shaped my views
     and passions for fantasy football. But then there's other characters (such
     as Derek Brown from that site we don't talk about) who yell dumb stats into
     a mic, victory lap every win, and run away from every bad take. But our goal
@@ -85,11 +85,11 @@
     from the work league and get back a decent WR3.
   </p>
   <br />
-  <p (click)="(bool4=!bool4)">
-    Have you learned from multiple sources that rostering more than two TEs is
-    inefficient, but still can't shake the feeling that there's a market
+  <button (click)="(bool4=!bool4)">
+    Do you know that rostering more than two TEs is
+    bad practice, but still can't shake the feeling that there's a market
     inefficiency and maybe one will break out?
-  </p>
+  </button>
   <br />
   <p *ngIf="bool4">
     Welcome, I hope you've enjoyed our website so far. While our rankings are
