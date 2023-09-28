@@ -9,7 +9,10 @@
     <dl>
     <!-- <button (click)="NavToROS(p)">{{ p.name }}</button> -->
     <div class="face"> 
+      
     <h6>{{p.name}}</h6>
+    <img
+    src="https://www.fantasynerds.com/images/nfl/players_small/{{ p.playerId }}.png" alt="{{ p.name }}player portrait"/>
     <dt>Rank</dt>
     <dd>{{ p.rank }}</dd>
     <dt>Position</dt>
@@ -18,8 +21,7 @@
     <dd>{{ p.rank_position }}</dd>
     <dt>Team</dt>
     <dd>{{ p.team }}</dd>
-    <img
-    src="https://www.fantasynerds.com/images/nfl/players_small/{{ p.playerId }}.png" alt="player portrait"/>
+    
   </div> 
 </dl>
 </div>

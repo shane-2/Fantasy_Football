@@ -20,8 +20,15 @@
 
  h1 {
   text-align: center;
- 
  }
+
+img {
+  background-image: linear-gradient(
+      rgba(255, 255f, 255, 0.7),
+      rgba(255, 255, 255, 0.7)
+    );
+    border-radius: 10px;
+}
 
  .face{
   margin-left: 10px;
@@ -57,9 +64,7 @@ button:hover {
   background-color: #FF5E00; 
   color: white;
 }
-body {
-  font-family: 'montserrat', sans-serif;
-}
+
 
 /* .card {
   min-width: 300px;

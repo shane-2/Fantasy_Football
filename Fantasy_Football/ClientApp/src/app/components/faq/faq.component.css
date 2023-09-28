@@ -1,13 +1,33 @@
+.container {
+    border-radius: 10px;
+    width: 100%;
+    display: grid;
+    gap: 1em;
+    padding-block: 1em;
+    padding-inline: 2em;
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.8)
+    );
+}
+
+.answer {
+    border-radius: 10px;
+    padding-block: 1.5em;
+    padding-inline: 5em;
+}
+
 h1 {
     text-align: center;
-    color: white
+    color: white;
+    letter-spacing: 0.5px;
 }
  button{
         background-color: rgb(50, 50, 50, .8);
-        border-radius: 15%;
-        
+        border-radius: 10px;
         color: white;
-        padding: 5px 15px;
+        padding-block: 1em;
+        padding-inline: 2em;
         border: 2px solid black;
         text-align: center;
         text-decoration: none;
@@ -15,11 +35,28 @@ h1 {
         font-size: 16px;
         transition-duration: 0.4s;
 }
+
+button:hover {
+    background-color: rgb(255, 255, 255, .7);
+    color: black;
+}
 p {
-    color: black
+    color: black;
+    font-size: 1.25em;
 }
 
 div {
-    background-color: rgba(255, 255, 255, .5);
+    background-color: rgba(255, 255, 255, .8);
+    
 }
 
+@media (max-width: 35em) {
+    .answer {
+        padding-block: 1em;
+        padding-inline: 1.75em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+}
