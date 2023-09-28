@@ -10,6 +10,7 @@ export class FAQComponent implements OnInit {
   bool2:boolean = false;
   bool3:boolean = false;
   bool4:boolean = false;
+  bool5:boolean = false;
 
   constructor() { }
 

@@ -17,7 +17,10 @@
       points, most leagues only have one QB spot, which lessens their value due
       to something called positional scarcity. The best QB (usually Patrick
       Mahomes) will always rank lower than you would expect because of this
-      property, even though he just won league MVP. Tips: You can use our
+      property, even though he just won league MVP. 
+      <br/>
+      <br/>
+      Tips: You can use our
       rankings to determine which RBs and WRs have the most value, but also keep
       an eye on outliers at the QB position and the Tight End (TE) position
       (like Travis Kelce) as well. Use our Top Adds/Drops page to see which
@@ -25,12 +28,28 @@
       available in your league, consider picking them up!
     </p>
   </div>
+
   <button (click)="bool2 = !bool2">
+    I'm new to fantasy and auto drafted a team. How can I stay in the mix?
+  </button>
+  <div class="answer" *ngIf="bool2">
+    <p> I've seen auto drafts work out great, as long as the fantasy managers put a little bit 
+      of commitment into the team. The most important thing is to 
+      make sure that you're still checking the waiver wire every few weeks and addressing holes 
+      in your lineup. On bye weeks, it's not going to be enough to just throw in the scrub on the back of your bench.
+<br/>
+<p>Tips: 
+If you have a player on a bye week, check to see who's available on top of your waivers. If that player projects for a much better opportunity than who you have, pick them up!
+Do not play defenses against great offenses, under any circumstance!! The Cowboys may be the best in the league, but the Chiefs and Patrick Mahomes will still dice them up. Don't do it.
+If you have two players of relatively equal value, check the defenses they are playing against on the defensive rankings page. Sometimes your 7th round RB will perform better than the 5th rounder when playing a porous run defense.
+</p></div>
+
+<button (click)="bool3 = !bool3">
     Are you comfortable with the basics, but wondering how to improve your team
     through trades?
   </button>
 
-  <div class="answer" *ngIf="bool2">
+  <div class="answer" *ngIf="bool3">
     <p>
       To use a basketball metaphor (because sports!), setting your lineup and
       checking the waiver wire is like mastering your dominant hand. You can
@@ -43,7 +62,8 @@
       all, because it opens up lines of communication between two players.
       UNLESS you offer two bench RBs and a kicker for Justin Jefferson.
       Everybody hates that guy.
-  <br><br>
+  <br/>
+  <br/>
       Tips: Start every trade process by looking at other team's holes. You have
       two reliable TEs? Great, see who's been dropping and picking up TEs every
       week searching for an answer. From there, 2 for 1 trades are almost always
@@ -59,12 +79,12 @@
     </p>
   </div>
 
-  <button (click)="bool3 = !bool3">
+  <button (click)="bool4 = !bool4">
     Are you wondering what FantasyBros has to offer in the very saturated market
     of fantasy sports?
   </button>
 
-  <div class="answer" *ngIf="bool3">
+  <div class="answer" *ngIf="bool4">
     <p>
       Same, we're just a group of students trying to figure it out. What I do
       know is I'm sick of hearing the same old fantasy moguls run the game just
@@ -81,13 +101,13 @@
     </p>
   </div>
 
-  <button (click)="bool4 = !bool4">
+  <button (click)="bool5 = !bool5">
     Do you know that rostering more than two TEs is bad practice, but still
     can't shake the feeling that there's a market inefficiency and maybe one
     will break out?
   </button>
 
-  <div class="answer" *ngIf="bool4">
+  <div class="answer" *ngIf="bool5">
     <p>
       Welcome, I hope you've enjoyed our website so far. While our rankings are
       for the people, the core principles of this site's design is for you. I've
