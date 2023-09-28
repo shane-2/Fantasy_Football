@@ -115,7 +115,6 @@ span.heading {
   grid-row-end: 4;
   display: grid;
   justify-content: center;
-  margin-right: 300px;
 }
 dt.name, dt.rank {
   display: none;
