@@ -9,8 +9,10 @@
       <span class="number">#{{ p.rank }} </span>
     </div>
     <div class="watch-list">
+      <!-- for testing -->
       <!-- <button *ngIf="loggedIn" (click)="AddWatchlist(user.email, p)"> -->
       <button
+        *ngIf="loggedIn"
         class="watch-list-button"
         (click)="AddWatchlist(user.email, p)"
         [style.background-color]="getTeamColor(p.team)"
@@ -53,14 +55,18 @@
         <dd>{{ p.position }}</dd>
       </dl>
     </div>
-
+    <!-- commented out code for testing -->
     <!-- <div *ngIf="yesAdmin && loggedIn" class="delete"> -->
-    <div class="delete">
+    <div *ngIf="yesAdmin && loggedIn" class="delete">
       <div
         class="delete-button"
         (click)="DeleteFolk(p.id)"
-        (mouseenter)="deleteButtonHovered[i] = true; onDeleteButtonMouseEnter(i)"
-        (mouseleave)="deleteButtonHovered[i] = false; onDeleteButtonMouseLeave(i)"
+        (mouseenter)="
+          deleteButtonHovered[i] = true; onDeleteButtonMouseEnter(i)
+        "
+        (mouseleave)="
+          deleteButtonHovered[i] = false; onDeleteButtonMouseLeave(i)
+        "
       >
         <svg>
           fill="currentColor" viewBox="30 10 30 30"
