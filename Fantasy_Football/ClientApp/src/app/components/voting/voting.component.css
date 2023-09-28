@@ -4,8 +4,6 @@ body {
     font-family: "montserrat", arial, helvetica, sans-serif;
 }
 
-
-
 .title{
     display: none;
     transform: translateX(200%);
@@ -15,16 +13,13 @@ body {
     font-family: sans-serif;
 }
 
-
-
 .container {
     display: grid;
     grid-auto-flow: row;
     gap: 1.5em;
     justify-items: center;
     padding: 10px;
-    filter: none;
-    
+    filter: none;  
 }
 
 /* parent of .face and .info */
@@ -147,14 +142,15 @@ body {
    vertical-align: middle;
 
 }
-button:hover {
-   border-top-color: #28597a;
-   background: #275675;
-   color: #ccc;
-   }
-button:active {
-   border-top-color: #1b435e;
-   background: #1b435e;
+
+.toggleDetails:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    filter: brightness(120%);
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.toggleDetails:active {
+    transform: scale(0.95);
    }
     
 .expanded-details {

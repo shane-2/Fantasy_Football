@@ -10,7 +10,7 @@
     </div>
     <div class="watch-list">
       <!-- <button *ngIf="loggedIn" (click)="AddWatchlist(user.email, p)"> -->
-      <button class="watch-list-button" (click)="AddWatchlist(user.email, p)">
+      <button class="watch-list-button" (click)="AddWatchlist(user.email, p)" [ngStyle]="{ 'background-color': getTeamColor(p.team) }">
         Watch
       </button>
     </div>

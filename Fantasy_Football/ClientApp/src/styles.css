@@ -11,12 +11,6 @@ code {
   color: #e01a76;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
 body::before {
   /* width: 100vw; */
   /* height: 100vh; */
@@ -42,6 +36,7 @@ body {
 }
 .scroll-left {
   margin-block: 3vh;
+  padding: 5px;
   height: 3.25rem;	
   overflow: hidden;
   position: relative;
@@ -51,6 +46,7 @@ body {
   );;
   color: white;
   border: 1px solid orange;
+  border-radius: 5px;
   font-size: x-large;
   font-family: 'Playfair Display', serif;
 font-family: 'Poppins', sans-serif;

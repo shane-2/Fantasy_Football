@@ -12,8 +12,9 @@ body {
 }
 
 .card {
-  height: 27em;
-  width: 100%;
+  height: auto;
+  width: 90%;
+  margin-right: 0.5em;
   display: grid;
   gap: 0.5em;
   grid-template-columns: repeat(6, 1fr);
@@ -27,6 +28,7 @@ body {
     rgba(255, 255, 255, 0.7),
     rgba(255, 255, 255, 0.7)
   );
+  border-radius: 10px;
 }
 
 .rank {
@@ -55,11 +57,21 @@ body {
   height: 50%;
   width: 100%;
   margin-top: 5px;
-  margin-right: 10px;
+  margin-right: 15px;
   padding: 0px;
-  border-radius: 5px;
+  border: 2px solid transparent;
+  border-radius: 8px;
   align-self: start;
   justify-self: center;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.4)
+  );
+  color: #ffffff;
+}
+
+.watch-list-button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .name {
@@ -72,7 +84,7 @@ body {
   padding: 0;
   font-weight: 600;
   font-size: 1.75em;
-  letter-spacing: 0.03em;
+  letter-spacing: .05px;
 }
 
 .photo {
@@ -167,29 +179,7 @@ dt.name, dt.rank {
   transition-duration: 0.4s;
 }
 
-.button2{
-  background-color: rgb(255, 0, 0);
-  border-radius: 15%;
-  color: white;
-  padding: 5px 15px;
-  border: 2px solid black;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  transition-duration: 0.4s;
-}
-
-.button1:hover {
-  background-color: #178c02; 
-  color: white;
-}
-.button2:hover {
-  background-color: #9a3800; 
-  color: white;
-}
-
-@media (min-width: 45em)
+@media (min-width: 35em)
 {
   .container {
     grid-template: repeat(3, 1fr);
@@ -199,7 +189,7 @@ dt.name, dt.rank {
     width: 100%;
   }
 }
-@media (min-width: 64em) {
+@media (min-width: 45em) {
   .container {
       grid-template-columns: repeat(4, 1fr);
       gap: 1.5em;
@@ -207,8 +197,9 @@ dt.name, dt.rank {
       padding: 0;
   }
 
+  /* desktop media query for card */
   .card {
-    height: 30em;
+    height: auto;
     width: auto; 
     grid-template-rows: minmax(1.5em, 2em) minmax(2em, 4em) minmax(150px 400px) minmax(1.5em, 2.5em)
   }
@@ -217,18 +208,26 @@ dt.name, dt.rank {
     padding-bottom: 0;
   }
 
+  .title {
+    font-size: max(1.5em);
+  }
+
   .watch {
     padding: 5px;
+    display: grid;
   }
 
   .watch-list-button {
-    margin-top: 5px;
-    padding: 5px;
-    border-radius: 5px;
+    align-self: start;
+    justify-self: center;
+    height: auto;
+    margin-right: 15px;
+    padding-block: 5px;
   }
 
   .team, .position {
     font-size: 1.25em;
+    margin-left: 2em;
     padding: 1em 0;
     display: grid;
     place-content: center;

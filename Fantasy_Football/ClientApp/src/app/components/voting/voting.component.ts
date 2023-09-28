@@ -32,8 +32,8 @@ export class VotingComponent implements OnInit {
   DisplayQB: boolean = false;
   combatPair: ExpandedPlayerDetail[] = [];
   showDetailsToggled: boolean = false;
-  
-
+  isButtonHovered: boolean = false;
+  isButtonActive: boolean[] = new Array(this.combatPair.length).fill(false);
 
   ngOnInit(): void {
     this.CallDB();
@@ -81,6 +81,37 @@ export class VotingComponent implements OnInit {
       !this.combatPair[index].showDetails[index];
   }
 
+  //setting background color manually (maybe use for secondary color)
+  // onButtonHover(event: MouseEvent, team: string) {
+  //   const target = event.target as HTMLButtonElement;
+  //   target.style.backgroundColor = this.getTeamColor(team);
+  //   target.style.color = '#fff';
+  // }
+
+  onButtonHover(event: MouseEvent, index: number) {
+    this.isButtonHovered = true;
+    this.isButtonActive[index] = false;
+    event.stopPropagation();
+  }
+
+  //setting background color manually (maybe use for secondary color)
+  // onButtonMouseOut(event: MouseEvent) {
+  //   const target = event.target as HTMLButtonElement;
+  //   target.style.backgroundColor = '';
+  //   target.style.color = '';
+  // }
+
+  onButtonMouseOut(event: MouseEvent) {
+    this.isButtonHovered = false;
+    event.stopPropagation();
+  }
+
+  onButtonClick(event: MouseEvent, index: number) {
+    this.toggleDetails(index);
+    this.isButtonActive[index] = !this.isButtonActive[index];
+    event.stopPropagation();
+  }
+
   getPlayer(playerId: string): void {
     this._fantasyService.getAll().subscribe((response: PlayerElement[]) => {
       //saving response in a variable
@@ -95,9 +126,8 @@ export class VotingComponent implements OnInit {
   }
 
   getTeamColor(team: string): string {
-    return `var(--team-color-${team})`
+    return `var(--team-color-${team})`;
   }
- 
 
   NavToROS(p: PlayerElement) {
     this._fantasyService.setPlayer(p);
@@ -106,39 +136,39 @@ export class VotingComponent implements OnInit {
   }
 }
 
-  // compare(): any {
-  //   return this._fantasyService.getROSDetails(this._fantasyService.getsetPlayer()).subscribe((response:any) =>{
-  //     console.log(response);
+// compare(): any {
+//   return this._fantasyService.getROSDetails(this._fantasyService.getsetPlayer()).subscribe((response:any) =>{
+//     console.log(response);
 
-  //     if((response as Qb).position== QBPosition.Qb){
-  //       this.Quarterback = response
-  //       console.log("Is a QB")
-  //     }
-  //     if((response as Rb).position== RBPosition.Rb){
-  //       this.Flex = response
-  //       console.log("Is a Flex")
-  //     }
-  //     if((response as Rb).position== RBPosition.Wr){
-  //       this.Flex = response
-  //       console.log("Is a Flex")
-  //     }
-  //     if((response as Rb).position== RBPosition.Te){
-  //       this.Flex = response
-  //       console.log("Is a Flex")
-  //     }
-  //     if((response as K).position == KPosition.K){
-  //       this.Kicker = response
-  //       console.log("Is a Kicker")
-  //     }
-  //     if((response as Def).position== DEFPosition.Def){
-  //       this.Defense = response
-  //       console.log("Is a Defense")
-  //     }
-  //     if((response as Idp).position == IDPPosition.Idp){
-  //       this.IDP = response
-  //       console.log("Is an IDP")
-  //     }
+//     if((response as Qb).position== QBPosition.Qb){
+//       this.Quarterback = response
+//       console.log("Is a QB")
+//     }
+//     if((response as Rb).position== RBPosition.Rb){
+//       this.Flex = response
+//       console.log("Is a Flex")
+//     }
+//     if((response as Rb).position== RBPosition.Wr){
+//       this.Flex = response
+//       console.log("Is a Flex")
+//     }
+//     if((response as Rb).position== RBPosition.Te){
+//       this.Flex = response
+//       console.log("Is a Flex")
+//     }
+//     if((response as K).position == KPosition.K){
+//       this.Kicker = response
+//       console.log("Is a Kicker")
+//     }
+//     if((response as Def).position== DEFPosition.Def){
+//       this.Defense = response
+//       console.log("Is a Defense")
+//     }
+//     if((response as Idp).position == IDPPosition.Idp){
+//       this.IDP = response
+//       console.log("Is an IDP")
+//     }
 
-  //   });
-  //}
+//   });
+//}
 //}

@@ -16,12 +16,14 @@
 }
 
 .logo {
-  margin: 2 rem;
+  margin-left: 2rem;
+  margin-top: 0.5rem;
 }
 
 .header {
   align-items: center;
   justify-content: space-between;
+  
 }
 
 .navigation {
@@ -34,7 +36,7 @@
   list-style: none;
   padding-block: 1.5rem;
   padding-inline: clamp(1rem, 10vw, 5rem);
-  margin: 0;
+  margin-block: 20px;
   background: hsl(0 0% 100% / .08);
   backdrop-filter: blur(2.5rem);
   -webkit-backdrop-filter: blur(2.5rem);
@@ -67,6 +69,7 @@ html {
 
   flex-direction: column;
   padding: min(30vh, 10rem) 2em;
+  margin: 0;
 
   transform: translateX(100%);
   transition: transform 350ms ease-out;
