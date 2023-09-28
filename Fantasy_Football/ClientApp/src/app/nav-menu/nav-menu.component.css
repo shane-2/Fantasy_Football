@@ -100,6 +100,9 @@ html {
   display: inline-block;
 }
 
+.sign-out {
+  text-transform: uppercase;
+}
 
 .sr-only:not(:focus):not(:active) {
   clip: rect(0 0 0 0); 

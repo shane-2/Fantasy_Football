@@ -54,11 +54,12 @@
         ></asl-google-signin-button>
         <!-- Calls the log out method from the notes -->
         <button
+          id="sign-out"
           class="btn btn-outline-light"
           *ngIf="loggedIn"
           (click)="signOut()"
         >
-          Sign Out
+          SIGN OUT
         </button>
       </li>
       <li

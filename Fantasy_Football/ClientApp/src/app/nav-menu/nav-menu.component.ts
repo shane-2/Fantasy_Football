@@ -10,10 +10,11 @@ import { Renderer2 } from '@angular/core';
 export class NavMenuComponent {
   user: SocialUser = {} as SocialUser;
   loggedIn: boolean = false;
+  isMenuOpen: boolean = false;
   admin: string = 'shanechastain10@gmail.com';
   admin1: string = 'zachbuth@gmail.com';
   admin2: string = 'heathj873@gmail.com';
-  admin3: string = 'dougy@gmail.com';
+  admin3: string = 'doug.e.chu@gmail.com';
   adminp: string = this.user.email;
   yesAdmin: boolean = false;
 
@@ -32,10 +33,7 @@ export class NavMenuComponent {
     }
   }
 
-  constructor(
-    private authService: SocialAuthService,
-    private renderer: Renderer2
-  ) {}
+  constructor(private authService: SocialAuthService) {}
 
   ngOnInit(): void {
     //subscribe will activate once logged in

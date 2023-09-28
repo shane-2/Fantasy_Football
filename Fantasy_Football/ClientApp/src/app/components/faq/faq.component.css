@@ -1,4 +1,7 @@
 .container {
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
     border-radius: 10px;
     width: 100%;
     display: grid;
@@ -28,7 +31,7 @@ h1 {
         color: white;
         padding-block: 1em;
         padding-inline: 2em;
-        border: 2px solid black;
+        border: 2px solid white;
         text-align: center;
         text-decoration: none;
         display: inline-block;
