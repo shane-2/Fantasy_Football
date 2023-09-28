@@ -1,52 +1,40 @@
 <app-news></app-news>
 
 <div class="container">
-  <div class="add-container">
-    <h1 class="whatever" style="color: aliceblue">Top Adds This Week</h1>
+  <div
+    class="add-container"
+    [style.background-image]="getGradientBackground('green')"
+  >
+    <div class="heading-container">
+      <span class="heading">Top Adds This Week</span>
+    </div>
     <div class="card" *ngFor="let h of list.most_added; index as i">
       <div
-        #playerCard
-        class="player-card"
-        [ngStyle]="{ 'background-color': getTeamColor(h.team) }"
-      >
-        <span class="title">{{ [i + 1] }}. {{ h.name }}</span>
-        <div class="team">
-          <dl>
-            <dt>Team</dt>
-            <dd>{{ h.team }}</dd>
-          </dl>
-        </div>
-        <div class="position">
-          <dl>
-            <dt>Position</dt>
-            <dd>{{ h.position }}</dd>
-          </dl>
-        </div>
-        <img
-          class="portrait"
-          src="https://www.fantasynerds.com/images/nfl/players_large/{{
-            h.playerId
-          }}.png"
-        />
-      </div>
-    </div>
-  </div>
-  <div class="drop-container">
-    <h1 class="whatever" style="color: aliceblue">Top Drops This Week</h1>
-    <div class="card" *ngFor="let h of list.most_dropped; index as i">
-      <div
-        #playerCard
         class="player-card"
         [ngStyle]="{ 'background-color': getTeamColor(h.team) }"
       >
         <div class="title">
-          <span>{{ [i + 1 ]  }}. {{ h.name }}</span>
+          <span class="rank-name">{{ [i + 1] }}. {{ h.name }}</span>
         </div>
-        <div class="team">
+        <div class="team" *ngIf="h.position !== 'DEF'">
           <dl>
             <dt>Team</dt>
             <dd>{{ h.team }}</dd>
           </dl>
+        </div>
+        <div class="photo">
+          <img
+            class="portrait"
+            src="https://www.fantasynerds.com/images/nfl/players_large/{{
+              h.playerId
+            }}.png"
+            [ngStyle]="{
+              'background-image':
+                h.position !== 'DEF'
+                  ? 'linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65))'
+                  : 'none'
+            }"
+          />
         </div>
         <div class="position">
           <dl>
@@ -54,12 +42,63 @@
             <dd>{{ h.position }}</dd>
           </dl>
         </div>
-        <img
-          class="portrait"
-          src="https://www.fantasynerds.com/images/nfl/players_small/{{
-            h.playerId
-          }}.png"
-        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="drop-container"
+    [style.background-image]="getGradientBackground('red')"
+  >
+    <div class="heading-container">
+      <span class="heading">Top Drops This Week</span>
+    </div>
+    <div class="card" *ngFor="let h of list.most_dropped; index as i">
+      <div
+        class="player-card"
+        [ngStyle]="{ 'background-color': getTeamColor(h.team) }"
+      >
+        <div class="title">
+          <div class="rank-name">
+            <span>{{ [i + 1] }}. {{ h.name }}</span>
+          </div>
+        </div>
+        <ng-container *ngIf="h.position !== 'DEF'; else defPosition">
+          <div class="team">
+            <dl>
+              <dt>Team</dt>
+              <dd>{{ h.team }}</dd>
+            </dl>
+          </div>
+        </ng-container>
+
+        <ng-template #defPosition>
+          <div class="position">
+            <dl>
+              <dt>Position</dt>
+              <dd>{{ h.position }}</dd>
+            </dl>
+          </div>
+        </ng-template>
+        <div class="photo">
+          <img
+            class="portrait"
+            src="https://www.fantasynerds.com/images/nfl/players_large/{{
+              h.playerId
+            }}.png"
+            [ngStyle]="{
+              'background-image':
+                h.position !== 'DEF'
+                  ? 'linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65))'
+                  : 'none'
+            }"
+          />
+        </div>
+        <div class="position">
+          <dl>
+            <dt>Position</dt>
+            <dd>{{ h.position }}</dd>
+          </dl>
+        </div>
       </div>
     </div>
   </div>

@@ -80,7 +80,7 @@ body {
 .name {
     font-size: 2em;
     font-weight:500;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.05px;
     /* justify-self: center;
     display: inline-block; */
     text-align: center;
