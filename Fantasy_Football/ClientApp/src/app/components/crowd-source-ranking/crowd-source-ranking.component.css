@@ -70,8 +70,8 @@ body {
   color: #ffffff;
 }
 
-.watch-list-button:hover {
-  background-color: rgba(255, 255, 255, 0.8);
+.watch-list-button:active {
+  transform: scale(0.95);
 }
 
 .name {
@@ -158,8 +158,9 @@ body {
   padding: 5px;
 }
 
-.delete-button:hover {
-  color: red;
+.delete-button:hover path {
+  fill: red;
+  transform: scale(1.05);
 }
 
 dt.name, dt.rank {

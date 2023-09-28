@@ -10,6 +10,8 @@ import { FantasyService } from 'src/app/services/fantasy.service';
   styleUrls: ['./crowd-source-ranking.component.css'],
 })
 export class CrowdSourceRankingComponent implements OnInit {
+  watchButtonHovered: boolean[] = [];
+deleteButtonHovered: boolean[] = [];
   user: SocialUser = {} as SocialUser;
   loggedIn: boolean = false;
 
@@ -49,6 +51,10 @@ export class CrowdSourceRankingComponent implements OnInit {
   FF: FantasyFolk[] = [];
   watchlistresult: Watchlist[] = [];
   ngOnInit(): void {
+    //button properties
+    this.watchButtonHovered = Array(this.FF.length).fill(false);
+    this.deleteButtonHovered = Array(this.FF.length).fill(false);
+
     this.yesAdmin = false;
     this.GetFolks();
     // this._fantasyService
@@ -103,4 +109,21 @@ GetFolks():void{
   getTeamColor(team: string): string {
     return `var(--team-color-${team})`;
   }
+
+  onWatchButtonMouseEnter(index: number) {
+    this.watchButtonHovered[index] = true;
+  }
+  
+  onWatchButtonMouseLeave(index: number) {
+    this.watchButtonHovered[index] = false;
+  }
+  
+  onDeleteButtonMouseEnter(index: number) {
+    this.deleteButtonHovered[index] = true;
+  }
+  
+  onDeleteButtonMouseLeave(index: number) {
+    this.deleteButtonHovered[index] = false;
+  }
+
 }
