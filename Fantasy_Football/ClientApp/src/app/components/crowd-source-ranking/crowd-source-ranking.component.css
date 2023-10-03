@@ -23,7 +23,7 @@ body {
   "rank rank rank rank rank watchlist"
   "name name name name name name"
   "photo photo photo photo photo photo"
-  "team team" "" "position position" "delete";
+  "team team . position position" "delete";
   background-image: linear-gradient(
     rgba(255, 255, 255, 0.7),
     rgba(255, 255, 255, 0.7)
@@ -190,7 +190,7 @@ dt.name, dt.rank {
     width: 100%;
   }
 }
-@media (min-width: 45em) {
+@media (min-width: 35em) {
   .container {
       grid-template-columns: repeat(4, 1fr);
       gap: 1.5em;
@@ -202,15 +202,15 @@ dt.name, dt.rank {
   .card {
     height: auto;
     width: auto; 
-    grid-template-rows: minmax(1.5em, 2em) minmax(2em, 4em) minmax(150px 400px) minmax(1.5em, 2.5em)
+    grid-template-rows: minmax(1.5em, 30px) minmax(80px, 4.5em) minmax(150px 400px) minmax(1.5em, 2.5em)
   }
 
   .rank {
     padding-bottom: 0;
   }
 
-  .title {
-    font-size: max(1.5em);
+  .name {
+    font-size: max(1.25em)
   }
 
   .watch {
@@ -228,14 +228,7 @@ dt.name, dt.rank {
 
   .team, .position {
     font-size: 1.25em;
-    margin-left: 2em;
     padding: 1em 0;
-    display: grid;
-    place-content: center;
-  }
-
-  .delete {
-
   }
 
   .delete-button {
