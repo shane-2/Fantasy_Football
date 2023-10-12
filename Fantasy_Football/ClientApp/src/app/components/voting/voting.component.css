@@ -25,6 +25,7 @@ body {
 /* parent of .face and .info */
 .player-card {
 
+    position: relative;
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: minmax(200px, 350px) 20%;
@@ -40,7 +41,49 @@ body {
         rgba(0, 0, 0, 0.4)
       );
     color: #ffffff;
+
+    /* hover animation effect code */
+    --img-scale: 1.001;
+}
+
+.player-card img {
+    transform-origin: center;
+    transform: scale(var(--img-scale));
+    transition: transform 0.25s ease-in-out;
+}
+
+.player-card:has(:hover, :focus) {
+    --img-scale: 1.1;
+    box-shadow: rgba(0, 0, 0, 0.64) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3)
+    );
+}
+
+/* On click animation for player card, work in progress */
+/* .player-card:has(:active) {
+    box-shadow: rgba(255, 255, 255, 0.) 0px 10px 36px 0px, rgba(255, 255, 255, 0.06) 0px 0px 0px 1px;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.35),
+        rgba(0, 0, 0, 0.35)
+    );
+    transition: box-shadow 0.3s ease, background-image 0.3s ease;
+}
+
+.player-card:active img {
+    --img-scale: 1.002;
+} */
+
+.click-area {
+    
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
    
+    background-color: rgba(0, 0, 0, 0);
+    /* red transparent background for click-area for testing */
+    /* background-color: rgba(255, 0, 0, 0.5); */
 }
 
 /* parent of #portrait and #name */
@@ -120,15 +163,18 @@ body {
 }
 
 .toggleDetails {
+    position: relative;
+    z-index: 1;
     margin-top: 10px;
     margin-left: 5%;
     margin-bottom: 5px;
+    padding: 5px 10px;
     width: 90%;
     background-color: white;
     border: 2px solid #fff;
     border-radius: 10px;
    background-color: transparent;
-   padding: 5px 10px;
+
    -webkit-border-radius: 8px;
    -moz-border-radius: 8px;
    border-radius: 8px;
@@ -152,7 +198,7 @@ body {
 }
 
 .toggleDetails:active {
-    transform: scale(0.95);
+    
    }
     
 .expanded-details {
@@ -172,6 +218,9 @@ body {
         rgba(255, 255, 255, 0.8)
       );
 }
+
+
+
 
 @media (min-width: 768px) {
     .container {

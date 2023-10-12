@@ -17,9 +17,9 @@
             [class.expanded-details]="showDetailsToggled"
             [ngStyle]="{ 'background-color': getTeamColor(c.team) }"
           >
-            <!-- [ngStyle] = "{'background-color': getTeamColor(c.team)}" -->
-            <!-- <div class="primary-container"> -->
-            <div class="face" (click)="Vote(combatPair, c.playerId)">
+          <div class="click-area" (click)="Vote(combatPair, c.playerId)"></div>
+      
+            <div class="face" >
               <div class="image-container">
                 <img
                   id="portrait"
@@ -34,7 +34,7 @@
               <!-- player icons go here -->
               <!-- <div class="icons"><span>&#x2b50; &#x26a1;</span></div> -->
             </div>
-            <div class="info" (click)="Vote(combatPair, c.playerId)">
+            <div class="info" >
               <dl class="categories">
                 <dt>Position</dt>
                 <dd>{{ c.position }}</dd>
