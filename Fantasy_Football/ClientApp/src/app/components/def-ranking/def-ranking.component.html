@@ -1,74 +1,70 @@
 <app-news></app-news>
-<h1 style="color: white;">Team Defenses vs. Individual Positions</h1>
-<br>
+<h1>Team Defenses vs. Individual Positions</h1>
 <div class="table-container">
-<table class="t1">
-  <h3 style="color: black;"> Quarter Back </h3>
-  <tr>
-    <th style="color: black;">Team</th>
-    <th style="color: black;">Rank</th>     
-   
-  </tr>
-  <tr *ngFor="let i of notlist.qb">
-    <td style="color: black;">{{i.team}}</td>
-    <td style="color: black;">{{i.ranks.std}}</td>  
-             
-  </tr>
-</table>
+  <!-- QB Table -->
+  <button class="table-caption" (click)="toggleTable('qb')">
+    Quarterbacks
+  </button>
+  <table class="t1" *ngIf="tableHidden['qb']">
+    <tr>
+      <th>Team</th>
+      <th>Rank</th>
+    </tr>
+    <tr *ngFor="let i of notlist.qb">
+      <td>{{ i.team }}</td>
+      <td>{{ i.ranks.std }}</td>
+    </tr>
+  </table>
+
+  <!-- RB Table -->
+  <button class="table-caption" (click)="toggleTable('rb')">
+    Running Backs
+  </button>
+  <table class="t1" *ngIf="tableHidden['rb']">
+    <caption>
+      Running Back
+    </caption>
+    <tr>
+      <th>Team</th>
+      <th>Rank</th>
+    </tr>
+    <tr *ngFor="let i of notlist.rb">
+      <td>{{ i.team }}</td>
+      <td>{{ i.ranks.std }}</td>
+    </tr>
+  </table>
+
+  <!-- WR Table -->
+  <button class="table-caption" (click)="toggleTable('wr')">
+    Wide Receivers
+  </button>
+  <table class="t1" *ngIf="tableHidden['wr']">
+    <caption>
+      Wide Receiver
+    </caption>
+
+    <tr>
+      <th>Team</th>
+      <th>Rank</th>
+    </tr>
+    <tr *ngFor="let i of notlist.wr">
+      <td>{{ i.team }}</td>
+      <td>{{ i.ranks.std }}</td>
+    </tr>
+  </table>
+
+  <!-- TE Table -->
+  <button class="table-caption" (click)="toggleTable('te')">
+    Tight Ends
+  </button>
+  <table class="t1" *ngIf="tableHidden['te']">
+    <tr>
+      <th>Team</th>
+      <th>Rank</th>
+    </tr>
+    <tr *ngFor="let i of notlist.te">
+      <td>{{ i.team }}</td>
+      <td>{{ i.ranks.std }}</td>
+    </tr>
+  </table>
 </div>
-
-<div class="table-container">
-<p class="t2"> </p>
-
-<table class="t1">
-  <h3 style="color: black;"> Running Back </h3>
-  <tr>
-    <th style="color: black;">Team</th>
-    <th style="color: black;">Rank</th>     
-    
-  </tr>
-  <tr *ngFor="let i of notlist.rb">
-    <td style="color: black;">{{i.team}}</td>
-    <td style="color: black;">{{i.ranks.std}}</td>  
-           
-  </tr>
-</table>
-</div>
-
-<p class="t2"> </p>
-
-<div class="table-container">
-<table class="t1">
-  <h3 style="color: black;"> Wide Receiver</h3>
-  <tr>
-    <th style="color: black;">Team</th>
-    <th style="color: black;">Rank</th>     
-    
-  </tr>
-  <tr *ngFor="let i of notlist.wr">
-    <td style="color: black;">{{i.team}}</td>
-    <td style="color: black;">{{i.ranks.std}}</td>  
-             
-  </tr>
-</table>
-</div>
-
-<p class="t2"> </p>
-
-<div class="table-container">
-<table class="t1">
-  <h3 style="color: black;"> Tight End </h3>
-  <tr>
-    <th style="color: black;">Team</th>
-    <th style="color: black;">Rank</th>     
-    
-  </tr>
-  <tr *ngFor="let i of notlist.te">
-    <td style="color: black;">{{i.team}}</td>
-    <td style="color: black;">{{i.ranks.std}}</td>  
-             
-  </tr>
-</table>
-</div>
-
-  

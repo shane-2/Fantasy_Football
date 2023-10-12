@@ -4,6 +4,8 @@ body {
     font-family: "montserrat", arial, helvetica, sans-serif;
 }
 
+
+
 .title{
     display: none;
     transform: translateX(200%);
@@ -222,7 +224,7 @@ body {
 
 
 
-@media (min-width: 768px) {
+@media (min-width: 45em) {
     .container {
         /* grid-auto-flow: column; */
         grid-template-columns: 1fr 1fr;
