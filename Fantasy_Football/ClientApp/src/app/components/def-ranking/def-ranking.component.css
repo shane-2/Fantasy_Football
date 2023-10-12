@@ -10,6 +10,7 @@
 .table-caption {
   display: block;
   background-color: #f2f2f2;  /* Some color to distinguish the button */
+  color: #000;
   border: none;
   text-align: left;
   width: 100%;
@@ -18,9 +19,10 @@
   padding: 10px 0;
   font-size: 1.2em;
   margin-bottom: 10px;  /* Some space between button and table */
+  transition: background-color 0.3s;
 }
 
-/* Style for when a table is expanded */
+
 .table-caption.active {
   background-color: #e0e0e0;  /* A slightly different color for active state */
 }
@@ -30,16 +32,16 @@ button {
   display: block;
   margin: 1em 0;
   padding: 0.5em 1em;
-  background-color: #007BFF;
   border: none;
   color: white;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  
 }
 
 button:hover {
   background-color: #0056b3;
+  color: #fff;
 }
 
 table, td {
