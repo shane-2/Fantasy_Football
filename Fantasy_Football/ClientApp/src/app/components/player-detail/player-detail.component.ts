@@ -24,9 +24,10 @@ import { FantasyService } from 'src/app/services/fantasy.service';
   styleUrls: ['./player-detail.component.css'],
 })
 export class PlayerDetailComponent implements OnInit {
-  
-  constructor(private _fantasyService: FantasyService, private authService: SocialAuthService
-    ) {}
+  constructor(
+    private _fantasyService: FantasyService,
+    private authService: SocialAuthService
+  ) {}
   user: SocialUser = {} as SocialUser;
   loggedIn: boolean = false;
 
@@ -52,7 +53,6 @@ export class PlayerDetailComponent implements OnInit {
     }
   }
 
-
   @Input() combatplayer: FantasyFolk = {} as FantasyFolk;
   @Input() hideOnVotingExpand: boolean = false;
 
@@ -65,8 +65,8 @@ export class PlayerDetailComponent implements OnInit {
   DisplayDEF: boolean = false;
 
   setplayer: PlayerElement = this._fantasyService.getsetPlayer();
-  
-  divider: number = 14;
+
+  divider: number = 11;
 
   player: Qb | Rb | K | Def | Idp | undefined;
 
@@ -80,7 +80,7 @@ export class PlayerDetailComponent implements OnInit {
     const parsedFloat = parseFloat(x);
     if (!isNaN(parsedFloat)) {
       return parsedFloat;
-    } 
+    }
   }
 
   ngOnInit(): void {
@@ -89,7 +89,7 @@ export class PlayerDetailComponent implements OnInit {
       this.user = user;
       this.loggedIn = user != null;
       this.isAdmin();
-  });
+    });
     if (this.combatplayer && this.combatplayer.playerId == undefined) {
       console.log('set player?');
       this.DisplayProjections(this.setplayer.playerId, this.setplayer.position);
