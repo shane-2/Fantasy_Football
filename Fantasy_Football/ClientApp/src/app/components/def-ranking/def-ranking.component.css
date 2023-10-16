@@ -90,4 +90,9 @@ caption {
     cursor: default; /* Make the caption non-clickable */
   }
 
+  button:hover, button:active {
+    background-color: inherit;
+    color: inherit;
+  }
+
 }

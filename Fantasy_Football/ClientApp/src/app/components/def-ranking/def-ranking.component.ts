@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { DefRank } from 'src/app/models/def-rank';
 import { FantasyService } from 'src/app/services/fantasy.service';
 import { HostListener } from '@angular/core';
+import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-def-ranking',
@@ -10,7 +11,10 @@ import { HostListener } from '@angular/core';
   styleUrls: ['./def-ranking.component.css'],
 })
 export class DefRankingComponent implements OnInit {
-  constructor(private _fantasyService: FantasyService) {}
+  constructor(
+    private _fantasyService: FantasyService,
+    private elementRef: ElementRef
+  ) {}
 
   notlist: DefRank = {} as DefRank;
 
@@ -24,8 +28,14 @@ export class DefRankingComponent implements OnInit {
   };
 
   @HostListener('window:resize', ['$event'])
-  checkScreenSize() {
+  checkScreenSize(event?: any) {
     this.isDesktop = window.innerWidth >= 720;
+
+    if (this.isDesktop) {
+      this.showAllTables();
+    } else {
+      this.hideAllTables();
+    }
   }
 
   toggleTable(table: keyof typeof this.tableHidden): void {
@@ -34,8 +44,28 @@ export class DefRankingComponent implements OnInit {
     }
   }
 
+  showAllTables(): void {
+    for (const table in this.tableHidden) {
+      if (this.tableHidden.hasOwnProperty(table)) {
+        this.tableHidden[table] = false;
+      }
+    }
+  }
+
+  hideAllTables(): void {
+    for (const table in this.tableHidden) {
+      if (this.tableHidden.hasOwnProperty(table)) {
+        this.tableHidden[table] = true;
+      }
+    }
+  }
+
   ngOnInit(): void {
     this.CallApi();
+    const resizeObservable = fromEvent(window, 'resize');
+    resizeObservable.subscribe(() => {
+      this.checkScreenSize();
+    });
     this.checkScreenSize();
   }
 
