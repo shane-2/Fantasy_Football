@@ -60,6 +60,14 @@ export class DefRankingComponent implements OnInit {
     }
   }
 
+  getTeamColor(team: string): string {
+    return `var(--team-color-${team})`;
+  }
+
+  getTeam2ndColor(team: string): string {
+    return `var(--secondary-color-${team})`;
+  }
+
   ngOnInit(): void {
     this.CallApi();
     const resizeObservable = fromEvent(window, 'resize');

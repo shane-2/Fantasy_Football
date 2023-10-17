@@ -6,14 +6,24 @@
     <button class="table-caption" (click)="toggleTable('qb')">
       Quarterbacks
     </button>
-    <table class="t1" *ngIf="!tableHidden['qb']">
+    <table class="table-body" *ngIf="!tableHidden['qb']">
       <tr>
-        <th>Team</th>
-        <th>Rank</th>
+        <th class="left-header">Team</th>
+        <th class="right-header">Rank</th>
       </tr>
       <tr *ngFor="let i of notlist.qb">
-        <td>{{ i.team }}</td>
-        <td>{{ i.ranks.std }}</td>
+        <td
+          class="team"
+          [ngStyle]="{ 'background-color': getTeamColor(i.team) }"
+        >
+          {{ i.team }}
+        </td>
+        <td
+          class="rank"
+          [ngStyle]="{ 'background-color': getTeam2ndColor(i.team) }"
+        >
+          {{ i.ranks.std }}
+        </td>
       </tr>
     </table>
   </div>
@@ -23,17 +33,27 @@
     <button class="table-caption" (click)="toggleTable('rb')">
       Running Backs
     </button>
-    <table class="t1" *ngIf="!tableHidden['rb']">
+    <table class="table-body" *ngIf="!tableHidden['rb']">
       <caption>
         Running Back
       </caption>
       <tr>
-        <th>Team</th>
-        <th>Rank</th>
+        <th class="left-header">Team</th>
+        <th class="right-header">Rank</th>
       </tr>
       <tr *ngFor="let i of notlist.rb">
-        <td>{{ i.team }}</td>
-        <td>{{ i.ranks.std }}</td>
+        <td
+          class="team"
+          [ngStyle]="{ 'background-color': getTeamColor(i.team) }"
+        >
+          {{ i.team }}
+        </td>
+        <td
+          class="rank"
+          [ngStyle]="{ 'background-color': getTeam2ndColor(i.team) }"
+        >
+          {{ i.ranks.std }}
+        </td>
       </tr>
     </table>
   </div>
@@ -43,17 +63,27 @@
     <button class="table-caption" (click)="toggleTable('wr')">
       Wide Receivers
     </button>
-    <table class="t1" *ngIf="!tableHidden['wr']">
+    <table class="table-body" *ngIf="!tableHidden['wr']">
       <caption>
         Wide Receiver
       </caption>
       <tr>
-        <th>Team</th>
-        <th>Rank</th>
+        <th class="left-header">Team</th>
+        <th class="right-header">Rank</th>
       </tr>
       <tr *ngFor="let i of notlist.wr">
-        <td>{{ i.team }}</td>
-        <td>{{ i.ranks.std }}</td>
+        <td
+          class="team"
+          [ngStyle]="{ 'background-color': getTeamColor(i.team) }"
+        >
+          {{ i.team }}
+        </td>
+        <td
+          class="rank"
+          [ngStyle]="{ 'background-color': getTeam2ndColor(i.team) }"
+        >
+          {{ i.ranks.std }}
+        </td>
       </tr>
     </table>
   </div>
@@ -63,14 +93,24 @@
     <button class="table-caption" (click)="toggleTable('te')">
       Tight Ends
     </button>
-    <table class="t1" *ngIf="!tableHidden['te']">
+    <table class="table-body" *ngIf="!tableHidden['te']">
       <tr>
-        <th>Team</th>
-        <th>Rank</th>
+        <th class="left-header">Team</th>
+        <th class="right-header">Rank</th>
       </tr>
       <tr *ngFor="let i of notlist.te">
-        <td>{{ i.team }}</td>
-        <td>{{ i.ranks.std }}</td>
+        <td
+          class="team"
+          [ngStyle]="{ 'background-color': getTeamColor(i.team) }"
+        >
+          {{ i.team }}
+        </td>
+        <td
+          class="rank"
+          [ngStyle]="{ 'background-color': getTeam2ndColor(i.team) }"
+        >
+          {{ i.ranks.std }}
+        </td>
       </tr>
     </table>
   </div>
