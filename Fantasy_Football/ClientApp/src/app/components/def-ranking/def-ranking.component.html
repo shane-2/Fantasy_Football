@@ -1,117 +1,121 @@
 <app-news></app-news>
-<h1>Team Defenses vs. Individual Positions</h1>
-<div class="table-container">
-  <!-- QB Table -->
-  <div class="qb-table">
-    <button class="table-caption" (click)="toggleTable('qb')">
-      Quarterbacks
-    </button>
-    <table class="table-body" *ngIf="!tableHidden['qb']">
-      <tr>
-        <th class="left-header">Team</th>
-        <th class="right-header">Rank</th>
-      </tr>
-      <tr *ngFor="let i of notlist.qb">
-        <td
-          class="team"
-          [ngStyle]="{ 'background-color': getTeamColor(i.team) }"
-        >
-          {{ i.team }}
-        </td>
-        <td
-          class="rank"
-          [ngStyle]="{ 'background-color': getTeam2ndColor(i.team) }"
-        >
-          {{ i.ranks.std }}
-        </td>
-      </tr>
-    </table>
+<div class="container">
+  <div class="title">
+    <h1>Team Defenses vs. Individual Positions</h1>
   </div>
+  <div class="table-container">
+    <!-- QB Table -->
+    <div class="qb-table">
+      <button class="table-caption" (click)="toggleTable('qb')">
+        Quarterbacks
+      </button>
+      <table class="table-body" *ngIf="!tableHidden['qb']">
+        <tr>
+          <th class="left-header">Team</th>
+          <th class="right-header">Rank</th>
+        </tr>
+        <tr *ngFor="let i of notlist.qb">
+          <td
+            class="team"
+            [ngStyle]="{ 'background-color': getTeamColor(i.team) }"
+          >
+            {{ i.team }}
+          </td>
+          <td
+            class="rank"
+            [ngStyle]="{ 'background-color': getTeam2ndColor(i.team) }"
+          >
+            {{ i.ranks.std }}
+          </td>
+        </tr>
+      </table>
+    </div>
 
-  <!-- RB Table -->
-  <div class="rb-table">
-    <button class="table-caption" (click)="toggleTable('rb')">
-      Running Backs
-    </button>
-    <table class="table-body" *ngIf="!tableHidden['rb']">
-      <caption>
-        Running Back
-      </caption>
-      <tr>
-        <th class="left-header">Team</th>
-        <th class="right-header">Rank</th>
-      </tr>
-      <tr *ngFor="let i of notlist.rb">
-        <td
-          class="team"
-          [ngStyle]="{ 'background-color': getTeamColor(i.team) }"
-        >
-          {{ i.team }}
-        </td>
-        <td
-          class="rank"
-          [ngStyle]="{ 'background-color': getTeam2ndColor(i.team) }"
-        >
-          {{ i.ranks.std }}
-        </td>
-      </tr>
-    </table>
-  </div>
+    <!-- RB Table -->
+    <div class="rb-table">
+      <button class="table-caption" (click)="toggleTable('rb')">
+        Running Backs
+      </button>
+      <table class="table-body" *ngIf="!tableHidden['rb']">
+        <caption>
+          Running Back
+        </caption>
+        <tr>
+          <th class="left-header">Team</th>
+          <th class="right-header">Rank</th>
+        </tr>
+        <tr *ngFor="let i of notlist.rb">
+          <td
+            class="team"
+            [ngStyle]="{ 'background-color': getTeamColor(i.team) }"
+          >
+            {{ i.team }}
+          </td>
+          <td
+            class="rank"
+            [ngStyle]="{ 'background-color': getTeam2ndColor(i.team) }"
+          >
+            {{ i.ranks.std }}
+          </td>
+        </tr>
+      </table>
+    </div>
 
-  <!-- WR Table -->
-  <div class="wr-table">
-    <button class="table-caption" (click)="toggleTable('wr')">
-      Wide Receivers
-    </button>
-    <table class="table-body" *ngIf="!tableHidden['wr']">
-      <caption>
-        Wide Receiver
-      </caption>
-      <tr>
-        <th class="left-header">Team</th>
-        <th class="right-header">Rank</th>
-      </tr>
-      <tr *ngFor="let i of notlist.wr">
-        <td
-          class="team"
-          [ngStyle]="{ 'background-color': getTeamColor(i.team) }"
-        >
-          {{ i.team }}
-        </td>
-        <td
-          class="rank"
-          [ngStyle]="{ 'background-color': getTeam2ndColor(i.team) }"
-        >
-          {{ i.ranks.std }}
-        </td>
-      </tr>
-    </table>
-  </div>
+    <!-- WR Table -->
+    <div class="wr-table">
+      <button class="table-caption" (click)="toggleTable('wr')">
+        Wide Receivers
+      </button>
+      <table class="table-body" *ngIf="!tableHidden['wr']">
+        <caption>
+          Wide Receiver
+        </caption>
+        <tr>
+          <th class="left-header">Team</th>
+          <th class="right-header">Rank</th>
+        </tr>
+        <tr *ngFor="let i of notlist.wr">
+          <td
+            class="team"
+            [ngStyle]="{ 'background-color': getTeamColor(i.team) }"
+          >
+            {{ i.team }}
+          </td>
+          <td
+            class="rank"
+            [ngStyle]="{ 'background-color': getTeam2ndColor(i.team) }"
+          >
+            {{ i.ranks.std }}
+          </td>
+        </tr>
+      </table>
+    </div>
 
-  <!-- TE Table -->
-  <div class="te-table">
-    <button class="table-caption" (click)="toggleTable('te')">
-      Tight Ends
-    </button>
-    <table class="table-body" *ngIf="!tableHidden['te']">
-      <tr>
-        <th class="left-header">Team</th>
-        <th class="right-header">Rank</th>
-      </tr>
-      <tr *ngFor="let i of notlist.te">
-        <td
-          class="team"
-          [ngStyle]="{ 'background-color': getTeamColor(i.team) }"
-        >
-          {{ i.team }}
-        </td>
-        <td
-          class="rank"
-          [ngStyle]="{ 'background-color': getTeam2ndColor(i.team) }"
-        >
-          {{ i.ranks.std }}
-        </td>
-      </tr>
-    </table>
+    <!-- TE Table -->
+    <div class="te-table">
+      <button class="table-caption" (click)="toggleTable('te')">
+        Tight Ends
+      </button>
+      <table class="table-body" *ngIf="!tableHidden['te']">
+        <tr>
+          <th class="left-header">Team</th>
+          <th class="right-header">Rank</th>
+        </tr>
+        <tr *ngFor="let i of notlist.te">
+          <td
+            class="team"
+            [ngStyle]="{ 'background-color': getTeamColor(i.team) }"
+          >
+            {{ i.team }}
+          </td>
+          <td
+            class="rank"
+            [ngStyle]="{ 'background-color': getTeam2ndColor(i.team) }"
+          >
+            {{ i.ranks.std }}
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

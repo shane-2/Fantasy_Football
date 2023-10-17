@@ -1,18 +1,33 @@
-.table-container {
+.container {
+  display: grid;
+  grid-auto-flow: row;
+}
 
+
+.title {
+  place-self: center;
+  width: 70%;
+  background-image: linear-gradient(
+    rgba(0,0,0, 0.7),
+    rgba(0,0,0, 0.7)
+  );
+  border-radius: 10px;
+  padding-block: 10px;
+}
+
+.table-container {
   display: grid;
   gap: 0.5rem; 
   grid-template-columns: 1fr; 
   margin: 0 auto;
-  width: 90%;
+  width: 70%;
 }
 
 .table-caption {
   display: block;
-  background-color: #f2f2f2;  /* Some color to distinguish the button */
-  color: #000;
+  background-color: rgba(0, 0, 0, 0.85);  /* Some color to distinguish the button */
+  color: #fff;
   border: none;
-  text-align: left;
   width: 100%;
   text-align: center;
   cursor: pointer; 
@@ -39,6 +54,7 @@ button {
   color: white;
   border-radius: 5px;
   cursor: pointer;
+  
 }
 
 button:hover {
@@ -84,9 +100,10 @@ th.right-header {
  
 }
 
- tr:nth-of-type(2n) {
+/* method to make cells alternate light and dark backgrounds, before secondary team colors implemented */
+ /* tr:nth-of-type(2n) {
   background-color: rgba(255, 255, 255, .1);
-}
+} */
 
 td.team {
   background-image: linear-gradient(
@@ -111,7 +128,9 @@ td.rank {
 }
 
 h1 {
+  color: white;
     text-align: center;
+    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.8);
 }
 
 caption {
@@ -122,6 +141,7 @@ caption {
   .table-container {
     grid-template-columns: repeat(4, 1fr);
     gap: 4em;
+    width: 90%
   }
 
   .table-container table {
@@ -145,7 +165,7 @@ caption {
 
   button:hover, button:active {
     background-color: #fff;
-    color: inherit;
+    color: #fff;
   }
 
 }
