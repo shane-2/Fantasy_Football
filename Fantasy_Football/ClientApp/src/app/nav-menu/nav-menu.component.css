@@ -40,6 +40,7 @@
   background: hsl(0 0% 100% / .08);
   backdrop-filter: blur(2.5rem);
   -webkit-backdrop-filter: blur(2.5rem);
+  
 }
 
 a {
@@ -59,12 +60,13 @@ html {
 
 @media (max-width: 35em) {
  .navigation {
+  z-index: 9000;
   --gap: 1.5em;
 
   font-size: 1.25em;
 
   position: fixed;
-  z-index: 1000;
+  
   inset: 0 0 0 30%;
 
   flex-direction: column;
@@ -81,6 +83,7 @@ html {
 
 .navigation[data-visible='true'] {
   transform: translateX(0%);
+  
 }
 
 .mobile-nav-toggle {

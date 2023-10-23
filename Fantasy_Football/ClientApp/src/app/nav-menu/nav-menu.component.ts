@@ -51,21 +51,14 @@ export class NavMenuComponent {
   }
 
   toggleMenu() {
-    const navigation = document.querySelector('.navigation');
-    const navToggle = document.querySelector('.mobile-nav-toggle');
+    const navigation = document.querySelector('.navigation') as HTMLElement;
 
-    if (navigation && navToggle) {
-      navToggle.addEventListener('click', () => {
-        const visibility = navigation.getAttribute('data-visible');
+    this.isMenuOpen = !this.isMenuOpen;
 
-        if (visibility === 'false') {
-          navigation.setAttribute('data-visible', 'true');
-          navToggle.setAttribute('aria-expanded', 'true');
-        } else if (visibility === 'true') {
-          navigation.setAttribute('data-visible', 'false');
-          navToggle.setAttribute('aria-expanded', 'false');
-        }
-      });
+    if (this.isMenuOpen) {
+      navigation.setAttribute('data-visible', 'true');
+    } else {
+      navigation.setAttribute('data-visible', 'false');
     }
   }
 }
