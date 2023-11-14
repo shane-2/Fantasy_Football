@@ -17,10 +17,16 @@
             [class.expanded-details]="showDetailsToggled"
             [ngStyle]="{ 'background-color': getTeamColor(c.team) }"
           >
-          <div class="click-area" (click)="Vote(combatPair, c.playerId)"></div>
-      
-            <div class="face" >
-              <div class="image-container">
+            <div
+              class="click-area"
+              (click)="Vote(combatPair, c.playerId)"
+            ></div>
+
+            <div class="face">
+              <div
+                class="image-container"
+                [ngStyle]="{ 'background-color': getTeam2ndColor(c.team) }"
+              >
                 <img
                   id="portrait"
                   src="https://www.fantasynerds.com/images/nfl/players_large/{{
@@ -34,7 +40,7 @@
               <!-- player icons go here -->
               <!-- <div class="icons"><span>&#x2b50; &#x26a1;</span></div> -->
             </div>
-            <div class="info" >
+            <div class="info">
               <dl class="categories">
                 <dt>Position</dt>
                 <dd>{{ c.position }}</dd>
@@ -57,6 +63,7 @@
                 (mouseover)="onButtonHover($event, i)"
                 (mouseout)="onButtonMouseOut($event)"
                 (click)="onButtonClick($event, i)"
+                [ngStyle]="{ 'background-color': getTeam2ndColor(c.team) }"
                 [ngClass]="{
                   active: c.showDetails[i],
                   'lighten-on-hover': isButtonHovered

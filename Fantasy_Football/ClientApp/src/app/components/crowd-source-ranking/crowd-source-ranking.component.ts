@@ -11,7 +11,7 @@ import { FantasyService } from 'src/app/services/fantasy.service';
 })
 export class CrowdSourceRankingComponent implements OnInit {
   watchButtonHovered: boolean[] = [];
-deleteButtonHovered: boolean[] = [];
+  deleteButtonHovered: boolean[] = [];
   user: SocialUser = {} as SocialUser;
   loggedIn: boolean = false;
 
@@ -62,19 +62,19 @@ deleteButtonHovered: boolean[] = [];
     //   .subscribe((response: FantasyFolk[]) => {
     //     this.FF = response;
     //   });
-        this.authService.authState.subscribe((user) => {
-          this.user = user;
-          this.loggedIn = user != null;
-          this.isAdmin();
-      });
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = user != null;
+      this.isAdmin();
+    });
   }
-GetFolks():void{
-  this._fantasyService
+  GetFolks(): void {
+    this._fantasyService
       .getFantasyFolkList()
       .subscribe((response: FantasyFolk[]) => {
         this.FF = response;
       });
-}
+  }
   AddWatchlist(name: string, newPlayer: FantasyFolk): void {
     console.log(name);
     console.log(newPlayer);
@@ -110,20 +110,23 @@ GetFolks():void{
     return `var(--team-color-${team})`;
   }
 
+  getTeam2ndColor(team: string): string {
+    return `var(--secondary-color-${team})`;
+  }
+
   onWatchButtonMouseEnter(index: number) {
     this.watchButtonHovered[index] = true;
   }
-  
+
   onWatchButtonMouseLeave(index: number) {
     this.watchButtonHovered[index] = false;
   }
-  
+
   onDeleteButtonMouseEnter(index: number) {
     this.deleteButtonHovered[index] = true;
   }
-  
+
   onDeleteButtonMouseLeave(index: number) {
     this.deleteButtonHovered[index] = false;
   }
-
 }

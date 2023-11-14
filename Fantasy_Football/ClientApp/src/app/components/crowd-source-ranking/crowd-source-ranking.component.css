@@ -99,8 +99,8 @@ body {
 .photo-frame {
   border-radius: 10px;
   background-image: linear-gradient(
-  rgba(255, 255, 255, 0.5),
-  rgba(255, 255, 255, 0.5)
+  rgba(255, 255, 255, 0.8),
+  rgba(255, 255, 255, 0.8)
 );
 }
 

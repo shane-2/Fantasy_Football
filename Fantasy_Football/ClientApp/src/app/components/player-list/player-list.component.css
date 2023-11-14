@@ -6,29 +6,28 @@
   grid-template-areas: 
   "face info"
   "expand expand";
- 
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.7)
+  );
   border-style: solid;
   border-width: 2px;
   border-radius: 10px;    
-  background-image: linear-gradient(
-      rgba(0, 0, 0, 0.4),
-      rgba(0, 0, 0, 0.4)
-    );
-  color: white;
-  
  }
 
  h1 {
   text-align: center;
  }
 
-img {
+.image-container {
   background-image: linear-gradient(
-      rgba(255, 255f, 255, 0.7),
-      rgba(255, 255, 255, 0.7)
-    );
-    border-radius: 10px;
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.7)
+  );
+  border-radius: 10px;
 }
+
+
 
  .face{
   margin-left: 10px;
@@ -37,7 +36,7 @@ img {
 
 .container {
   width: auto;
-  height:50%;
+  height: 50%;
   display: grid;
   grid-auto-flow: row;
   gap: 2em;

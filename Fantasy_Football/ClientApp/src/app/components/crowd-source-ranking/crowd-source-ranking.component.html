@@ -33,7 +33,10 @@
       <span class="player-name">{{ p.name }}</span>
     </div>
     <div class="photo">
-      <div class="photo-frame">
+      <div
+        class="photo-frame"
+        [ngStyle]="{ 'background-color': getTeam2ndColor(p.team) }"
+      >
         <img
           class="portrait"
           src="https://www.fantasynerds.com/images/nfl/players_large/{{

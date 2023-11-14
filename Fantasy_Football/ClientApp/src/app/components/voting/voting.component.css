@@ -84,8 +84,7 @@ body {
     cursor: pointer;
    
     background-color: rgba(0, 0, 0, 0);
-    /* red transparent background for click-area for testing */
-    /* background-color: rgba(255, 0, 0, 0.5); */
+   
 }
 
 /* parent of #portrait and #name */
@@ -106,7 +105,10 @@ body {
 
 .image-container {
     width: 100%;
-    background-color: #ffffff95;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.7)
+    );
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 0;
@@ -172,18 +174,24 @@ body {
     margin-bottom: 5px;
     padding: 5px 10px;
     width: 90%;
-    background-color: white;
+    color: #000;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.7)
+    );
+    /* for testing: dark background for button */
+    /* background-image: linear-gradient(
+        rgba(0,0,0, 0.35),
+        rgba(0,0,0, 0.35)
+        ) */
     border: 2px solid #fff;
-    border-radius: 10px;
-   background-color: transparent;
-
    -webkit-border-radius: 8px;
    -moz-border-radius: 8px;
    border-radius: 8px;
    transition-duration: 0.4s;
 
    /* text-shadow: rgba(0,0,0,.4) 0 1px 0; */
-   color: white;
+   
    font-size: 1.25em;
    font-weight: 500;
    font-family: "Montserrat,", Helvetica, Arial, Sans-Serif;
@@ -193,9 +201,15 @@ body {
 }
 
 .toggleDetails:hover {
-    background-color: rgba(255, 255, 255, 0.8);
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    /* color: rgba(0, 0, 0, 0.8); */
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3)
+      );
+    color: #fff;
     filter: brightness(120%);
-    color: rgba(0, 0, 0, 0.8);
+    
     transition-duration: 0.4s
 }
 
@@ -214,6 +228,7 @@ body {
     margin-right: 5%;
     margin-bottom: 10px;
     border-radius: 10px;
+    border: 2px solid #fff;
     color: black;
     background-image: linear-gradient(
         rgba(255, 255, 255, 0.8),

@@ -129,6 +129,10 @@ export class VotingComponent implements OnInit {
     return `var(--team-color-${team})`;
   }
 
+  getTeam2ndColor(team: string): string {
+    return `var(--secondary-color-${team})`;
+  }
+
   NavToROS(p: PlayerElement) {
     this._fantasyService.setPlayer(p);
     console.log(p);

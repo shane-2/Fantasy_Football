@@ -3,27 +3,37 @@
 <h1 style="color: aliceblue">Pre-Draft Rankings</h1>
 <div class="container">
   <div class="card" *ngFor="let p of allPlayers">
-    <div #playerCard
-      class="player-card"     
-      [ngStyle]="{ 'background-color': getTeamColor(p.team) }">
-    <dl>
-    <!-- <button (click)="NavToROS(p)">{{ p.name }}</button> -->
-    <div class="face"> 
-      
-    <h6>{{p.name}}</h6>
-    <img
-    src="https://www.fantasynerds.com/images/nfl/players_small/{{ p.playerId }}.png" alt="{{ p.name }}player portrait"/>
-    <dt>Rank</dt>
-    <dd>{{ p.rank }}</dd>
-    <dt>Position</dt>
-    <dd>{{ p.position }}</dd>
-    <dt>Pos Rank</dt>
-    <dd>{{ p.rank_position }}</dd>
-    <dt>Team</dt>
-    <dd>{{ p.team }}</dd>
-    
-  </div> 
-</dl>
-</div>
+    <div
+      #playerCard
+      class="player-card"
+      [ngStyle]="{ 'background-color': getTeamColor(p.team) }"
+    >
+      <!-- <button (click)="NavToROS(p)">{{ p.name }}</button> -->
+      <div class="face">
+        <h6>{{ p.name }}</h6>
+        <div
+          class="image-container"
+          [ngStyle]="{ 'background-color': getTeam2ndColor(p.team) }"
+        >
+          <img
+            src="https://www.fantasynerds.com/images/nfl/players_small/{{
+              p.playerId
+            }}.png"
+            alt="{{ p.name }}player portrait"
+          />
+        </div>
+        <dl>
+          <dt>Rank</dt>
+          <dd>{{ p.rank }}</dd>
+          <dt>Position</dt>
+          <dd>{{ p.position }}</dd>
+          <dt>Pos Rank</dt>
+          <dd>{{ p.rank_position }}</dd>
+          <dt>Team</dt>
+          <dd>{{ p.team }}</dd>
+        </dl>
+      </div>
+    </div>
   </div>
-<!-- <p *ngFor="let i of allPlayers">('{{i.playerId}}', '{{i.name}}', '{{i.team}}', '{{i.position}}', 0, 0, 0, 0), </p> -->
+  <!-- <p *ngFor="let i of allPlayers">('{{i.playerId}}', '{{i.name}}', '{{i.team}}', '{{i.position}}', 0, 0, 0, 0), </p> -->
+</div>

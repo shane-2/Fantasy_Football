@@ -35,6 +35,7 @@
   font-size: 1.2em;
   margin-bottom: 0px;  
   transition: background-color 0.3s;
+  transform: scale(1.005);
 }
 
 .table-caption:active {
@@ -156,6 +157,7 @@ caption {
     rgba(0,0,0, 0.8)
   );
     cursor: default; /* makes caption non-clickable */
+    transform: scale(1.005);
   }
 
   button {

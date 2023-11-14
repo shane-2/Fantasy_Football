@@ -26,8 +26,8 @@ body::before {
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment:fixed;
-  -webkit-filter: blur(1.5px);
-  filter: blur(1.5px);
+  -webkit-filter: blur(7px);
+  filter: blur(7px);
   
   
 }
