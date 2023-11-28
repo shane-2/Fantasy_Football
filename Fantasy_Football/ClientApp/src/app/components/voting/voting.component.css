@@ -174,16 +174,19 @@ body {
     margin-bottom: 5px;
     padding: 5px 10px;
     width: 90%;
-    color: #000;
+   
+    /* code for light background for button */
+    /* color: #000; 
     background-image: linear-gradient(
         rgba(255, 255, 255, 0.7),
         rgba(255, 255, 255, 0.7)
-    );
+    ); */
     /* for testing: dark background for button */
-    /* background-image: linear-gradient(
+    color: #fff;
+    background-image: linear-gradient(
         rgba(0,0,0, 0.35),
         rgba(0,0,0, 0.35)
-        ) */
+        );
     border: 2px solid #fff;
    -webkit-border-radius: 8px;
    -moz-border-radius: 8px;
