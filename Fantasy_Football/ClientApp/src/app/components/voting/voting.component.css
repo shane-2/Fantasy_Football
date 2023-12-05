@@ -15,6 +15,13 @@ body {
     font-family: sans-serif;
 }
 
+.background {
+    display: grid;
+    flex-direction: column;
+    justify-items: center;
+    
+}
+
 .container {
     display: grid;
     grid-auto-flow: row;
@@ -22,6 +29,27 @@ body {
     justify-items: center;
     padding: 10px;
     filter: none;  
+    
+}
+
+.instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    padding: 15px;
+    color: #fff;
+    width: 70%;
+    font-size: 1.125rem;
+    font-weight: 500;
+    /* text-align: center; */
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6)
+      );
+    border-radius: 10px;
+
+    
 }
 
 /* parent of .face and .info */
@@ -239,14 +267,12 @@ body {
       );
 }
 
-
-
-
 @media (min-width: 45em) {
     .container {
         /* grid-auto-flow: column; */
         grid-template-columns: 1fr 1fr;
         gap: 3em;
+        margin-bottom: 2rem;
     }
 }
 
